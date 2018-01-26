@@ -15,7 +15,15 @@
     <link rel="stylesheet" href="https://unpkg.com/material-components-web@latest/dist/material-components-web.css">
     <!--<link rel="stylesheet" href="/css/material-components-web.css">-->
     <link rel="stylesheet" href="/css/material-icons.css">
-    
+    <style>
+      .mdc-list-item__icon-avatar {
+        background: rgba(0,0,0,0.38);
+        color: white;
+        height: 2.5rem;          /* 40sp */
+        width: 2.5rem;          /* 40sp */
+        border-radius: 50%;
+      }
+    </style>
     
   </head>
 
@@ -58,7 +66,7 @@
         <h3 class="mdc-list-group__subheader">Today</h3>
         <ul class="mdc-list mdc-list--two-line mdc-list--avatar-list">
           <li class="mdc-list-item">
-            <span class="mdc-list-item__graphic">
+            <span class="mdc-list-item__graphic mdc-list-item__icon-avatar">
               <i class="material-icons">folder</i>
             </span>
             <span class="mdc-list-item__text">
@@ -71,7 +79,7 @@
         <h3 class="mdc-list-group__subheader">Tomorrow</h3>
         <ul class="mdc-list mdc-list--two-line mdc-list--avatar-list">
           <li class="mdc-list-item">
-            <span class="mdc-list-item__graphic">
+            <span class="mdc-list-item__graphic mdc-list-item__icon-avatar">
               <i class="material-icons">folder</i>
             </span>
             <span class="mdc-list-item__text">
