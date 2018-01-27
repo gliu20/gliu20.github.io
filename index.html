@@ -45,6 +45,24 @@
       .mdc-card__white {
         background-color:#fff;
       }
+      .mdc-list--two-line--with-meta .mdc-list-item__meta {
+        width: auto;
+        height: auto;
+        display: inline-flex;
+        flex-direction: column;
+        align-items: flex-end;
+      }
+      .mdc-list-item__meta-text {
+        font-family: Roboto, sans-serif;
+        -moz-osx-font-smoothing: grayscale;
+        -webkit-font-smoothing: antialiased;
+        font-size: 0.875rem;
+        line-height: 1.25rem;
+        font-weight: 400;
+        letter-spacing: 0.04em;
+        text-decoration: inherit;
+        text-transform: inherit;
+      }
       html {
         background-color:rgb(245,245,245);
       }
@@ -106,16 +124,20 @@
                 </span>
               </li>
             </ul>
-            <hr class="mdc-list-divider mdc-list-divider--inset">
+            <hr class="mdc-list-divider mdc-list-divider">
             <h3 class="mdc-list-group__subheader">Tomorrow</h3>
-            <ul class="mdc-list mdc-list--two-line mdc-list--avatar-list">
+            <ul class="mdc-list--two-line--with-meta mdc-list mdc-list--two-line mdc-list--avatar-list">
               <li class="mdc-list-item">
                 <span class="mdc-list-item__graphic mdc-list-item__icon-avatar">
                   <i class="mdc-list-item__icon-avatar-text">1</i>
                 </span>
                 <span class="mdc-list-item__text">
                   Chemistry
-                  <span class="mdc-list-item__secondary-text">8:00-8:51, Taught by Wagner in Room 384</span>
+                  <span class="mdc-list-item__secondary-text">8:00-8:51</span>
+                </span>
+                <span class="mdc-list-item__meta">
+                  <span class="mdc-list-item__meta-text">Wagner</span>
+                  <span class="mdc-list-item__meta-text">Room 384</span>
                 </span>
               </li>
             </ul>
