@@ -34,7 +34,7 @@ messaging.requestPermission()
     showToken('Error retrieving Instance ID token. ', err);
     setTokenSentToServer(false);
   });
-}
+//}
 
 // Callback fired if Instance ID token is updated.
 messaging.onTokenRefresh(function() {
