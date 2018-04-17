@@ -146,11 +146,21 @@
     </main>
     
     <!--<script type="text/javascript" src="/js/material-components-web.js"></script>-->
-    <script type="text/javascript" src="https://unpkg.com/material-components-web@latest/dist/material-components-web.js"></script>
+    <!--<script type="text/javascript" src="https://unpkg.com/material-components-web@latest/dist/material-components-web.js"></script>
     <script type="text/javascript" src="https://www.gstatic.com/firebasejs/4.9.1/firebase.js"></script>
     <script type="text/javascript" src="/js/material-init.js"></script>
     <script type="text/javascript" src="/js/firebase-init.js"></script>
-    <script type="text/javascript" src="/js/index-main.js"></script>
+    <script type="text/javascript" src="/js/index-main.js"></script>-->
+    
+<script>
+    Notification.requestPermission(function (permission) {
+      // If the user accepts, let's create a notification
+    });
+  function notify () {
+var notification = new Notification("Hi there!");
+  }
+  setInterval(function () {notify();},5000)
+</script>
     
   </body>
 
