@@ -32,7 +32,45 @@
       <a class="midway-header-link" href="javascript:;">Link 2</a>
       <a class="midway-header-link" href="javascript:;">Link 3</a>
     </header>
-    
+    <button onclick="midwayNotificationTest();">Notify Me!</button>
+    <script>
+      function midwayNotificationTest () {
+        notify("HELLo","message")
+      }
+      
+      function notify (title,message,icon) {
+    if ("Notification" in window) {
+        if (Notification.permission === "granted") {
+            var note = new Notification(title,{body:message,icon:icon});
+        }
+        else {
+            console.log("[INFO] Requesting notification permission");
+            Notification.requestPermission(function (permission) {
+                // If the user accepts, let's create a notification
+                if (permission === "granted") {
+                    var note = new Notification(title,{body:message,icon:icon});
+                }
+                else {
+                    console.log("[ERRR] Notification permissions are denied")
+                }
+            });
+        }
+    }
+    else if ("webkitNotifications" in window) {
+        if (webkitNotifications.checkPermission() === 0) {
+            var note = new webkitNotifications.createNotification(icon,title,message);
+            note.show();
+        }
+        else {
+            console.log("[INFO] Requesting notification permission");
+            webkitNotifications.requestPermission();
+        }
+    }
+    else {
+        console.log("[ERRR] Notifications are not available");
+    }
+}
+    </script>
   </body>
   
 </html>
