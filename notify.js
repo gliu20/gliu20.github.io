@@ -66,7 +66,8 @@ var notify = (function () {
     
     console.log(goodFunction);
     
-    return goodFunction;
+    window.notify = goodFunction;
+    return;
 
   }
   
