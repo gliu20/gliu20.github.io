@@ -7,10 +7,53 @@ var notify = (function () {
   //detect browser support
   if ("serviceWorker" in navigator) {
     
-    var supported = true;
-    
     try {
-      navigator.serviceWorker.register("sw.js");
+      navigator.serviceWorker.register("sw.js").then(function () {
+        
+        //success, use service worker to send notification
+        
+        return function (title,options) {
+
+          var note = function (title,options) {
+            navigator.serviceWorker.ready.then(function(registration) {
+              registration.showNotification(title,options);
+            });
+          }
+      
+          //permission granted
+          if (Notification.permission === "granted") {
+        
+            //show notification
+            note(title,options);
+          }
+          else {//permission not granted
+        
+            //requesting permission
+            console.info("[INFO] Requesting notification permission");
+            Notification.requestPermission(function (permission) {
+              // If the user accepts, let's create a notification
+              if (permission === "granted") {
+                note(title,options);
+              }
+              else {
+                console.error("[WARN] Notification permission denied");
+                console.info("[INFO] Falling back to window.alert");
+        
+                //show notification via fallback
+                fallback(title,options);
+              }
+            });
+        
+          }
+      
+        }
+    
+        
+      }).catch(function (err) {
+        
+        //error occured
+        console.error("[ERRR] " + err);
+      });
     }
     catch (err) {
       
@@ -19,43 +62,7 @@ var notify = (function () {
       console.error("[ERRR] " + err);
     }
     
-    if (supported) {
-      return function (title,options) {
 
-        var note = function (title,options) {
-          navigator.serviceWorker.ready.then(function(registration) {
-            registration.showNotification(title,options);
-          });
-        }
-      
-        //permission granted
-        if (Notification.permission === "granted") {
-        
-          //show notification
-          note(title,options);
-        }
-        else {//permission not granted
-        
-          //requesting permission
-          console.info("[INFO] Requesting notification permission");
-          Notification.requestPermission(function (permission) {
-            // If the user accepts, let's create a notification
-            if (permission === "granted") {
-              note(title,options);
-            }
-            else {
-              console.error("[WARN] Notification permission denied");
-              console.info("[INFO] Falling back to window.alert");
-        
-              //show notification via fallback
-              fallback(title,options);
-            }
-          });
-        
-        }
-      
-      }
-    }
   }
   
   if ("Notification" in window) {
