@@ -4,6 +4,8 @@ var notify = (function () {
     window.alert(title + "\n\n" + options.body);
   };
   
+  var goodFunction;
+  
   //detect browser support
   if ("serviceWorker" in navigator) {
     
@@ -12,7 +14,7 @@ var notify = (function () {
         
         //success, use service worker to send notification
         
-        return function (title,options) {
+         goodFunction = function (title,options) {
 
           var note = function (title,options) {
             navigator.serviceWorker.ready.then(function(registration) {
@@ -62,6 +64,9 @@ var notify = (function () {
       console.error("[ERRR] " + err);
     }
     
+    console.log(goodFunction);
+    
+    return goodFunction;
 
   }
   
