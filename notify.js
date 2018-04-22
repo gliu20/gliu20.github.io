@@ -14,7 +14,25 @@ var notify = (function () {
         
         //success, use service worker to send notification
         
-         goodFunction = function (title,options) {
+
+    
+        
+      }).catch(function (err) {
+        
+        //error occured
+        console.error("[ERRR] " + err);
+      });
+    }
+    catch (err) {
+      
+      //not supported, will fallback to other options without service workers
+      supported = false;
+      console.error("[ERRR] " + err);
+    }
+    
+    console.log(goodFunction);
+    
+    window.notify =         function (title,options) {
 
           var note = function (title,options) {
             navigator.serviceWorker.ready.then(function(registration) {
@@ -48,25 +66,7 @@ var notify = (function () {
         
           }
       
-        }
-    
-        
-      }).catch(function (err) {
-        
-        //error occured
-        console.error("[ERRR] " + err);
-      });
-    }
-    catch (err) {
-      
-      //not supported, will fallback to other options without service workers
-      supported = false;
-      console.error("[ERRR] " + err);
-    }
-    
-    console.log(goodFunction);
-    
-    window.notify = goodFunction;
+        };
     return;
 
   }
