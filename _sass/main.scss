@@ -1,6 +1,23 @@
 
 @import "jekyll-theme-cayman.scss";
 
+.card {
+    background: #fff;
+    box-shadow: rgba(0,0,0,0.2) 0px 2px 4px;
+    border-radius: 12px;
+    
+    include large {
+      padding: 2.5rem 2.5rem;
+    }
+
+    @include medium {
+      padding: 2rem 2.5rem;
+    }
+
+    @include small {
+        padding: 1rem 2rem;
+    }
+}
 
 .preserve-whitespace {
     white-space:pre-wrap;
