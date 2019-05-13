@@ -2,5 +2,17 @@
 @import "jekyll-theme-cayman.scss";
 
 .page-navbar {
-  bacground-color:darken($header-bg-color, 10%);
+  background-color:darken($header-bg-color-secondary, 10%);
+  
+  @include large {
+    padding: 5rem 6rem;
+  }
+
+  @include medium {
+    padding: 3rem 4rem;
+  }
+
+  @include small {
+    padding: 2rem 1rem;
+  }
 }
