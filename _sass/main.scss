@@ -1,6 +1,11 @@
 
 @import "jekyll-theme-cayman.scss";
 
+
+.preserve-whitespace {
+    white-space:pre-wrap;
+}
+
 .page-navbar {
   background-color:darken($header-bg-color-secondary, 10%);
   background-image: linear-gradient(120deg, darken($header-bg-color-secondary, 10%), darken($header-bg-color, 10%));
