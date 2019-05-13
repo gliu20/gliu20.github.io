@@ -17,9 +17,13 @@
 <body>
 	{% include nav.html %}
 	
-	{{ page.layout }}
+	{% if page.layout !== "page" %}
+	<section class="main-content">{{ content }}</section>
+	{% else %}
+	{{ content }}	
+	{% endif %}
 	
-	{{ content }}
+	
 
 </body>
 </html>
