@@ -1,2 +1,6 @@
 
 @import "jekyll-theme-cayman.scss";
+
+.page-navbar {
+  bacground-color:darken($header-bg-color, 10%);
+}
