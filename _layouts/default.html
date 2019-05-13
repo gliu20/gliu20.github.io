@@ -17,10 +17,10 @@
 <body>
 	{% include nav.html %}
 	
-	{% if page.layout !== "page" %}
-	<section class="main-content">{{ content }}</section>
-	{% else %}
+	{% if page.layout == "default" %}
 	{{ content }}	
+	{% else %}
+	<section class="main-content">{{ content }}</section>
 	{% endif %}
 	
 	
