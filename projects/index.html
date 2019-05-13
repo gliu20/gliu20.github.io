@@ -6,15 +6,13 @@ title: Projects
 </section>
 
 <section class="main-content">
-<ul>
   {% for project in site.projects %}
-    <li>
+    <article>
       <h2>
       	<a href="{{ project.url }}">{{ project.name }}</a>
       </h2>
       <h3>{{ project.description }}</h3>
       <p class="preserve-whitespace">{{ project.content | markdownify | strip_formatting }}</p>
-    </li>
+    </article>
   {% endfor %}
-</ul>
 </section>
