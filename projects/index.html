@@ -13,7 +13,7 @@ title: Projects
       	<a href="{{ project.url }}">{{ project.name }}</a>
       </h2>
       <h3>{{ project.description }}</h3>
-      <p>{{ project.content | markdownify | strip_formatting | markdownify }}</p>
+      <p>{{ project.content | markdownify | strip_formatting }}</p>
     </li>
   {% endfor %}
 </ul>
