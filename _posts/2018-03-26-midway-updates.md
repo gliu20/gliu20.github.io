@@ -14,5 +14,5 @@ project: midway
  * Added ability to close time box
  * Time box location persists across tabs
 
-No longer just a prototype, Midway now includes a new look along with more information in the time box; it now includes information for the period end time as well as the name of the period. Furthermore, time boxes persist across tabs and can now be closed. In addition, marketing materials for Midway have been updated.
+No longer just a prototype, Midway now includes a new look along with more information in the time box; it now displays information for the period end time as well as the name of the period. Furthermore, time boxes persist across tabs and can now be closed. In addition, marketing materials for Midway have been updated.
 
