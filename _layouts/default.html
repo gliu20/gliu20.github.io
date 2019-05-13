@@ -18,9 +18,9 @@
 	{% include nav.html %}
 	
 	{% if page.layout == "default" %}
-	{{ content }}	
-	{% else %}
 	<section class="main-content">{{ content }}</section>
+	{% else %}
+	{{ content }}	
 	{% endif %}
 	
 	
