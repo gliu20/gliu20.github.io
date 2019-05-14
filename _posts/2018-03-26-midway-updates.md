@@ -1,5 +1,5 @@
 ---
-title: New updates to Midway
+title: New Updates to Midway
 description: New features added to Midway v1.4.2
 project: midway
 ---
