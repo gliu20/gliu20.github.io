@@ -1,5 +1,5 @@
 ---
-title: Branding updates to Midway
+title: Branding Updates to Midway
 description: New logo and marketing materials for Midway
 project: midway
 ---
