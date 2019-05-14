@@ -11,12 +11,12 @@ title: Blog
     <article class="card">
       <h2><a href="{{ post.url }}">{{ post.title }}</a></h2>
       <p>
-            {% assign text = post.content | split: "\n" %}
+            {% assign text = post.content | strip_html | split: "\n" %}
             
                   {{ text }}
-            {% for excerpt in text offset:1 limit:2 %}
+            <!--{% for excerpt in text offset:1 limit:2 %}
                   {{ excerpt }}
-            {% endfor %}
+            {% endfor %}-->
       </p>
     </article>
   {% endfor %}
