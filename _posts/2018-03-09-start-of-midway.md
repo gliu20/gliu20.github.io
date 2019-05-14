@@ -1,5 +1,5 @@
 ---
-title: Midway\: How it started
+title: The story behind Midway
 description: Why I created Midway
 project: midway
 ---
