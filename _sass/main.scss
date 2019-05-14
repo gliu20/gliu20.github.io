@@ -18,6 +18,16 @@
     @include small {
         padding: 1rem 2rem;
     }
+    
+    & > h1:not(.exempt),
+    & > h2:not(.exempt),
+    & > h3:not(.exempt),
+    & > h4:not(.exempt),
+    & > h5:not(.exempt),
+    & > h6:not(.exempt)
+    {
+        display: none;
+    }
 }
 
 .preserve-whitespace {
