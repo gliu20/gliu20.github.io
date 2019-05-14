@@ -10,12 +10,14 @@ layout: default
       {{ content }}
 </section>
 <aside class="main-content"> <!-- TODO make another class for asides -->
-      <h1 class="project-tagline">Latest updates</h1>
-      {% for post in site.posts | where: "category", page.short_name %}
-      <article class="card">
-            <h2 class="exempt"><a href="{{ post.url }}">{{ post.title }}</a></h2>
-            <h3 class="exempt">{{ post.date | date_to_string }}</h3>
-            <p>{{ post.excerpt }}</p>
-       </article>
+      <h1>Latest updates</h1>
+      {% for post in site.posts %}
+            {% if post.category == page.short_name %}
+                  <article class="card">
+                       <h2 class="exempt"><a href="{{ post.url }}">{{ post.title }}</a></h2>
+                        <h3 class="exempt">{{ post.date | date_to_string }}</h3>
+                        <p>{{ post.excerpt }}</p>
+                   </article>
+            {% endif %}
       {% endfor %}
 </aside>
