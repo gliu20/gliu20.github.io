@@ -12,7 +12,7 @@ title: Projects
       	<a href="{{ project.url }}">{{ project.name }}</a>
       </h2>
       <h3 class="exempt">{{ project.description }}</h3>
-      <p>{{ project.content | markdownify | newline_to_br }}</p>
+      <p>{{ project.content | markdownify }}</p>
     </article>
   {% endfor %}
 </section>
