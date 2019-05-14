@@ -5,7 +5,7 @@ project: midway
 ---
 
 # New look
-![New promotional tile](/assets/images/2019-02-20-new-logo-midway.png)
+<img src="/assets/images/2019-02-20-new-logo-midway.png" width="192px" alt="New promotional tile" />
 
 ## Material-inspired
 The new Midway logo was inspired by the new [material design guidelines](https://material.io). In addition to the new design of the UI, I have created several new designs for the UI itself.
