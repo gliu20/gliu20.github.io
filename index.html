@@ -9,7 +9,7 @@ title: Blog
 <section class="main-content">
   {% for post in site.posts %}
     <article class="card">
-      <h2 class="exempt"><a href="{{ post.url }}">{{ post.title | capitalize }}</a></h2>
+      <h2 class="exempt"><a href="{{ post.url }}">{{ post.title | title_case }}</a></h2>
       <h3 class="exempt">{{ post.date | date_to_string }}</h3>
       <p>{{ post.excerpt }}</p>
     </article>
