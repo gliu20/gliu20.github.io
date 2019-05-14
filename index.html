@@ -12,7 +12,7 @@ title: Blog
       <h2><a href="{{ post.url }}">{{ post.title }}</a></h2>
       <p>
             {% assign text = post.excerpt | split: "\n" %}
-            {% for excerpt in text offset:1 limit:1 %}
+            {% for excerpt in text offset:1 limit:2 %}
                   {{ excerpt }}
             {% endfor %}
       </p>
