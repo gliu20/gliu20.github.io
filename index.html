@@ -16,7 +16,7 @@ title: Blog
             {% for excerpt in text offset:1 %}
                   {% assign betterExcerpt = betterExcerpt | append: excerpt %}
             {% endfor %}
-            {{ betterExcerpt | truncatewords: 100 }}
+            {{ betterExcerpt | truncatewords: 50 }}
       </p>
     </article>
   {% endfor %}
