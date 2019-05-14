@@ -12,9 +12,11 @@ title: Blog
       <h2><a href="{{ post.url }}">{{ post.title }}</a></h2>
       <p>
             {% assign text = post.content | strip_html | newline_to_br | split: "<br />" %}
-            {% for excerpt in text offset:1 limit:2 %}
-                  {{ excerpt }}
+            {% assign betterExcerpt = ""  %}
+            {% for excerpt in text offset:1 %}
+                  {% assign betterExcerpt = betterExcerpt | append: excerpt %}
             {% endfor %}
+            {{ betterExcerpt | truncatewords: 100 }}
       </p>
     </article>
   {% endfor %}
