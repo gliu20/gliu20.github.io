@@ -9,3 +9,17 @@ layout: default
 <section class="main-content">
       {{ content }}
 </section>
+<aside>
+      --debug
+      {{ site.posts | inspect }}
+      {{ page | inspect }}
+      debug--
+      {% for post in site.posts | where: "category", page.short_name %}
+      <article class="card">
+            <h2 class="exempt">
+             	{{ post.name }}
+            </h2>
+            {{ post.content | markdownify }}
+        </article>
+       {% endfor %}
+</aside>
