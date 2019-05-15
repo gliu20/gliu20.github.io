@@ -212,6 +212,14 @@ a {
     font-weight: normal;
     color: $section-headings-color;
   }
+  
+  h3,
+  h4,
+  h5,
+  h6 {
+    color: darken($section-headings-color, 4%);
+  }
+  
 
   p {
     margin-bottom: 1em;
