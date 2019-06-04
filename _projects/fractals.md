@@ -10,16 +10,16 @@ Algebraic fractals, like those of the Julia and the Mandelbrot Sets, are rich wi
  * [Julia Set Generator](https://gliu20.github.io/fractals/julia.html)
 
 ### Limitations
-Do not view on a mobile device. Zooming controls will not work and there may be performance issues.
+Do not view on a mobile device. Controls will not work and there may be performance issues.
 Also, due to the limitations of the hardware / software, if you see bars or a solid color, you need to zoom out. 
  
 ### Controls
 * You'll need to scroll with your mouse in order to zoom in and out. 
-* Panning is not supported. A workaround is to zoom out of a place and zoom into another area.
+* \[NEW\] Click and drag to pan around.
 
 ### Notes
 In addition, if you set the x and y coordinates, you need to click on gen high res image in order for changes to update.
-Zoom indicates the size of the view window; if it's small, then you see a small part of the fractal, and if it's big you see more of the fractal. This number is usually between 0 and 1.5.
+Zoom indicates the size of the view window; if it's small, then you'll see a small part of the fractal, and if it's big you see more of the fractal. This number is usually between 0 and 1.5.
  
 ### Here are some other coordinates to try in the Mandelbrot set
  * x: -0.761574           y: -0.0847596         zoom: 0.0000192
