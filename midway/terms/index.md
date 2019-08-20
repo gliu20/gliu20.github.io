@@ -1,9 +1,8 @@
 ---
 title: Midway Terms of Use
-description: Effective as of 8/20/2019
 layout: post
 ---
-
+*Effective as of 8/20/2019*
  
 Welcome to the Terms of Use agreement. For purposes of this Agreement, “Service” refers to the extension, which can be downloaded from the [Chrome Web Store](https://chrome.google.com/webstore/detail/midway/cgibedogghadelndgfacffoociffapii).
 Through these services, users can, where available, know the current period’s end time, find out about absent teachers, access the school’s bulletin board, and more.
