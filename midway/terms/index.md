@@ -3,7 +3,6 @@ title: Midway Terms of Use
 layout: post
 ---
 
-# Midway Terms of Use
 *Effective as of 8/20/2019*
  
 Welcome to the Terms of Use agreement. For purposes of this Agreement, “Service” refers to the extension, which can be downloaded from https://chrome.google.com/webstore/detail/midway/cgibedogghadelndgfacffoociffapii.
