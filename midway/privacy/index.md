@@ -10,7 +10,7 @@ Through these services, users can, where available, know the current period’s 
 The terms “we,” “us,” and “our” refer to the “Developer”.
 “You” refers to you, as a user of our Service. 
 
-By accessing our Site or our Service, you accept our Privacy Policy and Terms of Use (found here: https://gliu20.github.io/midway/terms), and you consent to our collection, storage, use and disclosure of your Personal Information as described in this Privacy Policy.
+By accessing our Service, you accept our Privacy Policy and [Terms of Use](https://gliu20.github.io/midway/terms), and you consent to our collection, storage, use and disclosure of your Personal Information as described in this Privacy Policy.
 
 ## I. Information We Collect
 
@@ -18,7 +18,7 @@ We collect “Non-Personal Information” and “Personal Information.” Non-Pe
 
 ### 1. Information collected via Technology
 
-To activate the Service you do not need to submit any Personal Information other than your email address. To use the Service thereafter, you may need to submit further Personal Information, which may include include name, email address, language preference, and profile picture. These data are collected and processed by Google’s Firebase to ensure the legitimacy of accounts and prevent the Service from fraud. Firebase may store this data in accordance with their own Privacy Policy (https://accounts.google.com/TOS?loc=US&hl=en&privacy=true) and Terms (https://accounts.google.com/TOS?loc=US&hl=en) when you log into the Service with your Google account.
+To activate the Service you do not need to submit any Personal Information other than your email address. To use the Service thereafter, you may need to submit further Personal Information, which may include include name, email address, language preference, and profile picture. These data are collected and processed by Google’s Firebase to ensure the legitimacy of accounts and prevent the Service from fraud. By logging into the Service through your Google account, Google and Firebase may store this data in accordance with their own [Privacy Policy](https://accounts.google.com/TOS?loc=US&hl=en&privacy=true) and [Terms](https://accounts.google.com/TOS?loc=US&hl=en).
 
 The Service may also use, collect, and store user-generated information to display to other users. These may include but are not limited to the following:
 * Absent teacher data
