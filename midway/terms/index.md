@@ -1,9 +1,9 @@
 ---
 title: Midway Terms of Use
+description: Effective as of 8/20/2019
 layout: post
 ---
 
-*Effective as of 8/20/2019*
  
 Welcome to the Terms of Use agreement. For purposes of this Agreement, “Service” refers to the extension, which can be downloaded from https://chrome.google.com/webstore/detail/midway/cgibedogghadelndgfacffoociffapii.
 Through these services, users can, where available, know the current period’s end time, find out about absent teachers, access the school’s bulletin board, and more.
@@ -18,7 +18,7 @@ Please review the following terms carefully. By accessing or using the Service, 
 
 ## Privacy Policy
 
-The Developer respects the privacy of its Service users. Please refer to the Developer’s Privacy Policy (found here: https://gliu20.github.io/midway/privacy) which explains how we collect, use, and disclose information that pertains to your privacy. When you access or use the Service, you signify your agreement to the Privacy Policy as well as these Terms of Use.
+The Developer respects the privacy of its Service users. Please refer to the [Privacy Policy](https://gliu20.github.io/midway/privacy) which explains how we collect, use, and disclose information that pertains to your privacy. When you access or use the Service, you signify your agreement to the Privacy Policy as well as these Terms of Use.
 
 ## The Service
 
@@ -29,6 +29,25 @@ The Service allows you to know the current period’s end time, find out about a
 You need to be at least 13 years old and a resident of the United States to register for and use the Service.
 
 If you are a user who signs up for the Service, you will create a personalized account to access the Service and to receive messages from the Service. You agree to notify us immediately of any unauthorized use of your password and/or account. The Developer will not be responsible for any liabilities, losses, or damages arising out of the unauthorized use of your member name, password and/or account.
+
+## Registration for “Child Users”
+
+If you are a “Child User,” you may not create an account for the Service without the consent and approval from your legal parent or guardian, or from your school.
+
+To constitute consent from a school, you the Child User may only use the Service if School Personnel have entered into a relationship with the Service and has obtained legal parent or guardian consent. 
+
+## School Use
+
+If you are a user registered as an administrator or similar school personnel ("School Personnel") acting on behalf of a school, school district, or similar edcuational institution, then you must comply with the following:
+(a) Limitations on use. You may only use this Service in compliance with all applicable rules, laws, and regulations.
+(b) Responsibility for Consent. You and the Institution are solely responsible for obtaining any necessary consent from legal parents or guardians, and for providing appropriate discolsures regarding the users' use of the Service, Privacy Policy, and Terms of Use. You agree to be bound by these Terms on behalf of the Child User. If you are School Personnel and create an account for a Child User or you direct a Child User to create an account for school use, you represent that you have received consent from the Child Users' parents or guardians or that you or your Institution have complied with necessary requirements to be exempt from parental consent requirements.
+
+In addition, you agree that you:
+(a) agree to be responsible for compliance with the Family Educational Rights and Privacy Act and the US Department of Education's implementing regulations at 34 CFR Part 99 (collectively, "FERPA"), and all other laws, rules or regulations concerning the collection, use, and disclosure of personally identifiable information about Users in your Institution.
+(b) assume sole responsibility (and agree that the Developer is not responsible for) for providing appropriate notices and disclosures to students using the Service for school use and their parents regarding the use of the Service, the Terms of Use, and the Privacy Policy, including any notices required by the Children's Online Privacy Protection Act ("COPPA"), FERPA, or other applicable privacy law.
+(c) assume sole responsibility (and agree that the Developer is not responsible for) for obtaining consent required from parents or guardians, to the extent required by law, in connection with the Service. You represent to the Service that you have, before creating or directing the creation of accounts, you have either obtained all required parent or guardian consent, or have complied with all requirements to be exempt from parental consent requirements.
+
+If a parent or guardian rescinds this consent, School Personnel must immediately notify the Developer to discontinue the relevant accounts. Under no circumstances will the Developer be liable for the School Personnel's failure to consult school authorities or to obtain consent when required.
 
 ## Use Restrictions
 
