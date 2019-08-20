@@ -5,7 +5,7 @@ layout: post
 
 Midway (the “Developer”) is committed to maintaining robust privacy protections for its users. Our Privacy Policy (“Privacy Policy”) is designed to help you understand how we collect, use, and safeguard the information you provide to us and to assist you in making informed decisions when using our Service.  
 
-For purposes of this Agreement, “Service” refers to the extension, which can be downloaded from https://chrome.google.com/webstore/detail/midway/cgibedogghadelndgfacffoociffapii.
+For purposes of this Agreement, “Service” refers to the extension, which can be downloaded from the [Chrome Web Store](https://chrome.google.com/webstore/detail/midway/cgibedogghadelndgfacffoociffapii).
 Through these services, users can, where available, know the current period’s end time, find out about absent teachers, access the school’s bulletin board, and more.
 The terms “we,” “us,” and “our” refer to the “Developer”.
 “You” refers to you, as a user of our Service. 
