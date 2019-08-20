@@ -3,8 +3,6 @@ title: Midway Privacy Policy
 layout: post
 ---
 
-# Midway Privacy Policy
-
 Midway (the “Developer”) is committed to maintaining robust privacy protections for its users. Our Privacy Policy (“Privacy Policy”) is designed to help you understand how we collect, use, and safeguard the information you provide to us and to assist you in making informed decisions when using our Service.  
 
 For purposes of this Agreement, “Service” refers to the extension, which can be downloaded from https://chrome.google.com/webstore/detail/midway/cgibedogghadelndgfacffoociffapii.
