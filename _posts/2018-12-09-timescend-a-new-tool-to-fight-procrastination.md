@@ -1,6 +1,6 @@
 ---
 title: Timescend
-description: A New Tool to Fight against Procrastination
+description: A new tool to fight against procrastination
 project: timescend
 ---
 Timescend is now available here: [https://gliu20.github.io/timescend/](https://gliu20.github.io/timescend/)
