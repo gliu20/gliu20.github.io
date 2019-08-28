@@ -4,7 +4,9 @@ project: gradetree
 description: A guide to using Gradetree to calculate both your grades and GPA
 ---
 # About
-Gradetree is a utility for calculating grades and GPA, allowing you to assess your performance in school. Gradetree works exceptionally on nested grades. For example, your history grade might consist of quarters that each account for 20% of your grade along with a final that counts for 20% of your grade. Each quarter has tests, quizzes, and participation, which might account for 50%, 30%, and 20% respectively. Large projects may also have subassignments that each account for a certain percentage of the whole. With so many variables, it may be difficult to accurately and quickly calculate your scores. But with Gradetree, the process is easy, fast, and convenient.
+Gradetree is a utility for calculating grades and GPA, allowing you to assess your performance in school. Gradetree works exceptionally on nested grades. 
+
+For example, your history grade might consist of quarters that each account for 20% of your grade along with a final that counts for 20% of your grade. Each quarter has tests, quizzes, and participation, which might account for 50%, 30%, and 20% respectively. Large projects may also have subassignments that each account for a certain percentage of the whole. With so many variables, it may be difficult to accurately and quickly calculate your scores. But with Gradetree, the process is easy, fast, and convenient.
 
 ## Frequently Asked Questions
 
