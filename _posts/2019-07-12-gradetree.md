@@ -21,7 +21,7 @@ That may be the case. Gradetree does not take into account credits or course dif
 Use at your own risk. I cannot guarantee the accuracy of any of the results provided in the calculator. This software comes with no warranty whatsoever.
 
 ## How to use
-![Screenshot of Gradetree](https:/gliu20.github.io/assets/images/2019-07-12-gradetree-screenshot.png)
+![Screenshot of Gradetree](https://gliu20.github.io/assets/images/2019-07-12-gradetree-screenshot.png)
 
 ### Specifying an assigment
 * `w` stands for the weight of the assignment. e.g. if you have three assignments and their respective weights are 1,2,3 then they will be weighed in a 1:2:3 ratio. So the third assignment will be worth 3x the first and the second 2x the first.
