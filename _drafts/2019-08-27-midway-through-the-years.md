@@ -5,7 +5,7 @@ project: midway
 ---
 
 # A Note on Versioning
-While it might seem as though I am using Semantic Versioning (or SemVer as the developer community calls it), I actually simply increase the numbers based on how significant I feel the change to be, rather than simply increasing a major number or minor number based on the corresponding magnitude of change. 
+While it might seem as though I am using Semantic Versioning (or SemVer as the developer community calls it), I actually simply increase the numbers based on how significant I feel the change to be, rather than simply incrementing a major number or minor number by 1. 
 
 # The Initial Prototype (v1.3.15) 
 ![Midway branding image with extension logo for v1.3.15](https://gliu20.github.io/assets/images/2019-08-27-midway-big-tile.png)
@@ -24,8 +24,7 @@ At this point, Midway was a simple extension, merely displaying the end of the p
 ![Midway v1.3.15 marketing slide 4](https://gliu20.github.io/assets/images/2019-08-27-midway-screenshot-4.png "Midway works offline")
 
 # No longer just a prototype (v1.4.2)
-################################### TODO use png version only!!!! ##########################################################
-![Midway branding image with extension logo for v1.4.2](https://gliu20.github.io/assets/images/2019-08-27-midway-big-tile-2.jpg)
+![Midway branding image with extension logo for v1.4.2](https://gliu20.github.io/assets/images/2019-08-27-midway-big-tile-2.png)
 
 With the introduction of Midway v1.4.2, Midway has greatly increased in both capability and complexity. One of the challenges in developing Midway was the fact that, due to a Chrome browser bug, Custom Elements were NOT supported when it is registered by an extension. As a result, Midway could not be isolated from its containing page. I ended up using a workaround: injecting a script onto the page that loaded code from Github. Unfortunately, it meant that Midway no longer worked offline, but since the users were almost always online, it wasn't much of a problem. 
 
@@ -38,11 +37,10 @@ In addition, Midway now had the ability to hide the timebox. Previously, the onl
 ![Midway v1.4.2 marketing slide 3](https://gliu20.github.io/assets/images/2019-08-27-midway-screenshot-2-3.png "Midway is completely ad-free")
 
 # The Latest Evolution (v3.0.0)
-################################### TODO use png version only!!!! ##########################################################
-![Midway branding image with extension logo for v3.0.0](https://gliu20.github.io/assets/images/2019-08-27-midway-big-tile-2.jpg)
-Finally, the versioning is brought to a number that actually makes sense; it is the third revision of Midway! I probably should have made the version number v3.1.4 because reasons, but I thought it would be confusing. Also, the changes didn't really warrant that sort of number.
+![Midway branding image with extension logo for v3.0.0](https://gliu20.github.io/assets/images/2019-08-27-midway-big-tile-3.jpg)
+At last, the versioning is brought to a number that actually makes sense; it is the third revision of Midway! I probably should have made the version number v3.1.4 because it is whack (and who doesn't want pi?), but I thought it would be confusing. Also, the changes didn't really warrant that sort of number.
 
-With this version, Midway has improved a lot. Even the its clock ticked forward a bit:
-![Midway's clock now reads approximately 12:20](https://gliu20.github.io/assets/images/2019-02-20-new-logo-midway.png)
+With this version, Midway has improved a lot. Even its clock ticked forward a bit to represent a change of such magnitude:
+<img src="/assets/images/2019-02-20-new-logo-midway.png" width="192px" alt="Midway's clock now reads approximately 12:20" />
 
 
