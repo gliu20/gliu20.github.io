@@ -4,16 +4,18 @@ project: gradetree
 description: A guide to using Gradetree to calculate both your grades and GPA
 ---
 # About
-Gradetree is a utility for calculating grades and GPA, allowing you to assess your performance in school. Gradetree works exceptionally on nested grades. For example, your history grade might consist of quarters that each account for 20% of your grade along with a final that counts for 20% of your grade. Each quarter has tests, quizzes, and participation, which might account for 50%, 30%, and 20% respectively. Large projects may also have subassignments that each account for a certain percentage of the whole. With so many variables, it may be difficult to accurately and quickly calculate your scores.
+Gradetree is a utility for calculating grades and GPA, allowing you to assess your performance in school. Gradetree works exceptionally on nested grades. For example, your history grade might consist of quarters that each account for 20% of your grade along with a final that counts for 20% of your grade. Each quarter has tests, quizzes, and participation, which might account for 50%, 30%, and 20% respectively. Large projects may also have subassignments that each account for a certain percentage of the whole. With so many variables, it may be difficult to accurately and quickly calculate your scores. But with Gradetree, the process is easy, fast, and convenient.
 
-## Why the name Gradetree?
+## Frequently Asked Questions
+
+### Why the name Gradetree?
 Gradetree alludes to the fact that nested grades can be formed into a tree. Each score average can be calculated at each leaf node, which are in turn propagated up. Eventually each level's scores are calculated, resulting in a neat summary of your performance. 
 
-## Unweighted or weighted GPA?
-Gradetree uses the standard unweighted GPA scale, one that you might see at colleges. This means that both A and A+ are a 4.0. You cannot get higher than that. If you want to use a weighted scale, fork me and shoot me a pull request! Check out the libs section of the [gradetree repo](https://github.com/gliu20/gradetree) under grades.
+### Unweighted or weighted GPA?
+Gradetree uses the standard unweighted GPA scale, one that you might see at colleges. This means that both A and A+ are a 4.0. You cannot get higher than that. If you want to use a weighted scale, fork me and shoot me a pull request! Check out the `grades.js` under the libs section of the [gradetree repo](https://github.com/gliu20/gradetree).
 
-## GPA is inaccurate!
-That may be the case. Gradetree does not take into account credits or course difficulty level. In addition, when Gradetree calculates GPA, it does interpolation, which may lead to less accurate results.
+### Why is GPA inaccurate?
+That may be the case. Gradetree does not take into account credits or course difficulty level. In addition, when Gradetree calculates GPA, it does interpolation of the GPA scale, which may lead to less accurate results.
 
 # Disclaimer
 Use at your own risk. I cannot guarantee the accuracy of any of the results provided in the calculator. This software comes with no warranty whatsoever.
@@ -34,8 +36,11 @@ f <score: e.g. 97/100> (optional if there are sub assignments)
 
 ### Specifying sub assignments
 Use 1 `#`s if it is the root assignment
+
 Use 2 `#`s if it is the sub assignment of the root assignment
+
 Use 3 `#`s if it is the sub assignment of the sub assignment of the root assignment
+
 etc...
 
 View it just like markdown headers; you specify a main heading with `#`, a subheading with '#', and a subsubheading with `#`.
