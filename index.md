@@ -1,9 +1,11 @@
 ---
-title: Blog
+title: A Blog from a High School Self-taught Developer
+description: Get the latest updates from George Liu regarding his recent projects -- from his Midway Chrome Extension to his Fractal viewer to his productivity tool Timescend
 ---
 
 <header class="page-header">
       <h1 class="project-name">Latest Posts</h1>
+      <h1 class="project-tagline">By George Liu</h1>
 </header>
 
 <section class="main-content">
