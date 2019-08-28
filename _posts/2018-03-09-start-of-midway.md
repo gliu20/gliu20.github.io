@@ -9,4 +9,4 @@ School schedules are confusing, especially with multiple lunch times and differe
 What if there was an extension that displayed the end of the period in the corner of my browser screen? After some quick coding and initial prototyping, Midway was born. 
 
 ## What is Midway?
-Midway is an add-on that displays the end of the current period. That prototype now exists on the [Chrome Web Store](https://chrome.google.com/webstore/detail/midway/cgibedogghadelndgfacffoociffapii). As Midway is still in the works, new features would be developed soon.
+Midway is an add-on that displays the end of the current period. That prototype now exists on the [Chrome Web Store](https://chrome.google.com/webstore/detail/midway/cgibedogghadelndgfacffoociffapii). As Midway is still in the works, new features will be developed soon.
