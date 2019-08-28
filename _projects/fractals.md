@@ -6,6 +6,7 @@ description: A GPU-accelerated viewer for the Julia and Mandelbrot Sets
 Algebraic fractals, like those of the Julia and the Mandelbrot Sets, are rich with interesting textures and designs. They are mathematical curiosities: out of such simple equations arises great complexity and beauty. 
 
 ## Demo
+Follow these links to try out the fractal viewers. Make sure to use a high-performance device (with a good GPU).
  * [Mandelbrot Set Generator](https://gliu20.github.io/fractals/mandelbrot.html)
  * [Julia Set Generator](https://gliu20.github.io/fractals/julia.html)
 
