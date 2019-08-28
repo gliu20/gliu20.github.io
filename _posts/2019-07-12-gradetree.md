@@ -35,13 +35,10 @@ f <score: e.g. 97/100> (optional if there are sub assignments)
 ```
 
 ### Specifying sub assignments
-Use 1 `#`s if it is the root assignment
-
-Use 2 `#`s if it is the sub assignment of the root assignment
-
-Use 3 `#`s if it is the sub assignment of the sub assignment of the root assignment
-
-etc...
+* Use 1 `#`s if it is the root assignment
+* Use 2 `#`s if it is the sub assignment of the root assignment
+* Use 3 `#`s if it is the sub assignment of the sub assignment of the root assignment
+* etc...
 
 View it just like markdown headers; you specify a main heading with `#`, a subheading with `##`, and a subsubheading with `###`.
 ```
