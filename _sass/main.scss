@@ -75,32 +75,26 @@
 }
 
 .page-footer {
-  background-color:#000;
-  border-bottom: 4px solid #00f;
-    
-  background-color: darken($header-bg-color-secondary, 10%);
-  background-image: linear-gradient(120deg, darken($header-bg-color-secondary, 10%), darken($header-bg-color, 10%));
+  background-color: darken($header-bg-color-secondary, 20%);
+  background-image: linear-gradient(120deg, darken($header-bg-color-secondary, 20%), darken($header-bg-color, 20%));
   border-bottom: 2px solid lighten($header-bg-color, 10%);
-  
-  color:#fff;
-  
   padding: 1.5rem 1.5rem;
+  color:#fff;
       
-  /*& a {
-    
-    color:#fff;
-    text-decoration:none;
-    
-    @include large {
-      padding: 1.5rem 1.5rem;
-    }
+  & a {
+    color: lighten(#1e6bb8, 20%);
+  }
+}
 
-    @include medium {
-      padding: 1.25rem 1.25rem;
-    }
-
-    @include small {
-      padding: 1rem 1rem;
-    }
-  }*/
+.page-footer-inner {
+	max-width: 64rem;
+	margin: auto;
+	
+	h1 {
+		font-size: 1rem;
+	}
+	
+	p {
+		font-size: 0.8rem;
+	}
 }
