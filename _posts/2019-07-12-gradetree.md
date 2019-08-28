@@ -43,7 +43,7 @@ Use 3 `#`s if it is the sub assignment of the sub assignment of the root assignm
 
 etc...
 
-View it just like markdown headers; you specify a main heading with `#`, a subheading with `#`, and a subsubheading with `#`.
+View it just like markdown headers; you specify a main heading with `#`, a subheading with `##`, and a subsubheading with `###`.
 ```
 ## name of sub assignment
 etc..
