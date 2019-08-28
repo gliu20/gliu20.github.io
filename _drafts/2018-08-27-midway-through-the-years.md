@@ -16,7 +16,7 @@ But I digress.
 
 ![Midway v1.3.15 timebox](https://gliu20.github.io/assets/images/2018-08-27-timebox-1-3-15.png "Timebox is on the Google website, displaying 9:47, which is the period end time.")
 
-At this point, Midway was a simple extension, merely displaying the end of the period in a little box in the corner, called the timebox. Although you could move the timebox out of the way, the position did not persist across tabs. This meant that every time you refreshed the page or when you opened a new tab, Midway's timebox was back in the top left corner. Furthermore, Midway, due to a bug, sometimes interfered with other pages and prevented their loading. In addition, the timebox lacked a close button, which proved annoying for some users, when Midway covered an important item on the page.
+At this point, Midway was a simple extension, merely displaying the end of the period in a little box in the corner, called the timebox. Although you could move the timebox out of the way, the position did not persist across tabs. This meant that every time you refreshed the page or when you opened a new tab, Midway's timebox was back in the top left corner. In addition, the timebox lacked a close button, which proved annoying for some users, when Midway covered an important item on the page.
 
 ![Midway marketing slide 1](https://gliu20.github.io/assets/images/2019-08-27-midway-screenshot-1.png "Midway's timebox on the new tab page")
 ![Midway marketing slide 2](https://gliu20.github.io/assets/images/2019-08-27-midway-screenshot-2.png "Click and drag the timebox to move it out of the way")
@@ -24,3 +24,9 @@ At this point, Midway was a simple extension, merely displaying the end of the p
 ![Midway marketing slide 4](https://gliu20.github.io/assets/images/2019-08-27-midway-screenshot-4.png "Midway works offline")
 
 # No longer just a prototype (v1.4.2)
+With the introduction of Midway v1.4.2, Midway has greatly increased in both capability and complexity. One of the challenges in developing Midway was the fact that, due to a Chrome browser bug, Custom Elements were NOT supported when it is registered by an extension. As a result, Midway could not be isolated from its containing page. I ended up using a workaround: injecting a script onto the page that loaded code from Github. Unfortunately, it meant that Midway no longer worked offline, but since the users were almost always online, it wasn't much of a problem. 
+
+Addressing one of the primary concerns of many users, Midway now persisted the timebox on the page. What that means is if you drag the timebox to the bottom right corner, it stays there, even if you switch tabs or reload the page. However, the implementation was a bit poor since it depended on time delays. As a result, sometimes the delays didn't fire at the correct times, resulting in glitchy timebox persistence.
+
+In addition, Midway now had the ability to close it. Previously, the only way to get rid of it was by dragging it to the edge of the screen, a suboptimal solution for many. Now, a simple close button will get rid of it.
+
