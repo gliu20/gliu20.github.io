@@ -1,6 +1,6 @@
 ---
-title: Timescend
-description: A new tool to fight against procrastination
+title: Introducing Timescend
+description: A new tool to fight procrastination
 project: timescend
 ---
 # Why I made Timescend
