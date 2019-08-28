@@ -42,6 +42,7 @@ In addition, Midway now had the ability to hide the timebox. Previously, the onl
 At last, the versioning is brought to a number that actually makes sense; it is the third revision of Midway! I probably should have made the version number v3.1.4 because it is whack (and who doesn't want pi?), but I thought it would be confusing. Also, the changes didn't really warrant that sort of number.
 
 Anyhow, Midway has improved a lot with this version. Even its clock ticked forward a bit to represent a change of such magnitude:
+
 <img src="/assets/images/2019-02-20-new-logo-midway.png" width="192px" alt="Midway's clock now reads approximately 12:20" />
 
 With this update, Midway's timebox persistence was no longer buggy; the timebox stays right where you put it even if you reload or open another tab. In addition, glitches on sites such as the MyLearningPlan website were all fixed (due to better isolation between the extension and the website).
