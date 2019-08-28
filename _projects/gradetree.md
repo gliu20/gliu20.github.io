@@ -1,6 +1,6 @@
 ---
 short_name: gradetree
-name: Gradtree
+name: Gradetree
 description: A utility for calculating grades and GPA
 ---
 
