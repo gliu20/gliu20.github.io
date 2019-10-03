@@ -38,13 +38,13 @@ To constitute consent from a school, you the Child User may only use the Service
 ## School Use
 
 If you are a user registered as an administrator or similar school personnel ("School Personnel") acting on behalf of a school, school district, or similar edcuational institution, then you must comply with the following:
-(a) Limitations on use. You may only use this Service in compliance with all applicable rules, laws, and regulations.
-(b) Responsibility for Consent. You and the Institution are solely responsible for obtaining any necessary consent from legal parents or guardians, and for providing appropriate discolsures regarding the users' use of the Service, Privacy Policy, and Terms of Use. You agree to be bound by these Terms on behalf of the Child User. If you are School Personnel and create an account for a Child User or you direct a Child User to create an account for school use, you represent that you have received consent from the Child Users' parents or guardians or that you or your Institution have complied with necessary requirements to be exempt from parental consent requirements.
+ * Limitations on use. You may only use this Service in compliance with all applicable rules, laws, and regulations.
+ * Responsibility for Consent. You and the Institution are solely responsible for obtaining any necessary consent from legal parents or guardians, and for providing appropriate discolsures regarding the users' use of the Service, Privacy Policy, and Terms of Use. You agree to be bound by these Terms on behalf of the Child User. If you are School Personnel and create an account for a Child User or you direct a Child User to create an account for school use, you represent that you have received consent from the Child Users' parents or guardians or that you or your Institution have complied with necessary requirements to be exempt from parental consent requirements.
 
 In addition, you agree that you:
-(a) agree to be responsible for compliance with the Family Educational Rights and Privacy Act and the US Department of Education's implementing regulations at 34 CFR Part 99 (collectively, "FERPA"), and all other laws, rules or regulations concerning the collection, use, and disclosure of personally identifiable information about Users in your Institution.
-(b) assume sole responsibility (and agree that the Developer is not responsible for) for providing appropriate notices and disclosures to students using the Service for school use and their parents regarding the use of the Service, the Terms of Use, and the Privacy Policy, including any notices required by the Children's Online Privacy Protection Act ("COPPA"), FERPA, or other applicable privacy law.
-(c) assume sole responsibility (and agree that the Developer is not responsible for) for obtaining consent required from parents or guardians, to the extent required by law, in connection with the Service. You represent to the Service that you have, before creating or directing the creation of accounts, you have either obtained all required parent or guardian consent, or have complied with all requirements to be exempt from parental consent requirements.
+ * agree to be responsible for compliance with the Family Educational Rights and Privacy Act and the US Department of Education's implementing regulations at 34 CFR Part 99 (collectively, "FERPA"), and all other laws, rules or regulations concerning the collection, use, and disclosure of personally identifiable information about Users in your Institution.
+ * assume sole responsibility (and agree that the Developer is not responsible for) for providing appropriate notices and disclosures to students using the Service for school use and their parents regarding the use of the Service, the Terms of Use, and the Privacy Policy, including any notices required by the Children's Online Privacy Protection Act ("COPPA"), FERPA, or other applicable privacy law.
+ * assume sole responsibility (and agree that the Developer is not responsible for) for obtaining consent required from parents or guardians, to the extent required by law, in connection with the Service. You represent to the Service that you have, before creating or directing the creation of accounts, you have either obtained all required parent or guardian consent, or have complied with all requirements to be exempt from parental consent requirements.
 
 If a parent or guardian rescinds this consent, School Personnel must immediately notify the Developer to discontinue the relevant accounts. Under no circumstances will the Developer be liable for the School Personnel's failure to consult school authorities or to obtain consent when required.
 
@@ -52,19 +52,19 @@ If a parent or guardian rescinds this consent, School Personnel must immediately
 
 Your permission to use the Service is conditioned upon the following use, posting and conduct restrictions: 
 You agree that you will not under any circumstances:
-·    collect or harvest any personal data of any user of the Service 
-·    use the Service for the solicitation of business in the course of trade or in connection with a commercial enterprise;
-·    distribute any part or parts of the Service without our explicit written permission;
-·    use the Service for any unlawful purpose or for the promotion of illegal activities;
-·    attempt to, or harass, abuse or harm another person or group;
-·    use another user’s account without permission;
-·    intentionally allow another user to access your account; 
-·    provide false or inaccurate information when registering an account;
-·    interfere or attempt to interfere with the proper functioning of the Service;
-·    make any automated use of the Service or the related systems, or take any action that we deem to impose or to potentially impose an unreasonable or disproportionately large load on our servers or network infrastructure;
-·    bypass any measures we take to restrict access to the Service; 
-·    circumvent, disable or otherwise interfere with any security-related features of the Service or features that prevent or restrict use or copying of content, or enforce limitations on use of the Service or the content accessible via the Service; or 
-·    publish or link to malicious content of any sort, including that intended to damage or disrupt another user’s browser or computer.
+ * collect or harvest any personal data of any user of the Service 
+ * use the Service for the solicitation of business in the course of trade or in connection with a commercial enterprise;
+ * distribute any part or parts of the Service without our explicit written permission;
+ * use the Service for any unlawful purpose or for the promotion of illegal activities;
+ * attempt to, or harass, abuse or harm another person or group;
+ * use another user’s account without permission;
+ * intentionally allow another user to access your account; 
+ * provide false or inaccurate information when registering an account;
+ * interfere or attempt to interfere with the proper functioning of the Service;
+ * make any automated use of the Service or the related systems, or take any action that we deem to impose or to potentially impose an unreasonable or disproportionately large load on our servers or network infrastructure;
+ * bypass any measures we take to restrict access to the Service; 
+ * circumvent, disable or otherwise interfere with any security-related features of the Service or features that prevent or restrict use or copying of content, or enforce limitations on use of the Service or the content accessible via the Service; or 
+ * publish or link to malicious content of any sort, including that intended to damage or disrupt another user’s browser or computer.
 
 
 ## Posting And Conduct Restrictions
