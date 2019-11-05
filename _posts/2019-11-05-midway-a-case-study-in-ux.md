@@ -1,5 +1,6 @@
 ---
 title: Midway\: A Case Study in UX
+description: Let's dive into the many steps we take to make Midway as easy and convenient to use as possible.
 project: midway
 ---
 
