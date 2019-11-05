@@ -1,5 +1,5 @@
 ---
-title: Midway: A Case Study in UX
+title: Midway\: A Case Study in UX
 project: midway
 ---
 
