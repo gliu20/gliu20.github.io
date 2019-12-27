@@ -8,7 +8,7 @@ Arriving early to nearly empty classrooms, I was anxious from the start. Even af
 
 After half an hour, the chairs beside me remained empty, so the event organizers formed new teams with the people who did show up. The people on my team were completely new to me, but within several hours, we were already laughing together, sharing our own experiences in high school, and speaking about our future desires.
 
-![My team and I won the Innovation Award and 3rd Gen Echo Dots. From left to right: Eileen, Weezie, George, and Kiara](//assets/images/2019-12-08-hackathon-team.jpg)
+![My team and I won the Innovation Award and 3rd Gen Echo Dots. From left to right: Eileen, Weezie, George, and Kiara](/assets/images/2019-12-08-hackathon-team.jpg)
 
 By the end of the day, I'd almost forgotten that my team and I had only just met. We didn't just develop an unconventional app to help promote voter engagement; We didn't just take home the Innovation Award or the Echo dot; Most importantly, we took home experiences that we'll remember for years to come.
 
@@ -16,4 +16,4 @@ Reflecting back on the work my team and I achieved at the hackathon, I recognize
 
 Without these amazing team members, I could have never have made this app. Personally, I think that the whole is truly greater than the sum of its parts. Alone, we are just a drop in the ocean, but together, we are the ocean. Acting in unison, we are a wave. 
 
-![Winners taking a group photo](//assets/images/2019-12-08-hackathon-award.jpg)
+![Winners taking a group photo](/assets/images/2019-12-08-hackathon-award.jpg)
