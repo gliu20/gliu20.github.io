@@ -12,6 +12,8 @@ After half an hour, the chairs beside me remained empty, so the event organizers
 
 By the end of the day, I'd almost forgotten that my team and I had only just met. We didn't just develop an unconventional app to help promote voter engagement; We didn't just take home the Innovation Award or the Echo dot; Most importantly, we took home experiences that we'll remember for years to come.
 
+![ProVote App Logo](/assets/images/2019-12-08-provote-logo.svg)
+
 Reflecting back on the work my team and I achieved at the hackathon, I recognize that they all had something to contribute. Kiara researched and brainstormed ideas, contributing key concepts like the betting aspect of our app. I organized our ideas and advised the team on the best pathways, like pursuing a social media type direction. Eileen, Weezie, and I all contributed to developing the app, working on each screen of the prototype.
 
 Without these amazing team members, I could have never have made this app. Personally, I think that the whole is truly greater than the sum of its parts. Alone, we are just a drop in the ocean, but together, we are the ocean. Acting in unison, we are a wave. 
