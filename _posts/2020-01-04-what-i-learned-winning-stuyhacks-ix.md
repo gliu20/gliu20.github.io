@@ -1,5 +1,5 @@
 ---
-title: What I learned from winning 3rd place at Stuyhacks IX: Common Misconceptions about Hackathons and Tips for Success
+title: What I learned from winning 3rd place at Stuyhacks IX&#58; Common Misconceptions about Hackathons and Tips for Success
 description: I’m often surprised by the grand expectations that younger coders believe is necessary for success at Hackathon events. Here, in no particular order, are some of the most common misconceptions and tips I’ve learned.
 ---
 
