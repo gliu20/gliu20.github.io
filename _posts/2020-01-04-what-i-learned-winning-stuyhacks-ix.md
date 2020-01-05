@@ -1,0 +1,44 @@
+---
+title: What I learned from winning 3rd place at Stuyhacks IX: Common Misconceptions about Hackathons and Tips for Success
+description: I’m often surprised by the grand expectations that younger coders believe is necessary for success at Hackathon events. Here, in no particular order, are some of the most common misconceptions and tips I’ve learned.
+---
+
+# What I learned from winning 3rd place at Stuyhacks IX: Common Misconceptions about Hackathons and Tips for Success
+I’m often surprised by the grand expectations that younger coders believe is necessary for success at Hackathon events. Here, in no particular order, are some of the most common misconceptions and tips I’ve learned.
+
+## Misconceptions
+### 1. You need to know how to code
+As I was waiting to sign in to the event, I often heard students bemoaning their lack of coding experience. They were wrongly convincing themselves to believe that because they don’t know how to code, they can’t make a great end product. Personally, I believe this thinking is self-deprecating. Ultimately, a working program is always a plus, but what’s more important are the ideas. In the course of 5 to 12 hours, it is unreasonable to expect completely flawless products — even for professionals. Instead, the potential for an idea to be a stepping stone to something greater is much more valuable. Earning the [Innovation Award in December](https://gliu20.github.io/2019/12/08/nyc-disrupt-hackathon.html) with a team that had little experience with coding proved that. In fact, our prototype had barely any lines of real code at all. At the end of the day what matters most — and what we were judged on the most — was the idea. After all, there are plenty of coders out there, but what can make one stand out is having the vision — being an innovator.
+
+### 2. You need a team of “smart people”
+For most fellow hackers, “smart people” seems to mean talented coders. But as we’ve just seen, coding knowledge is not of utmost importance. Instead, I’d argue that no team actually needs these so-called “smart people.” For me, I believe that any team can be successful — but only with the right mindset. What I’ve noticed was that these teams were the ones who didn’t necessarily have the most coding experience. Instead, they were the ones who focused most of the time perfecting their idea and pushing through difficult times. They were also often the ones who didn’t form teams with those they knew well. In my opinion, working with a random team is actually much better than joining those one knows best because being unfamiliar with the other members of the team encourages respect for one another, listening with an open mind, and accountability. Especially when working with a group of strangers, who’d dare to play around? Besides, friends are more likely to be distractions, and they often share many of the same backgrounds and viewpoints. With diverse perspectives comes diverse ideas — and these are often the ones that are most unconventional. So, to sum up, the best team is actually the most random team and the team with whom you share the least in common (but do make sure you have a common platform on which you *all* can collaborate!). 
+
+### 3. You can make almost anything
+At some hackathons, there is often a theme — a creative constraint — that limits the ideas one could use. However, at Stuyhacks and other hackathons, the problem is often more general, or maybe there isn’t even a focus at all. With this these types of “open” hackathons, these students don’t pay enough attention to the ideas they come up with. I’ve seen everything from puzzle games to online price checkers to even a VR platformer. 
+
+There is no doubt that these teams put a lot of effort into the work they’ve done and I applaud them for how hard they try. Yet, despite their hard work, their projects are deemed unoriginal and left at that. From watching numerous entrepreneurial TED Talks to studying the keys to successful startups in my Entrepreneurship class, I now come to understand that the difference between them is not about how hard they coded, but rather the effort they expended in researching the problem gaps that exist, finding existing solutions, and brainstorming [key differentiating factors](https://en.wikipedia.org/wiki/Product_differentiation): why their puzzle game, not a competitor’s is novel; why their online price checker is unique; why their VR platformer, not someone else’s is better.
+
+It is this last step that is often overlooked. Yet it has the most profound effect for converting a good idea into a great one. Oftentimes, differentiating factors don’t have to do with the primary goal of an app. For instance, the objective of a quiz game is to entertain the user — your differentiating factor doesn’t necessarily have to make the game more entertaining. Instead, you could add an aspect that also helps realize another human need: self-actualization — the need to feel part of a greater cause. The quiz game that won Stuyhacks wasn’t necessarily more fun to play. Rather, it combined the cause of global warming into a quiz game that not only entertained users, but also raised awareness for the staggering carbon footprint of the average person.
+
+## Tips
+### 1. Do your research
+Especially when you have no idea what to do, always make sure to research your problem carefully. Start by creating a team document for your research. Organize it with headings — you can press `ctrl-alt-1` to `ctrl-alt-2` etc. to make headings. Make sure to make a special section to cite your sources — you’re not making a research paper, but you should at least have some way of going back to what you found in case you might need it again.
+
+Any statistics or powerful quotes must definitely be placed in a section on its own. These pieces of information are essential for convincing any judge that your idea is worth considering — that other people have demonstrated that your problem truly necessitates a solution.
+
+### 2. Get to know your team and delegate roles
+Teams go through several stages — forming, storming, norming, performing, and adjourning. Of course, in the course of one day, it is almost impossible to go through all stages. However, assuming you are working with a “random” team, make sure you at least start the processing of forming your team — getting to know them, becoming comfortable with working with them, and knowing the strengths and weaknesses of each other and the team as a whole. This is imperative for knowing to which parts of the projects you are best able to contribute. Then, divide responsibilities — it’ll help your team get a lot done faster.
+
+### 3. Make a pitch presentation and practice it
+You can have the best app out there, but without a strong presentation, no one will bother to figure out why your team’s app should win versus someone else’s. It’s your job to help judges understand what makes your app special — why it’s innovative. Start by presenting your problem. What does your app solve? Why is it important to be solved? Are there any statistics or facts and figures that illustrate how urgent or quintessential it is to solve this issue? According to some of the judges I’ve spoken to, all too often teams don’t know what problem they are solving and end up scrambling for words when asked what their product solves.
+
+Next, present competing solutions (optional, since most pitches are too short to include this). Here, mention what competitors do and why their solution is lackluster.
+
+Then, present what your solution is. State explicitly how your app solves the problem and how its approach is unique in the way it solves the problem. Indicate to judges why your approach is better than others. The rest of the time you can demonstrate your app.
+
+Practice your pitch multiple times with your team — without doing so, your team may end up looking disorganized and lost which will not help your chances of winning. Also, looks matter more than you think — try using templates [from SlidesCarnival](https://www.slidescarnival.com) instead of the default Google Slides themes since Google Slides themes are overused.
+
+# Closing thoughts
+Ultimately, going to hackathons is not about the winning. Rather, it’s about the experience. If there are winners, there’s often those that don’t win. Don’t be discouraged if you don’t come home with prizes. Instead, realize that you should always pay attention to what types of projects are winning in each hackathon and try learning more from them. If you follow these tips, even if you end up empty-handed, you met new people, had fun coding, and made an app that also helps a greater cause. 
+
+
