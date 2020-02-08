@@ -1,5 +1,5 @@
 ---
-title: Punderline \#2&#58; Camels!
+title: Punderline 2&#58; Camels!
 description: A new pun from George Liu's Punderline
 project: puns
 ---
