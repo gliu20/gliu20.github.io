@@ -6,7 +6,7 @@ title: Site Search
 
 <header class="page-header">
       <h1 class="project-name">Search</h1>
-      <form action="/search.html" method="get">
+      <form class="search-form" action="/search.html" method="get">
         <input name="q" type="text" />
         <input type="submit" />
       </form>
