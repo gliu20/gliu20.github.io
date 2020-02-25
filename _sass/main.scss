@@ -143,14 +143,14 @@
 
 .search-form {
 	input[type=submit] {
-		background:rgba(0,0,0,0.86);
-		padding:10px;
+		background:rgba(0,0,0,0.4);
+		padding:10px 15px;
 		border:none;
 		border-radius:6px;
 	}
 	
 	input[type=text] {
-		background:rgba(255,255,255,0.6);
+		background:rgba(255,255,255,0.86);
 		color:rgba(0,0,0,0.86);
 		padding:10px;
 		border:none;
