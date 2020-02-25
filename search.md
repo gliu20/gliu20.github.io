@@ -8,7 +8,7 @@ title: Site Search
       <h1 class="project-name">Search</h1>
       <form class="search-form" action="/search.html" method="get">
         <input name="q" type="text" />
-        <input type="submit" value="search"/>
+        <input type="submit" value="Search"/>
       </form>
 </header>
 
