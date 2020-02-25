@@ -140,3 +140,20 @@
     font-size: 1rem;
   }
 }
+
+.search-form {
+	input[type=submit] {
+		background:rgba(0,0,0,0.86);
+		padding:10px;
+		border:none;
+		border-radius:6px;
+	}
+	
+	input[type=text] {
+		background:rgba(255,255,255,0.6);
+		color:rgba(0,0,0,0.86);
+		padding:10px;
+		border:none;
+		border-radius:6px;
+	}
+}
