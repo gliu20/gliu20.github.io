@@ -6,6 +6,7 @@ description: A mix of comics, jokes, and punchlines plus puns!
 
 # What is Punderline?
 Punderline is a webcomic that consists of a unique mix of comics, jokes, and punchlines combined with puns that are published on a weekly basis on every Friday. Topics range from animals to physics to math. 
+
 ![Punderline: Puns on every Friday](/assets/puns/punderline banner.jpg)
 
 # About the name
