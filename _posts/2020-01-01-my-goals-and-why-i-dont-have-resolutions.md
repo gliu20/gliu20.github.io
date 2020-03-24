@@ -11,15 +11,17 @@ In my opinion, New Year's resolutions encourages thinking of our life goals as s
 However, if we truly want to commit to achieving our goals, it's not viable to treat them as something to put off until the holidays. In fact, goals shouldn't even be things we wait until New Year's to make; they should be made and updated on a regular basis, not a one off commitment.
 
 # What I'm doing instead
-Instead of yearly commitments, I make general self-improvement goals that each have their own subgoals.
+Instead of yearly commitments, I make general self-improvement goals (which I like to call LLCs for Life-Long Commitments) that each have their own subgoals.
 
 For instance here are my goals and subgoals:
+
 Become a pro at Web Dev
  - Learn Svelte3 and TailwindCSS
  - Learn React and React Native
   - Complete the FreeCodeCamp Front End Libraries Certification
  - Learn Typescript and NodeJS
  - Learn Backend
+ 
 Do more fun things
  - Read an article on programming, science, tech, or AI each day
  - Learn something new each month by watching educational Youtube videos from channels like 3Blue1Brown, Numberphile, Ted Talks, Physics Girl, Computerphile, Practical Engineering etc. 
