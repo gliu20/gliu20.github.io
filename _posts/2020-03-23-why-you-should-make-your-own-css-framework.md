@@ -17,3 +17,5 @@ Building your own framework can help you:
 1. Gain a greater appreciation for what they try to solve
 2. Discover new discussions of which you were previously unaware
 3. Broaden your understanding of the fundamentals
+
+To conclude this post, I challenge you to build your own CSS framework, and I encourage you to share what you learned. 
