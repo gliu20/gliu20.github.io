@@ -15,6 +15,11 @@ Instead of yearly commitments, I make general self-improvement goals (which I li
 
 For instance here are my goals and subgoals:
 
+Expand [Midway, the Chrome extension for students and teachers](https://midway.web.app)
+ - Increase my marketing efforts within my school by getting Midway on the [Scarsdale High School library page](https://www.scarsdaleschools.k12.ny.us/domain/80)
+ - Bring Midway to schools across Westchester
+ - Build admin portal and an automated new school request form 
+
 Become a pro at Web Dev
  - Learn Svelte3 and TailwindCSS
  - Learn React and React Native
