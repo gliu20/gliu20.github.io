@@ -3,7 +3,7 @@ title: Why you should build your own CSS framework and what I learned as a resul
 description: It's often too easy to just include a CSS framework, but before we mindlessly add it to our projects, let's consider what we are losing out on by doing so. 
 ---
 
-With a flood of custom CSS frameworks, it helps to dive deeper into why that's the case. With many frameworks including kilobytes of never used CSS and the many more styles that need to be overriden, it's not hard to see how most frameworks do too much, adding unnecessary bloat and slowing page speeds. But beyond heavy [frameworks like Bootstrap](https://getbootstrap.com/), there are a rising number of utility-first frameworks, such as [Tailwind](https://tailwindcss.com/), that don't have the bloat and customization issues like Bootstrap and their counterparts.
+With a flood of custom CSS frameworks, it helps to dive deeper into why that's the case. With many frameworks including kilobytes of never used CSS and the many more styles that need to be overridden, it's not hard to see how most frameworks do too much, adding unnecessary bloat and slowing page speeds. But beyond heavy [frameworks like Bootstrap](https://getbootstrap.com/), there are a rising number of utility-first frameworks, such as [Tailwind](https://tailwindcss.com/), that don't have the bloat and customization issues like Bootstrap and their counterparts.
 
 # So, why reinvent the wheel?
 Oftentimes, I found the best way to learn is to do things on your own. While our individual implementations might not be as advanced, I think it's enlightening to go through the process without a framework and discover the rationale behind the design choices.
