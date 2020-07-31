@@ -9,6 +9,7 @@ Algebraic fractals, like those of the Julia and the Mandelbrot Sets, are rich wi
 Follow these links to try out the fractal viewers. Make sure to use a high-performance device (with a good GPU).
  * [Mandelbrot Set Generator](https://gliu20.github.io/fractals/mandelbrot.html)
  * [Julia Set Generator](https://gliu20.github.io/fractals/julia.html)
+ * [EXPERIMENTAL: New Mandelbrot Set Generator](https://gliu20.github.io/fractals/mandelbrot.html) (Currently only zooming with mouse scroll works)
 
 ### Limitations
 Do not view on a mobile device. Controls will not work and there may be performance issues.
