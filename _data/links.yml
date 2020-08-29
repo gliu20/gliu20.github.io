@@ -1,0 +1,9 @@
+- name: About
+  link: /about/
+  links:
+    - name: Mission
+      link: /about/mission/
+    - name: Values
+      link: /about/values/
+    - name: Contact
+      link: /about/contact/
