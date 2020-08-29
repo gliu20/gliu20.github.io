@@ -1,0 +1,32 @@
+{
+  "name": "gliu20.github.io",
+  "version": "3.0.0",
+  "description": "George Liu's Personal Website",
+  "private": true,
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"No tests specified. No tests ran.\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gliu20/gliu20.github.io.git"
+  },
+  "keywords": [
+    "george",
+    "liu",
+    "website",
+    "web",
+    "developer",
+    "entrepreneur",
+    "engineer",
+    "software",
+    "product",
+    "product-minded"
+  ],
+  "author": "George Liu",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/gliu20/gliu20.github.io/issues"
+  },
+  "homepage": "https://github.com/gliu20/gliu20.github.io#readme"
+}
