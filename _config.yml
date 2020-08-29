@@ -1,5 +1,5 @@
 title: George Liu
-tagline: Product-minded Developer
+tagline: Product-Minded Developer
 description: >- # this means to ignore newlines for the value below
   Get the latest updates from George Liu regarding recent projects,
   learning goals, puns, and reflections on life, entrepreneurship, and
@@ -15,6 +15,7 @@ collections:
 # Build settings
 plugins:
   - jekyll-feed
+  - jekyll-seo-tag
 
 # Exclude from processing.
 # The following items will not be processed, by default.
