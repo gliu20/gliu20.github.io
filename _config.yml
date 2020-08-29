@@ -7,6 +7,10 @@ baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://gliu20.github.io"
 
 
+collections:
+  projects:
+
+
 # Build settings
 plugins:
   - jekyll-feed
