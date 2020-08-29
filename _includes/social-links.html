@@ -1,0 +1,45 @@
+{% capture social_icons %}
+fab fa-facebook-f,
+fab fa-twitter,
+fab fa-pinterest-p,
+fab fa-reddit-alien,
+fab fa-linkedin-in
+{% endcapture %}
+
+{% capture social_names %}
+Facebook,
+Twitter,
+Pinterest,
+Reddit,
+Linkedin
+{% endcapture %}
+
+{% assign encoded_page_url = page.url | url_encode %}
+{% assign encoded_page_image = page.image | url_encode %}
+{% assign encoded_page_title = page.title | url_encode %}
+{% assign encoded_page_description = page.description | url_encode %}
+
+{% capture social_links %}
+https://www.facebook.com/sharer/sharer.php?u={{ encoded_page_url }},
+https://twitter.com/intent/tweet?text={{ encoded_page_title }}&url={{ encoded_page_url }},
+https://pinterest.com/pin/create/button/?url={{ encoded_page_url }}&media={{ encoded_page_image }}&description={{ encoded_page_description }},
+http://www.reddit.com/submit?url={{ encoded_page_url }}&title={{ encoded_page_title }},
+https://www.linkedin.com/shareArticle?mini=true&url={{ encoded_page_url }}&title={{ encoded_page_title }}&summary={{ encoded_page_description }}
+{% endcapture %}
+
+{% assign social_icons = social_icons | strip_newlines | split: "," %}
+{% assign social_names = social_names | strip_newlines | split: "," %}
+{% assign social_links = social_links | strip_newlines | split: "," %}
+
+
+<div class="field has-addons">
+    {% for i in (0..4) %}
+    <p class="control">
+        <a class="button is-blue" href="{{ social_links[i] }}" title="{{ social_names[i] }}">
+            <span class="icon">
+                <i class="{{ social_icons[i] }} fa-lg"></i>
+            </span>
+        </a>
+    </p>
+    {% endfor %}
+</div>
