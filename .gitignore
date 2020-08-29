@@ -1,1 +1,10 @@
+
+# node
 **node_modules/**
+
+# jekyll
+_site
+.sass-cache
+.jekyll-cache
+.jekyll-metadata
+vendor
