@@ -1,0 +1,15 @@
+{% capture seo_info%}
+{% seo %}
+{% endcapture %}
+
+{% assign seo_info = seo_info | split: "-->" %}
+{% assign seo_info = seo_info[1] | split: "<!--" %}
+
+{% assign seo_title = seo_info | first | split: "</title>" | first %}
+{% assign seo_title = seo_title | append: "</title>" %}
+
+{% assign seo_info = seo_info | first | split: "/>" %}
+{% assign seo_info = seo_info | slice: 1, seo_info.size %}
+
+{{ seo_title | strip }}
+{{ seo_info | join: "/>" }}
