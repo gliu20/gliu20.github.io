@@ -17,8 +17,8 @@
     &.is-active {
         .navbar-link-tab.is-active-page {
             .navbar-link {
-                background-color: $navbar-item-hover-background-color;
                 color: $navbar-item-hover-color;
+                font-weight: $weight-bold;
             }
         }
     }
