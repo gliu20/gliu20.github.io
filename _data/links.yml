@@ -1,18 +1,6 @@
 - name: Home
   link: /
   links:
-- name: About
-  link: /about/
-  links:
-    - name: About
-      link: /about/
-    - name: Mission
-      link: /about/mission/
-    - name: Values
-      link: /about/values/
-    - name: ---
-    - name: Contact
-      link: /about/contact/
 - name: Work
   link: /work/
   links:
@@ -43,3 +31,15 @@
       link: /projects/polydice/
     - name: Fractals
       link: /projects/fractals/
+- name: About
+  link: /about/
+  links:
+    - name: About
+      link: /about/
+    - name: Mission
+      link: /about/mission/
+    - name: Values
+      link: /about/values/
+    - name: ---
+    - name: Contact
+      link: /about/contact/
