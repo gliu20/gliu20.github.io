@@ -1,7 +1,7 @@
 <footer class="footer">
     <div class="container is-fluid">
         <div class="columns is-multiline is-mobile">
-            <div class="column full-height is-full-mobile">
+            <div class="column full-height is-full-mobile is-full-tablet is-one-quarter-desktop">
                 <h2 class="title is-5">{{ site.title }}</h2>
                 <p class="subtitle is-6">{{ site.tagline }}</p>
                 <div class="full-height-flex-space"></div>
@@ -17,10 +17,10 @@
         </div>
         <div class="level">
             <div class="level-left">
-                {% include social-media.html variant="is-primary is-light" %}
+                <p>&copy; Copyright {{ 'now' | date: "%Y" }}. All rights reserved.</p>
             </div>
             <div class="level-right">
-                <p>&copy; Copyright {{ 'now' | date: "%Y" }}. All rights reserved.</p>
+                {% include social-media.html variant="is-primary is-light" %}
             </div>
         </div>
 
