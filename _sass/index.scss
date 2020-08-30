@@ -26,10 +26,13 @@ $body-overflow-y:auto;
 
 
 
+// variable modifications
+@import "footer.scss";
+@import "buttons.scss";
 
-
-
+// bulma
 @import "../node_modules/bulma/bulma.sass";
-@import "nav-bar";
-@import "footer";
-@import "buttons";
+
+// style overrides or additions
+@import "nav-bar.scss";
+@import "full-height.scss";
