@@ -7,16 +7,19 @@ description: >- # this means to ignore newlines for the value below
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://gliu20.github.io"
 
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: "default"
 
 collections:
   projects:
-
 
 # Build settings
 plugins:
   - jekyll-feed
   - jekyll-seo-tag
-
 # Exclude from processing.
 # The following items will not be processed, by default.
 # Any item listed under the `exclude:` key here will be automatically added to
