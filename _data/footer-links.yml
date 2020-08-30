@@ -1,0 +1,40 @@
+- name: Work
+  link: /work/
+  links:
+    - name: All Work
+      link: /work/
+    - name: Entrepreneurship
+      link: /work/entrepreneurship/
+    - name: Product Management
+      link: /work/product-management/
+    - name: Engineering
+      link: /work/engineering/
+    - name: Volunteer Work
+      link: /work/volunteer/
+- name: Projects
+  link: /projects/
+  links:
+    - name: All Projects
+      link: /projects/
+    - name: Featured Projects
+      link: /projects/featured/
+    - name: Midway
+      link: /projects/midway/
+    - name: Polydice
+      link: /projects/polydice/
+    - name: Fractals
+      link: /projects/fractals/
+- name: About
+  link: /about/
+  links:
+    - name: About
+      link: /about/
+    - name: Blog
+      link: /blog/
+    - name: Mission
+      link: /about/mission/
+    - name: Values
+      link: /about/values/
+    - name: Contact
+      link: /about/contact/
+    
