@@ -17,7 +17,7 @@
         <div class="navbar-end">
             {% assign dropdown_main = "navbar-item navbar-link-tab is-hoverable has-dropdown" %}
 
-            {% for link_group in site.data.links %}
+            {% for link_group in site.data.nav-links %}
                 {% if page.url contains link_group.link %}
                     {% assign dropdown_main_if_active = dropdown_main | append:" is-active-page" %}
                 {% else %}
