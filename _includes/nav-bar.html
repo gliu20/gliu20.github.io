@@ -43,9 +43,15 @@
                                 {% if link.name == "---" %}
                                     <hr class="navbar-divider">
                                 {% else %}
-                                    <a href="{{ link.link }}" class="navbar-item">
-                                        {{ link.name }}
-                                    </a>
+                                    {% if page.url == link.link %}
+                                        <a href="{{ link.link }}" class="navbar-item is-active">
+                                            {{ link.name }}
+                                        </a>
+                                    {% else %}
+                                        <a href="{{ link.link }}" class="navbar-item">
+                                            {{ link.name }}
+                                        </a>
+                                    {% endif %}
                                 {% endif %}
                             {% endfor %}
                         </div>
