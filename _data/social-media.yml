@@ -1,0 +1,27 @@
+# when updating this file, you must also update
+# the _config.yml with the corresponding changes
+
+- name: Facebook
+  username: george.liu.dev 
+  icon: fab fa-facebook-f
+  link: https://www.facebook.com/george.liu.dev/
+- name: Twitter
+  username: GeorgeLiuDev 
+  icon: fab fa-twitter
+  link: https://twitter.com/GeorgeLiuDev/
+- name: Instagram
+  username: thepunderline 
+  icon: fab fa-instagram
+  link: https://www.instagram.com/thepunderline/
+- name: Github
+  username: gliu20 
+  icon: fab fa-github
+  link: https://github.com/gliu20
+- name: freeCodeCamp
+  username: gliu20 
+  icon: fab fa-free-code-camp
+  link: https://www.freecodecamp.org/gliu20
+- name: LinkedIn
+  username: george-liu-dev 
+  icon: fab fa-linkedin-in
+  link: https://linkedin.com/in/george-liu-dev/
