@@ -1,8 +1,30 @@
 <footer class="footer">
-    <div class="container content is-fluid">
-        <p>
-            Footer
-        </p>
-        {% include social-media.html variant="is-primary is-light" %}
+    <div class="container is-fluid">
+        <div class="columns is-multiline is-mobile">
+            <div class="column full-height is-full-mobile">
+                <h2 class="title is-5">{{ site.title }}</h2>
+                <p class="subtitle is-6">{{ site.tagline }}</p>
+                <div class="full-height-flex-space"></div>
+            </div>
+            {% for link_group in site.data.footer-links %}
+            <div class="column content is-full-mobile is-one-third-tablet is-one-quarter-desktop">
+                <p class="heading">{{ link_group.name }}</p>
+                {% for link in link_group.links %}
+                <p><a href="{{ link.link }}">{{ link.name }}</a></p>
+                {% endfor %}
+            </div>
+            {% endfor %}
+        </div>
+        <div class="level">
+            <div class="level-left">
+                {% include social-media.html variant="is-primary is-light" %}
+            </div>
+            <div class="level-right">
+                <p>&copy; Copyright {{ 'now' | date: "%Y" }}. All rights reserved.</p>
+            </div>
+        </div>
+
+
+
     </div>
 </footer>
