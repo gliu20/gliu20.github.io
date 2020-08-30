@@ -20,16 +20,16 @@ $primary:#5f27cd;
 $info: #0abde3;
 
 
-
 // Update Bulma's global variables
 $family-sans-serif: "Nunito", sans-serif;
 $body-overflow-y:auto;
 
-// buttons
-$button-border-width: 0px;
+
+
 
 
 
 @import "../node_modules/bulma/bulma.sass";
 @import "nav-bar";
 @import "footer";
+@import "buttons";
