@@ -8,7 +8,7 @@
 }
 
 .navbar-menu {
-    
+    min-height: $navbar-height;
     .navbar-link-tab {
         &.is-active-page {
             background-color: $navbar-tab-active-background-color;
