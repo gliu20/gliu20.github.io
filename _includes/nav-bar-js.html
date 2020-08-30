@@ -1,8 +1,37 @@
 <script>
+
+
+    function debounce(timeout, deferredCallback, immediateCallback) {
+        let instance;
+        return function () {
+            clearTimeout(instance);
+
+            immediateCallback = immediateCallback || function () { };
+            immediateCallback();
+
+            instance = setTimeout(deferredCallback, timeout);
+        }
+    }
+
+
+
     document.addEventListener('DOMContentLoaded', () => {
 
         // Get all "navbar-burger" elements
         const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
+        const clearNavbarOnResize = debounce(100, () => {
+            console.log("clear")
+            $navbarBurgers.forEach(el => {
+
+                // Get the target from the "data-target" attribute
+                const target = el.dataset.target;
+                const $target = document.getElementById(target);
+
+                // Turn off the "is-active" class on both the "navbar-burger" and the "navbar-menu"
+                el.classList.remove('is-active');
+                $target.classList.remove('is-active');
+            });
+        });
 
         // Check if there are any navbar burgers
         if ($navbarBurgers.length > 0) {
@@ -21,6 +50,11 @@
 
                 });
             });
+
+            // inactivate navbar on resize
+            window.addEventListener("resize", () => {
+                clearNavbarOnResize();
+            })
         }
 
     });
