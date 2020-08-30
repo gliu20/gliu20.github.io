@@ -38,6 +38,10 @@
         
             &.is-active-page {
                 border-bottom-color: $navbar-tab-active-border-bottom-color;
+
+                .navbar-link {
+                    color: $navbar-item-hover-color;
+                }
             }
         }
     }   
