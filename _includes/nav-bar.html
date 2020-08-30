@@ -1,7 +1,7 @@
 <nav class="navbar is-transparent is-spaced" role="navigation" aria-label="main navigation">
     <div class="navbar-brand">
         <a class="navbar-item" href="{{ site.url }}">
-            <h2 class="title is-4">George</h2>
+            <h2 class="title is-4">{{ site.title }}</h2>
         </a>
 
         <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbar">
@@ -22,22 +22,35 @@
                 {% else %}
                     {% assign dropdown_main_if_active = dropdown_main %}
                 {% endif %}
-            <div class="{{ dropdown_main_if_active }}">
-                <a href="{{ link_group.link }}" class="navbar-link is-arrowless">
-                    {{ link_group.name }}
-                </a>
-                <div class="navbar-dropdown is-right">
-                    {% for link in link_group.links %}
-                        {% if link.name == "divider" %}
-                            <hr class="navbar-divider">
-                        {% else %}
-                            <a href="{{ link.link }}" class="navbar-item">
-                                {{ link.name }}
-                            </a>
-                        {% endif %}
-                    {% endfor %}
-                </div>
-            </div>
+                {% if link_group.links == nil %}
+                    {% if page.url == "/" %}
+                        {% assign home_if_active = "is-active" %}
+                    {% else %}
+                        {% assign home_if_active = "" %}
+                    {% endif %}
+                    <a 
+                        href="{{ link_group.link }}"
+                        class="navbar-item is-tab is-radiusless {{ home_if_active }}">
+                        {{ link_group.name }}
+                    </a>
+                {% else %}
+                    <div class="{{ dropdown_main_if_active }}">
+                        <a href="{{ link_group.link }}" class="navbar-link is-arrowless">
+                            {{ link_group.name }}
+                        </a>
+                        <div class="navbar-dropdown is-right">
+                            {% for link in link_group.links %}
+                                {% if link.name == "---" %}
+                                    <hr class="navbar-divider">
+                                {% else %}
+                                    <a href="{{ link.link }}" class="navbar-item">
+                                        {{ link.name }}
+                                    </a>
+                                {% endif %}
+                            {% endfor %}
+                        </div>
+                    </div>
+                {% endif %}
             {% endfor %}
 
         </div>
