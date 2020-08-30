@@ -1,6 +1,9 @@
 - name: Home
   link: /
   links:
+- name: Blog
+  link: /blog/
+  links:
 - name: Work
   link: /work/
   links:
@@ -23,7 +26,7 @@
       link: /projects/
     - name: ---
     - name: Featured Projects
-      link: /projects/Featured/
+      link: /projects/featured/
     - name: ---
     - name: Midway
       link: /projects/midway/
