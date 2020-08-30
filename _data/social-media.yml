@@ -21,6 +21,10 @@
   username: gliu20 
   icon: fab fa-free-code-camp
   link: https://www.freecodecamp.org/gliu20
+- name: Dev.to
+  username: gliu20
+  icon: fab fa-dev
+  link: https://dev.to/gliu20
 - name: LinkedIn
   username: george-liu-dev 
   icon: fab fa-linkedin-in
