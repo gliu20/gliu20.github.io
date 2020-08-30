@@ -20,7 +20,6 @@
         // Get all "navbar-burger" elements
         const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
         const clearNavbarOnResize = debounce(100, () => {
-            console.log("clear")
             $navbarBurgers.forEach(el => {
 
                 // Get the target from the "data-target" attribute
