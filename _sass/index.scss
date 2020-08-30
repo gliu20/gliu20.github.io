@@ -28,8 +28,8 @@ $body-overflow-y:auto;
 // buttons
 $button-border-width: 0px;
 
-// fix footer padding so that bottom padding is not too large
-$footer-padding: 3rem 1.5rem;
+
 
 @import "../node_modules/bulma/bulma.sass";
 @import "nav-bar";
+@import "footer";
