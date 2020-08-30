@@ -23,14 +23,14 @@
                     {% assign dropdown_main_if_active = dropdown_main %}
                 {% endif %}
                 {% if link_group.links == nil %}
-                    {% if page.url == "/" %}
-                        {% assign home_if_active = "is-active" %}
+                    {% if page.url == link_group.link %}
+                        {% assign link_if_active = "is-active" %}
                     {% else %}
-                        {% assign home_if_active = "" %}
+                        {% assign link_if_active = "" %}
                     {% endif %}
                     <a 
                         href="{{ link_group.link }}"
-                        class="navbar-item is-tab is-radiusless {{ home_if_active }}">
+                        class="navbar-item is-tab is-radiusless {{ link_if_active }}">
                         {{ link_group.name }}
                     </a>
                 {% else %}
