@@ -14,9 +14,32 @@
         <div class="navbar-start">
         </div>
         <div class="navbar-end">
-            <a class="navbar-item is-tab is-active">
-                About
-            </a>
+            {% assign dropdown_main = "navbar-item navbar-link-tab is-hoverable has-dropdown" %}
+
+            {% for link_group in site.data.links %}
+                {% if page.url contains link_group.link %}
+                    {% assign dropdown_main_if_active = dropdown_main | append:" is-active-page" %}
+                {% else %}
+                    {% assign dropdown_main_if_active = dropdown_main %}
+                {% endif %}
+            <div class="{{ dropdown_main_if_active }}">
+                <a href="{{ link_group.link }}" class="navbar-link is-arrowless">
+                    {{ link_group.name }}
+                </a>
+                <div class="navbar-dropdown is-right">
+                    {% for link in link_group.links %}
+                        {% if link.name == "divider" %}
+                            <hr class="navbar-divider">
+                        {% else %}
+                            <a href="{{ link.link }}" class="navbar-item">
+                                {{ link.name }}
+                            </a>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+            {% endfor %}
+
         </div>
     </div>
 </nav>
