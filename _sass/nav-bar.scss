@@ -6,6 +6,7 @@
 
 
 .navbar-menu {
+    
     .navbar-link-tab {
         &.is-active-page {
             background-color: $navbar-tab-active-background-color;
@@ -15,6 +16,20 @@
     }
 
     &.is-active {
+        .navbar-end > .navbar-item:not(.navbar-link-tab) {
+            border-bottom-color: transparent;
+            min-height: 0;
+
+            &:focus,
+            &:focus-within,
+            &:hover {
+                background-color: $navbar-item-hover-background-color;
+            }
+
+            &.is-active {
+                font-weight: $weight-bold;
+            }
+        }
         .navbar-link-tab.is-active-page {
             .navbar-link {
                 color: $navbar-item-hover-color;
@@ -28,7 +43,7 @@
             border-bottom-color: transparent;
             border-bottom-style: $navbar-tab-active-border-bottom-style;
             border-bottom-width: $navbar-tab-active-border-bottom-width;
-            //min-height: $navbar-height;
+            min-height: $navbar-height;
             //padding-bottom: calc(0.5rem - #{$navbar-tab-active-border-bottom-width});
         
             //&:focus, &:hover {
