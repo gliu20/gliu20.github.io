@@ -7,6 +7,9 @@ description: >- # this means to ignore newlines for the value below
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://gliu20.github.io"
 
+sass:
+  style: compressed
+
 defaults:
   - scope:
       path: ""
