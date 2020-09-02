@@ -6,6 +6,10 @@
   links:
     - name: All posts
       link: /blog/
+    - name: Learning goals
+      link: /blog/learning/
+    - name: Programming
+      link: /blog/programming/
     - name: Puns
       link: /blog/puns/
 - name: Work

@@ -1,3 +1,14 @@
+- name: Blog
+  link: /blog/
+  links:
+    - name: All posts
+      link: /blog/
+    - name: Learning goals
+      link: /blog/learning/
+    - name: Programming
+      link: /blog/programming/
+    - name: Puns
+      link: /blog/puns/
 - name: Work
   link: /work/
   links:
@@ -33,10 +44,6 @@
   links:
     - name: About
       link: /about/
-    - name: Blog
-      link: /blog/
-    - name: Puns
-      link: /blog/puns/
     - name: Mission
       link: /about/mission/
     - name: Values
