@@ -4,6 +4,10 @@
 - name: Blog
   link: /blog/
   links:
+    - name: All posts
+      link: /blog/
+    - name: Puns
+      link: /blog/puns/
 - name: Work
   link: /work/
   links:

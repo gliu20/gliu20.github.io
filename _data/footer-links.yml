@@ -35,6 +35,8 @@
       link: /about/
     - name: Blog
       link: /blog/
+    - name: Puns
+      link: /blog/puns/
     - name: Mission
       link: /about/mission/
     - name: Values
