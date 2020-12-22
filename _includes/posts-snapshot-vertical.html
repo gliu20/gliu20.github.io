@@ -38,10 +38,12 @@ posts=include.posts
 
         {% endfor %}
 
-
+        {% if include.hide_view_more %}
+        {% else %}
         <div class="block is-flex is-justify-content-end">
             <a class="button" href="{{ include.view_more }}">View all</a>
         </div>
+        {% endif %}
     </div>
 
 </section>
