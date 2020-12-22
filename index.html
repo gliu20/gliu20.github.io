@@ -46,17 +46,20 @@
     </div>
 </section>
 
-{% assign recent_three_posts = site.posts | limit: 3 %}
+{% assign recent_three_posts = site.posts | slice: 0,3 %}
 
 
 {% include posts-snapshot.html
 heading="Recent posts"
+view_more="/blog/"
 posts=recent_three_posts
 %}
 
 
-{% include posts-snapshot.html
-    heading="Puns"
+{% include posts-snapshot-vertical.html
+    heading="Recent projects"
     posts=recent_three_posts
+    view_more="/projects/"
     %}
+
 
