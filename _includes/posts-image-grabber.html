@@ -1,0 +1,7 @@
+{% comment %} 
+The reason for everything being on one line is to prevent 
+unnecessary creation of newlines. This is necessary for later
+code that processes this because it expects one url per line.
+{% endcomment %}
+{% for item in include.posts %}{% assign imageUrlCandidates = item.excerpt | split: "<img " %}{% assign imageUrlDirty = imageUrlCandidates[1]  %}{% assign imageUrlArray = imageUrlDirty | replace: "'",'"' | split: '"' %}{% assign imageUrl = imageUrlArray[1] %}{{ imageUrl | default: "https://bulma.io/images/placeholders/1280x960.png" }}
+{% endfor %}
