@@ -7,7 +7,7 @@
   "scripts": {
     "test": "echo \"No tests specified. No tests ran.\"",
     "jekyll-watch": "bundle exec jekyll serve",
-    "start":"npm run jekyll-watch"
+    "start": "npm run jekyll-watch"
   },
   "repository": {
     "type": "git",
