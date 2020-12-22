@@ -24,8 +24,6 @@ $link: $primary;
 $family-sans-serif: "Nunito", sans-serif;
 $body-overflow-y:auto;
 
-
-
 // variable modifications
 @import "footer.scss";
 @import "buttons.scss";
@@ -60,3 +58,4 @@ $body-overflow-y:auto;
 // style overrides or additions
 @import "nav-bar.scss";
 @import "full-height.scss";
+@import "hover-card.scss";
