@@ -1,14 +1,23 @@
+
+{% capture post_image_urls %}
+{% include posts-image-grabber.html
+posts=include.posts
+%}
+{% endcapture %}
+
+{% assign post_image_urls = post_image_urls | strip | newline_to_br | split: "<br />" %}
+
 <section class="section">
     <div class="container">
         <h1 class="title heading is-6 has-text-centered">{{ include.heading }}</h1>
         <div class="columns">
 
-            {% for item in include.three_posts %}
+            {% for item in include.posts %}
             <div class="column is-flex">
                 <div class="card is-flex-grow-1 is-flex-shrink-1">
                     <div class="card-image">
                         <figure class="image is-4by3">
-                            <img loading="lazy" src="{{ include.image_urls[forloop.index0] | strip_newlines }}" alt="Placeholder image">
+                            <img loading="lazy" src="{{ post_image_urls[forloop.index0] | strip_newlines }}" alt="Placeholder image">
                         </figure>
                     </div>
                     <div class="card-content">
