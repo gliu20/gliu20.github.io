@@ -8,7 +8,7 @@
             </div>
             {% for link_group in site.data.footer-links %}
             <div class="column content is-full-mobile is-half-tablet is-one-fifth-desktop">
-                <p class="heading">{{ link_group.name }}</p>
+                <p class="title heading is-7">{{ link_group.name }}</p>
                 {% for link in link_group.links %}
                 <p><a href="{{ link.link }}">{{ link.name }}</a></p>
                 {% endfor %}
