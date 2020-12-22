@@ -8,7 +8,7 @@
                 <div class="card is-flex-grow-1 is-flex-shrink-1">
                     <div class="card-image">
                         <figure class="image is-4by3">
-                            <img loading="lazy" src="{{ item.image }}" alt="Placeholder image">
+                            <img loading="lazy" src="{{ include.image_urls[forloop.index0] | strip_newlines }}" alt="Placeholder image">
                         </figure>
                     </div>
                     <div class="card-content">
@@ -19,7 +19,7 @@
                             </p>
                         </div>
                         <div class="block">
-                            {{ item.excerpt }}
+                            {{ item.excerpt | strip_html }}
                         </div>
                     </div>
                 </div>
