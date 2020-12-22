@@ -2,30 +2,29 @@
     <div class="container">
         <h1 class="title heading is-6 has-text-centered">{{ include.heading }}</h1>
         <div class="columns">
+
+            {% for item in include.three_posts %}
             <div class="column is-flex">
-                <div class="card">
+                <div class="card is-flex-grow-1 is-flex-shrink-1">
                     <div class="card-image">
                         <figure class="image is-4by3">
-                            <img src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image">
+                            <img loading="lazy" src="{{ item.image }}" alt="Placeholder image">
                         </figure>
                     </div>
                     <div class="card-content">
-                        <p class="title is-4">A title</p>
-                        <p class="subtitle is-6">
-                            <time datetime="2016-1-1">January 1, 2016</time>
-                        </p>
                         <div class="block">
-
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                            Phasellus nec iaculis mauris. <a>@bulmaio</a>. A meta
-                            dipiscing consectetur adipiscing elit. Phasellus nec
-                            iaculis mauris
-                            <a href="#">#css</a> <a href="#">#responsive</a>
-                            <br>
+                            <p class="title is-4">{{ item.title }}</p>
+                            <p class="subtitle is-6">
+                                <time datetime="{{ item.date }}">{{ item.date | date: "%b %d, %Y" }}</time>
+                            </p>
+                        </div>
+                        <div class="block">
+                            {{ item.excerpt }}
                         </div>
                     </div>
                 </div>
             </div>
+            {% endfor %}
         </div>
 
         <div class="block is-flex is-justify-content-end">
