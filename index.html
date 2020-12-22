@@ -48,7 +48,17 @@
 
 {% assign recent_three_posts = site.posts | sample: 3 %}
 
-{% include posts-trio.html 
-    heading="Recent posts"
-    three_posts=recent_three_posts
+{% capture post_image_urls %}
+    {% include posts-image-grabber.html
+    posts=recent_three_posts
+    %}
+{% endcapture %}
+
+{% assign post_image_urls = post_image_urls | strip | newline_to_br | split: "<br />" %}
+
+{% include posts-trio.html
+heading="Recent posts"
+three_posts=recent_three_posts
+image_urls=post_image_urls
 %}
+
