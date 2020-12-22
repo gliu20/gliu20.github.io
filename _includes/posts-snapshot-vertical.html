@@ -1,0 +1,47 @@
+{% capture post_image_urls %}
+{% include posts-image-grabber.html
+posts=include.posts
+%}
+{% endcapture %}
+
+{% assign post_image_urls = post_image_urls | strip | newline_to_br | split: "<br />" %}
+
+<section class="section">
+
+    <div class="container">
+
+        <h1 class="title heading is-6 has-text-centered">{{ include.heading }}</h1>
+
+        {% for item in include.posts %}
+
+        <a class="box" href="{{ item.url }}">
+            <div class="columns">
+                <div class="column is-one-third">
+                    <figure class="image is-4by3">
+                        <img loading="lazy" src="{{ post_image_urls[forloop.index0] | strip_newlines }}"
+                            alt="Placeholder image">
+                    </figure>
+                </div>
+                <div class="column is-flex is-flex-direction-column is-justify-content-center">
+                    <div class="block">
+                        <p class="title is-4">{{ item.title }}</p>
+                        <p class="subtitle is-6">
+                            <time datetime="{{ item.date }}">{{ item.date | date: "%b %d, %Y" }}</time>
+                        </p>
+                    </div>
+                    <div class="block">
+                        {{ item.excerpt | strip_html }}
+                    </div>
+                </div>
+            </div>
+        </a>
+
+        {% endfor %}
+
+
+        <div class="block is-flex is-justify-content-end">
+            <a class="button" href="{{ include.view_more }}">View all</a>
+        </div>
+    </div>
+
+</section>
