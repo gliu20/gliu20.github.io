@@ -14,7 +14,7 @@ posts=include.posts
 
             {% for item in include.posts %}
             <div class="column is-flex">
-                <div class="card is-flex-grow-1 is-flex-shrink-1">
+                <a class="card is-flex-grow-1 is-flex-shrink-1" href="{{ item.url }}">
                     <div class="card-image">
                         <figure class="image is-4by3">
                             <img loading="lazy" src="{{ post_image_urls[forloop.index0] | strip_newlines }}" alt="Placeholder image">
@@ -31,13 +31,13 @@ posts=include.posts
                             {{ item.excerpt | strip_html }}
                         </div>
                     </div>
-                </div>
+                </a>
             </div>
             {% endfor %}
         </div>
 
         <div class="block is-flex is-justify-content-end">
-            <a class="button" href="/blog/">View all</a>
+            <a class="button" href="{{ include.view_more }}">View all</a>
         </div>
     </div>
 </section>
