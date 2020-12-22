@@ -14,7 +14,7 @@ posts=include.posts
 
             {% for item in include.posts %}
             <div class="column is-flex">
-                <a class="card is-flex-grow-1 is-flex-shrink-1" href="{{ item.url }}">
+                <a class="card is-hover-card is-flex-grow-1 is-flex-shrink-1" href="{{ item.url }}">
                     <div class="card-image">
                         <figure class="image is-4by3">
                             <img loading="lazy" src="{{ post_image_urls[forloop.index0] | strip_newlines }}" alt="Placeholder image">
