@@ -5,6 +5,7 @@ project: timescend
 ---
 
 ![Screenshot of the new Timescend user interface](/assets/images/2019-05-12-timescend-thumbnail.png)
+
 # Productive sounds
 As a productivity tool, Timescend lacked the ability to play soothing sounds. That's disappointing, considering the many studies that demonstrate the benefits of music on stress and productivity. Now, Timescend includes a loop player to help you increase your productivity. 
 
