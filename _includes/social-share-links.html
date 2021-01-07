@@ -3,7 +3,7 @@
 {% assign encoded_page_title = page.title | url_encode %}
 {% assign encoded_page_description = page.description | url_encode %}
 
-<div class="field has-addons">
+<div class="field has-addons is-inline-flex">
     {% for social in site.data.social-share-links %}
     {% assign social_link = social.link %}
     {% assign social_link = social_link | replace: 'encoded_page_url', encoded_page_url %}
