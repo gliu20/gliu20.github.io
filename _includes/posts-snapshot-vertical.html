@@ -16,12 +16,13 @@ posts=include.posts
         <h1 class="title heading is-6 has-text-centered">{{ include.heading }}</h1>
 
         {% for item in include.posts %}
+        {% assign item_post_image_url = post_image_urls[forloop.index0] | strip_newlines %}
 
         <a class="box is-hover-card" href="{{ item.url }}">
             <div class="columns">
                 <div class="column is-one-third">
                     <figure class="image is-4by3">
-                        <img class="is-smart" loading="lazy" src="{{ post_image_urls[forloop.index0] | strip_newlines }}"
+                        <img class="is-smart" loading="lazy" src="{{ item.image | default: item_post_image_url }}"
                             alt="Placeholder image">
                     </figure>
                 </div>
