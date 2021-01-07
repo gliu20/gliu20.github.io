@@ -4,7 +4,7 @@ description: Despite my initial qualms, I am proud to have not only won the Inno
 ---
 Coming into the competition without a team, I was nervous about the people I'd meet and who I'd team up with. But, as I would later see, what matters most is not who's on the team, but the attitude I carry. 
 
-Arriving early to nearly empty classrooms, I was anxious from the start. Even after several hours, my assigned team had yet to show up. Nonetheless, I made the most of my time there, [networking](https://www.linkedin.com/in/george-liu-dev) with the Computer Science teachers to gain contacts for [expanding Midway to other schools](https://midway.web.app). 
+Arriving early to nearly empty classrooms, I was anxious from the start. Even after several hours, my assigned team had yet to show up. Nonetheless, I made the most of my time there, [networking](https://www.linkedin.com/in/george-liu-dev) with the Computer Science teachers and students to figure out ways to [bring Midway to other schools](https://midway.web.app). 
 
 After half an hour, the chairs beside me remained empty, so the event organizers formed new teams with the people who did show up. The people on my team were completely new to me, but within several hours, we were already laughing together, sharing our own experiences in high school, and speaking about our future desires.
 
