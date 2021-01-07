@@ -1,5 +1,5 @@
 ---
-title: The State of Passwords and A Better Way to Generate and Remember Secure Passwords
+title: A solution to passwords?
 description: Introducing a new tool to generate secure passwords
 project: polydice
 ---

@@ -1,5 +1,5 @@
 ---
-title: What I learned from winning 3rd place at Stuyhacks IX&#58; Common Misconceptions about Hackathons and Tips for Success
+title: What I learned winning 3rd place at Stuyhacks IX&#58; Misconceptions about Hackathons and Tips for Success
 description: I’m often surprised by the grand expectations that younger coders believe is necessary for success at Hackathon events. Here, in no particular order, are some of the most common misconceptions and tips I’ve learned.
 ---
 I’m often surprised by the grand expectations that younger coders believe is necessary for success at Hackathon events. Here, in no particular order, are some of the most common misconceptions and tips I’ve learned.
@@ -28,7 +28,7 @@ It is this last step that is often overlooked. Yet it has the most profound effe
 
 The quiz game that won Stuyhacks wasn’t necessarily more fun to play. Rather, it combined the cause of global warming into a quiz game that not only entertained users, but also raised awareness for the staggering carbon footprint of the average person.
 
-## Tips
+## Tips for success
 ### 1. Do your research
 Especially when you have no idea what to do, always make sure to research your problem carefully. Start by creating a team document for your research. Organize it with headings — you can press `ctrl-alt-1` to `ctrl-alt-2` etc. to make headings. Make sure to make a special section to cite your sources — you’re not making a research paper, but you should at least have some way of going back to what you found in case you might need it again.
 

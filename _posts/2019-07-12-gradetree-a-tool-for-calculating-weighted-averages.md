@@ -1,5 +1,5 @@
 ---
-title: Calculating Weighted Averages of Weighted Averages of Weighted Averages...  
+title: Calculating weighted averages of weighted averages...  
 project: gradetree
 description: A guide to using Gradetree to calculate both your grades and GPA
 ---
