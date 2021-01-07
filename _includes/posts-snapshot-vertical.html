@@ -4,7 +4,10 @@ posts=include.posts
 %}
 {% endcapture %}
 
-{% assign post_image_urls = post_image_urls | strip | newline_to_br | split: "<br />" %}
+{% capture new_line %}
+{% endcapture %}
+
+{% assign post_image_urls = post_image_urls | strip | split: new_line %}
 
 <section class="section">
 
