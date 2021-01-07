@@ -22,6 +22,18 @@ layout: default
             <div class="column is-8">
                 <div class="content">
                     {{ content }}
+
+                    
+                    <hr class="mb-2">
+                    
+                    <div class="block is-flex is-justify-content-space-between">
+                        {% if page.previous %}
+                        <a class="button has-text-primary is-text is-small" href="{{ page.previous.url }}">&lt;&lt; {{ page.previous.title }}</a>
+                        {% endif %}
+                        {% if page.next %}
+                        <a class="button has-text-primary is-text is-small" href="{{ page.next.url }}">{{ page.next.title }} &gt;&gt;</a>
+                        {% endif %}
+                    </div>
                 </div>
             </div>
             <div class="column"></div>
