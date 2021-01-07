@@ -7,7 +7,7 @@ With a flood of custom CSS frameworks, it helps to dive deeper into why that's t
 
 Since many mainstream frameworks include kilobytes of never used CSS and the many more styles that need to be overridden, it's not hard to see how most frameworks do too much, adding unnecessary bloat and slowing page speeds. But beyond heavy [frameworks like Bootstrap](https://getbootstrap.com/), there are a rising number of utility-first frameworks, such as [Tailwind](https://tailwindcss.com/), that don't have the bloat and customization issues like Bootstrap and their counterparts.
 
-With tools like [Sass](https://sass-lang.com/) and modern utilities like [CSS flexbox and grid](https://css-tricks.com/quick-whats-the-difference-between-flexbox-and-grid/), it's never been easier to build custom frameworks, and coupled with bloat problems and the need to override other people's styles, it's often easier to make one's own framework.
+With tools like [Sass](https://sass-lang.com/) and modern utilities like [CSS flexbox and grid](https://css-tricks.com/quick-whats-the-difference-between-flexbox-and-grid/), it's never been easier to build custom frameworks. Coupled with bloat problems and the need to override other people's styles, it's often easier to make one's own framework.
 
 With this in mind, I sought to create a replacement--one that passes [Google's Lighthouse](https://developers.google.com/web/tools/lighthouse) with flying colors!
 
