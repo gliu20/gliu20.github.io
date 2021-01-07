@@ -1,6 +1,6 @@
 ---
 title: Why I don't have New Year's resolutions
-description: It's that time of year when everyone asks about your New Year's resolutions. While I like the the rationale, personally, I don't think it works. Here's why.
+description: It's that time of year when everyone asks about your New Year's resolutions. While I like the rationale, personally, I don't think it works. Here's why.
 ---
 
 It's that time of year when everyone asks about their New Year's resolutions. While I like the rationale, personally, I don't think it works. Here's why.
