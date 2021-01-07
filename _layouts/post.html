@@ -28,3 +28,11 @@ layout: default
         </div>
     </div>
 </section>
+
+{% assign recent_three_posts = site.related_posts | sample: 3 %}
+
+{% include posts-snapshot.html
+heading="Related posts"
+posts=recent_three_posts
+hide_view_more=true
+%}
