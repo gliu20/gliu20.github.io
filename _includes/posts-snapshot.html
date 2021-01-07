@@ -31,7 +31,7 @@ posts=include.posts
                             </p>
                         </div>
                         <div class="block">
-                            {{ item.excerpt | strip_html }}
+                            {{ item.excerpt | strip_html | strip | default: item.description }}
                         </div>
                     </div>
                 </a>
