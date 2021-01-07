@@ -5,16 +5,13 @@ layout: default
 <section class="hero">
     <div class="hero-body">
         <div class="container has-text-centered">
-            <h1 class="title">{{ page.title }}</h1>
-            <p class="subtitle">{{ page.date | date_to_string }}</p>
-            {% include posts-tags.html tags=page.tags %}
+            <div class="block">
+                <h1 class="title">{{ page.title }}</h1>
+                <p class="subtitle">{{ page.date | date_to_string }}</p>
+                {% include post-tags.html tags=page.tags %}
+            </div>
             {% include social-share-links.html %}
         </div>
-    </div>
-</section>
-
-<section class="section">
-    <div class="container is-flex is-flex-justify-center">
     </div>
 </section>
 
