@@ -4,6 +4,8 @@ description: After a plethora of hard work pitching Midway to teachers, Midway h
 project: midway
 ---
 
+![Hockey stick graph showing exponential growth](/assets/images/2019-10-24-midway-100-thumbnail.jpg)
+
 After a plethora of hard work pitching Midway to teachers, Midway has finally reached 100 users. Originally beginning as a simple Chrome extension, Midway has become a sophisticated application, growing 1,590% to 4,496 lines of code.
 
 ![The Midway Chrome extension with exactly 100 users](/assets/images/2019-10-24-midway-100-users.png "The Chrome web store displays the Midway Chrome extension featuring exactly a hundred users.")
