@@ -2,6 +2,10 @@
 // adapted from line 191 of navbar.sass
 //
 
+.navbar.is-spaced {
+    padding:0;
+    margin: 1rem 2rem;
+}
 
 .navbar-brand img {
     max-height: 32px;
