@@ -1,0 +1,5 @@
+{% assign time_now = site.time | date: "%s%L" %}
+
+{% assign post_hash = post.content.size | times: 10 | plus: post.title.size | times: 1000 | plus: time_now | times: 10 |
+plus: post.url.size %}
+{% assign random_num = post_hash | times: 65537 | plus: 3 | modulo: 11 %}
