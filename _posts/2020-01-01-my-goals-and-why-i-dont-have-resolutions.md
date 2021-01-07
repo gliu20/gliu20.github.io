@@ -31,3 +31,6 @@ Do more fun things
  - Read an article on programming, science, tech, or AI each day
  - Learn something new each month by watching educational Youtube videos from channels like 3Blue1Brown, Numberphile, Ted Talks, Physics Girl, Computerphile, Practical Engineering etc. 
  - Make more puns (hope you punderstand!)
+
+# A Challenge to You
+No matter what day it is that you're reading this, I challenge you to come up with your own life-long commitments. Plans are scary, but at least figure out what's the first tiny steps needed to achieve it.

@@ -37,9 +37,9 @@ f <score: e.g. 97/100> (optional if there are sub assignments)
 ```
 
 ### Specifying sub assignments
-* Use 1 `#`s if it is the root assignment
-* Use 2 `#`s if it is the sub assignment of the root assignment
-* Use 3 `#`s if it is the sub assignment of the sub assignment of the root assignment
+* Use `#` if it is the root assignment
+* Use `##` if it is the sub assignment of the root assignment
+* Use `###` if it is the sub assignment of the sub assignment of the root assignment
 * etc...
 
 View it just like markdown headers; you specify a main heading with `#`, a subheading with `##`, and a subsubheading with `###`.
@@ -77,3 +77,5 @@ Demonstrates an example where Tests are worth 40% of quarter, Quizzes 40%, and P
 Click the Grade button to grade.
 
 
+# Conclusion
+To try out gradetree, visit the [project website](https://gliu20.github.io/gradetree/)

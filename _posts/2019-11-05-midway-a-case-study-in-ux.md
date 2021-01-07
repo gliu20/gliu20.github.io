@@ -4,7 +4,7 @@ description: Let's dive into the many steps we take to make Midway as easy and c
 project: midway
 ---
 
-Midway may seem like a simple application that displays the current period details, but there are surprising ways that can get in the way of a frictionless experience. As a Chrome extension developed by a student for teachers, Midway is committed to a great user experience.
+[Midway](https://gliu20.github.io/midway/) may seem like a simple application that displays the current period details, but there are surprising ways that can get in the way of a frictionless experience. As a Chrome extension developed by a student for teachers, Midway is committed to a great user experience.
 
 # Integration with SMART Technologies
 As a tool for facilitating efficient class time usage, one of the things I noticed was the widespread use of Midway alongside digital peripherals such as SMART boards. Especially among technologically-inclined teachers, much of the faculty make use of the pause feature on the SMART board, which freezes the display. One of the main issues of this feature is the fact that Midway's timebox display will show an outdated time because the screen is frozen. When working on the Midway improvement, this was one of the key considerations.

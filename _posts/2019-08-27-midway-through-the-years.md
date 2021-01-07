@@ -6,7 +6,7 @@ project: midway
 Midway changed a lot from its humble beginnings as a simple prototype to the complex extension it is now. Let's explore how it changed. Check out the latest version of the extension on [the Chrome Web Store](https://chrome.google.com/webstore/detail/midway/cgibedogghadelndgfacffoociffapii).
 
 # A Note on Versioning
-While it might seem as though I am using Semantic Versioning (or SemVer as the developer community calls it), I actually simply increase the numbers based on how significant I feel the change to be, rather than simply incrementing a major number or minor number by 1. 
+While it might seem as though I am using Semantic Versioning (or [SemVer](https://semver.org/) as the developer community calls it), I actually simply increase the numbers based on how significant I feel the change to be, rather than simply incrementing a major number or minor number by 1. 
 
 # The Initial Prototype (v1.3.15) - February 2018
 ![Midway branding image with extension logo for v1.3.15](https://gliu20.github.io/assets/images/2019-08-27-midway-big-tile.png)
@@ -61,6 +61,8 @@ I chose the last option because of these reasons:
 1. It was popular (at least among the small sample)
 2. It included better contextual information than the next best option
 3. It was more explicit; it didn't use abbreviations that may be hard for users to understand
+
+Of course, the sample size isn't particularly large to be entirely conclusive, but given the data I was able to collect, I believe that was the best decision.
 
 ## Better controls
 ![Midway v3.0.0 marketing slide 2](https://gliu20.github.io/assets/images/2019-08-27-3-midway-screenshot-3.png "Better controls for interacting with the timebox")

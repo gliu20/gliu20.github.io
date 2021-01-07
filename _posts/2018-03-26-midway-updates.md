@@ -13,7 +13,7 @@ Here they are below:
 ![Midway v1.4.2 marketing slide 2](https://gliu20.github.io/assets/images/2019-08-27-midway-screenshot-2-2.png "Click and drag the timebox to move it")
 ![Midway v1.4.2 marketing slide 3](https://gliu20.github.io/assets/images/2019-08-27-midway-screenshot-2-3.png "Midway is completely ad-free")
 
-## TL; DR
+## Summary of Changes
  * New redesigned look
  * Now displays the period info
  * Added ability to close time box
