@@ -8,7 +8,7 @@ layout: default
             <div class="block">
                 <h1 class="title">{{ page.title }}</h1>
                 <p class="subtitle">{{ page.date | date_to_string }}</p>
-                <p><em>{{ content | number_of_words }} words &bull; {{ content | number_of_words | divided_by: 200 | plus: 1 }} mins</em></p>
+                <p><em>{{ content | number_of_words }} words &bull; {{ content | number_of_words | divided_by: 300 | plus: 1 }} mins</em></p>
                 {% include post-tags.html tags=page.tags %}
             </div>
             {% include social-share-links.html %}
