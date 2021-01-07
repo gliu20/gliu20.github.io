@@ -3,7 +3,7 @@ title: Midway Through the Years
 description: Midway changed a lot from its humble beginnings as a simple prototype to the complex extension it is now. Let's explore how it changed.
 project: midway
 ---
-Midway changed a lot from its humble beginnings as a simple prototype to the complex extension it is now. Let's explore how it changed. Check out the latest version of the extension at [https://chrome.google.com/webstore/detail/midway/cgibedogghadelndgfacffoociffapii](https://chrome.google.com/webstore/detail/midway/cgibedogghadelndgfacffoociffapii).
+Midway changed a lot from its humble beginnings as a simple prototype to the complex extension it is now. Let's explore how it changed. Check out the latest version of the extension on [the Chrome Web Store](https://chrome.google.com/webstore/detail/midway/cgibedogghadelndgfacffoociffapii).
 
 # A Note on Versioning
 While it might seem as though I am using Semantic Versioning (or SemVer as the developer community calls it), I actually simply increase the numbers based on how significant I feel the change to be, rather than simply incrementing a major number or minor number by 1. 
