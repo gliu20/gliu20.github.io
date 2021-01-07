@@ -2,10 +2,19 @@
 layout: default
 ---
 
+<section class="hero">
+    <div class="hero-body">
+        <div class="container has-text-centered">
+            <h1 class="title">{{ page.title }}</h1>
+            <p class="subtitle">{{ page.date | date_to_string }}</p>
+            {% include posts-tags.html tags=page.tags %}
+            {% include social-share-links.html %}
+        </div>
+    </div>
+</section>
 
 <section class="section">
     <div class="container is-flex is-flex-justify-center">
-        {% include social-share-links.html %}
     </div>
 </section>
 
