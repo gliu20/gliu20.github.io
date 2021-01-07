@@ -1,0 +1,9 @@
+---
+---
+{% assign category_posts = site.posts | where_exp: "post","post.categories contains 'puns'" %}
+
+{% include posts-snapshot-vertical.html
+    heading="All puns"
+    posts=category_posts
+    hide_view_more=true
+    %}
