@@ -46,10 +46,19 @@ layout: default
     </div>
 </section>
 
-{% assign recent_three_posts = site.related_posts | slice: 1,10 | sample: 3 %}
+{% assign three_related_posts = site.related_posts | slice: 1,10 | sample: 3 %}
 
 {% include posts-snapshot.html
 heading="Related posts"
-posts=recent_three_posts
+posts=three_related_posts
 hide_view_more=true
+%}
+
+{% include posts-recommended.html 
+    view_type="vertical"
+    posts=site.posts
+    topk=10
+    count=4
+    heading="Must-reads"
+    hide_view_more=true
 %}
