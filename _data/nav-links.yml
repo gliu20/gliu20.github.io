@@ -1,0 +1,57 @@
+- name: Home
+  link: /
+  links:
+- name: Blog
+  link: /blog/
+  links:
+    - name: All posts
+      link: /blog/
+    - name: Learning goals
+      link: /blog/learning/
+    - name: Programming
+      link: /blog/programming/
+    - name: Puns
+      link: /blog/puns/
+- name: Work
+  link: /work/
+  links:
+    - name: All Work
+      link: /work/
+    - name: ---
+    - name: Entrepreneurship
+      link: /work/entrepreneurship/
+    - name: Product Management
+      link: /work/product-management/
+    - name: Engineering
+      link: /work/engineering/
+    - name: Graphics
+      link: /work/graphics/
+    - name: Marketing
+      link: /work/marketing/
+    - name: ---
+    - name: Volunteer Work
+      link: /work/volunteer/
+- name: Projects
+  link: /projects/
+  links:
+    - name: All Projects
+      link: /projects/
+    - name: ---
+    - name: Midway
+      link: /projects/midway/
+    - name: Polydice
+      link: /projects/polydice/
+    - name: Fractals
+      link: /projects/fractals/
+- name: About
+  link: /about/
+  links:
+    - name: About
+      link: /about/
+    - name: Mission
+      link: /about/mission/
+    - name: Values
+      link: /about/values/
+    - name: ---
+    - name: Contact
+      link: /about/contact/

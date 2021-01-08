@@ -1,0 +1,69 @@
+@charset "utf-8";
+
+$black: hsl(211, 36%, 4%);
+$black-bis: hsl(211, 36%, 7%);
+$black-ter: hsl(211, 36%, 14%);
+$grey-darker: hsl(211, 30%, 21%);
+$grey-dark: hsl(211, 24%, 29%);
+$grey: hsl(211, 18%, 48%);
+$grey-light: hsl(211, 24%, 71%);
+$grey-lighter: hsl(211, 30%, 86%);
+$grey-lightest: hsl(211, 36%, 93%);
+$white-ter: hsl(0, 0%, 96%);
+$white-bis: hsl(0, 0%, 98%);
+$white: hsl(0, 0%, 100%);
+
+$primary: #0040ff;
+
+//$primary:#5f27cd;
+//$info: #00c7ff;
+//$info: #0abde3;
+$link: $primary;
+
+// Update Bulma's global variables
+$family-sans-serif: "Nunito", sans-serif;
+$body-overflow-y:auto;
+
+// variable modifications
+@import "footer.scss";
+@import "buttons.scss";
+
+// bulma
+@import "../node_modules/bulma/bulma.sass";
+//@import "../node_modules/bulma/sass/utilities/_all";
+//
+//@import "../node_modules/bulma/sass/base/_all";
+//
+//@import "../node_modules/bulma/sass/elements/button";
+//@import "../node_modules/bulma/sass/elements/container";
+//@import "../node_modules/bulma/sass/elements/content";
+//@import "../node_modules/bulma/sass/elements/icon";
+//@import "../node_modules/bulma/sass/elements/title";
+//@import "../node_modules/bulma/sass/elements/other";
+//
+//
+//@import "../node_modules/bulma/sass/form/shared";
+//@import "../node_modules/bulma/sass/form/tools";
+//
+//@import "../node_modules/bulma/sass/components/navbar";
+//@import "../node_modules/bulma/sass/components/level";
+//
+//@import "../node_modules/bulma/sass/grid/columns";
+//
+//@import "../node_modules/bulma/sass/helpers/spacing";
+//@import "../node_modules/bulma/sass/helpers/other";
+//
+//@import "../node_modules/bulma/sass/layout/_all";
+
+// style overrides or additions
+@import "nav-bar.scss";
+@import "full-height.scss";
+@import "hover-card.scss";
+
+.image img.is-smart {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center center;
+    background:#eee;
+}

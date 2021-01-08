@@ -1,50 +1,32 @@
+---
+---
+
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-	
-	<meta charset="utf-8">
-	<meta name="viewport" content="initial-scale=1, width=device-width">
-	<meta content="IE=edge" http-equiv="X-UA-Compatible">
-	
-	<title>{{ page.title }} - George Liu</title>
-	
-	{% seo title=false %}
-	
-	<link rel="stylesheet" href="/assets/css/styles.css">
-	<link defer rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-	
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-110030906-2"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  gtag('config', 'UA-110030906-2');
-</script>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
 
-	
+    {% include stylesheets.html %}
+    <link rel="stylesheet" href="/assets/css/index.css">
+
+    {% include favicon.html %}
+    {% include seo-info.html %}
+    {% include analytics.html %}
 </head>
-<body>
-	{% include nav.html %}
-	{{ content }}
-	<footer class="page-footer">
-		<div class="page-footer-inner">
-			<h1>George Liu</h1>
-			<p>A self-taught developer passionate about technology, machine learning, and STEAM. Creator of <a href="https://gliu20.github.io/projects/midway">Midway</a>, the Chrome extension that helps students and teachers navigate the school schedule.</p>
-			<p>
-				<a href="https://github.com/gliu20" title="Github">
-					<img src="/assets/images/github-light.png" alt="Github" width="32px" height="32px">
-				</a>
-				<a href="https://www.linkedin.com/in/george-liu-dev" title="LinkedIn">
-					<img src="/assets/images/linkedin-light.png" alt="LinkedIn" width="32px" height="32px">
-				</a>
-				<a href="https://freecodecamp.org/gliu20" title="FreeCodeCamp">
-					<img src="/assets/images/freecodecamp-light.png" alt="FreeCodeCamp" style="padding: 5px 0px; padding: 5.125px 0px" width="32px" height="32px">
-				</a>
-			</p>
-			<p>&copy; Copyright 2018 - 2020. All rights reserved.</p>
-		</div>
-	</footer>
+
+<body class="full-height">
+    {% include nav-bar.html %}
+
+    {{ content }}
+    
+    <div class="full-height-flex-space"></div>
+
+    {% include footer.html %}
+    {% include nav-bar-js.html %}
 </body>
+
 </html>

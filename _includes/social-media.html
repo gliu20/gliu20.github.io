@@ -1,0 +1,11 @@
+<div class="field has-addons is-flex-wrap-wrap">
+    {% for social_media in site.data.social-media %}
+    <p class="control">
+        <a class="button {{ include.variant }}" href="{{ social_media.link }}" title="{{ social_media.name }} @{{ social_media.username }}">
+            <span class="icon">
+                <i class="{{ social_media.icon }} fa-lg"></i>
+            </span>
+        </a>
+    </p>
+    {% endfor %}
+</div>

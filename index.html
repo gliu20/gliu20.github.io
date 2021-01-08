@@ -1,0 +1,54 @@
+---
+---
+
+<section class="hero is-medium">
+    <div class="hero-body">
+        <div class="container">
+            <div class="columns is-variable is-vcentered is-5">
+                <div class="column is-half">
+                    <h1 class="title heading is-6">
+                        {{ site.tagline }}
+                    </h1>
+                    <h2 class="subtitle is-3 is-size-4-mobile">
+                        Hi there, I'm George Liu, a pun-maker, programming nerd, and design thinking fanatic!
+                    </h2>
+                </div>
+                <div class="column is-half is-narrow">
+                    <figure class="image is-16by9">
+                        <img src="pmd-logo.svg" alt="Image of javascript code">
+                    </figure>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="level">
+    <div class="level-item has-text-centered">
+        <div>
+            <p class="heading">GitHub contributions</p>
+            <p class="title is-3">1,000+</p>
+        </div>
+    </div>
+    <div class="level-item has-text-centered">
+        <div>
+            <p class="heading">Years programming</p>
+            <p class="title is-3">7+</p>
+        </div>
+    </div>
+    <div class="level-item has-text-centered">
+        <div>
+            <p class="heading">Repositories</p>
+            <p class="title is-3">40+</p>
+        </div>
+    </div>
+</section>
+
+{% include posts-recommended.html 
+    view_type="horizontal"
+    posts=site.posts
+    topk=3
+    count=3
+    heading="Featured posts"
+    view_more="/blog/"
+%}

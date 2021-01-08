@@ -1,0 +1,9 @@
+---
+---
+{% assign category_posts = site.posts | where_exp: "post","post.categories contains 'learning'" %}
+
+{% include posts-snapshot-vertical.html
+    heading="Learn with me"
+    posts=category_posts
+    hide_view_more=true
+    %}

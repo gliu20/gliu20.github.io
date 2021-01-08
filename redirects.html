@@ -1,0 +1,15 @@
+---
+layout: null
+---
+
+{% for post in site.posts %}
+{% assign post_path = post.date | date: "%Y-%m-%d-" | append: post.slug | append: ".md" %}
+{% assign post_path = post.categories | join: "/" | append: "/_posts/" | append: post_path %}
+<pre>
+- scope:
+    path: {{ post_path }}
+  values:
+    redirect_from:
+      - {{ post.date | date: "/%Y/%m/%d/" | append: post.slug | append: ".html"}}
+</pre>
+{% endfor %}

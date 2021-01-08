@@ -1,0 +1,17 @@
+---
+---
+
+{% include posts-recommended.html 
+    view_type="horizontal"
+    posts=site.posts
+    topk=9
+    count=3
+    heading="Recommended reads"
+    hide_view_more=true
+%}
+
+{% include posts-snapshot-vertical.html
+heading="From the blog archives"
+posts=site.posts
+hide_view_more=true
+%}
