@@ -10,6 +10,7 @@ posts=include.posts
 
 {% assign post_image_urls = post_image_urls | strip | split: new_line %}
 
+{% unless include.posts.size == 0 %}
 <section class="section">
     <div class="container">
         <h1 class="title heading is-6 has-text-centered">{{ include.heading }}</h1>
@@ -49,3 +50,4 @@ posts=include.posts
         {% endif %}
     </div>
 </section>
+{% endunless %}

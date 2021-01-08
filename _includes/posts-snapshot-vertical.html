@@ -9,6 +9,7 @@ posts=include.posts
 
 {% assign post_image_urls = post_image_urls | strip | split: new_line %}
 
+{% unless include.posts.size == 0 %}
 <section class="section">
 
     <div class="container">
@@ -51,3 +52,4 @@ posts=include.posts
     </div>
 
 </section>
+{% endunless %}
