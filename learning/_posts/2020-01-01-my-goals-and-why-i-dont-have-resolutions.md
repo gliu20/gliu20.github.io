@@ -1,6 +1,9 @@
 ---
 title: Why I don't have New Year's resolutions
 description: It's that time of year when everyone asks about your New Year's resolutions. While I like the rationale, personally, I don't think it works. Here's why.
+image: /assets/images/2020-01-01-goals-new-year-resolution.jpg
+image_caption: <span>Photo by <a href="https://unsplash.com/@maddibazzocco?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Maddi Bazzocco</a> on <a href="https://unsplash.com/s/photos/new-years?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a></span>
+image_alt: The January calendar rests on the desk
 ---
 
 It's that time of year when everyone asks about their New Year's resolutions. While I like the rationale, personally, I don't think it works. Here's why.
