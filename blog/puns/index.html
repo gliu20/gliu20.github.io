@@ -2,8 +2,17 @@
 ---
 {% assign category_posts = site.posts | where_exp: "post","post.categories contains 'puns'" %}
 
+{% include posts-recommended.html 
+    view_type="horizontal"
+    posts=category_posts
+    topk=10
+    count=3
+    heading="Pun highlights"
+    hide_view_more=true
+%}
+
 {% include posts-snapshot-vertical.html
-    heading="All puns"
+    heading="All Punderline puns"
     posts=category_posts
     hide_view_more=true
     %}
