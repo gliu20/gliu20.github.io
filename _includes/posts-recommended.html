@@ -43,8 +43,8 @@ We convert the indices of the best posts to the actual posts
 {% assign best_posts = "" | split: "," %}
 {% for item in sampled_posts %}
 
-    {% assign post_index = item | split: "-" | last | times: 1 %}
-    {% assign selected_post = site.posts[post_index] %} 
+    {% assign post_index = item | split: "-" | last | plus: 0 %}
+    {% assign selected_post = include.posts[post_index] %} 
     {% assign best_posts = best_posts | push: selected_post %}
 
 {% endfor %}
