@@ -1,6 +1,9 @@
 ---
 title: Why life needs entrepreneurial thinking&#58; How making goals is like starting a business
 description: I think that a lot of what entrepreneurs do is applicable to everyone. Our keen ability to find flaws in the status quo and then to take that initiative to spearhead a solution is something that we should apply to life itself and how we develop goals for ourselves.
+image: /assets/images/2020-01-07-entrepreneur-cover-photo.jpg
+image_caption: <span>Photo by <a href="https://unsplash.com/@iamkendall?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Kendall Ruth</a> on <a href="https://unsplash.com/s/photos/entrepreneur?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a></span>
+image_alt: A light bulb hangs from the cieling 
 ---
 I think that a lot of what entrepreneurs do is applicable to everyone. Our keen ability to find flaws in the status quo and then to take that initiative to spearhead a solution is something that we should apply to life itself and how we develop goals for ourselves.
 
