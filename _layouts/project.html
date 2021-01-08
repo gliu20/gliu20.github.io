@@ -1,66 +1,13 @@
 ---
 layout: default
 ---
-<section class="hero">
-    <div class="hero-body">
-        <div class="container has-text-centered">
-            <div class="block">
-                <h1 class="title">{{ page.title }}</h1>
-                <p class="subtitle">{{ page.description }}</p>
-                <p class="heading"><em>{{ content | strip_html | number_of_words }} words &bull; {{ content | number_of_words | divided_by: 300 | plus: 1 }} mins</em></p>
-                {% include post-tags.html tags=page.tags %}
-            </div>
-            {% include social-share-links.html %}
+{% include share-heading.html 
+    title=page.title
+    subtitle=page.description
+    content=content
+    tags=page.tags
+%}
 
-            
-        </div>
-    </div>
-</section>
+{% include feature-image.html %}
 
-
-{% if page.image %}
-<section class="section">
-    <div class="container">
-            {% include post-image.html 
-                src=page.image 
-                alt=page.image_alt
-                caption=page.image_caption
-            %}
-    </div>
-</section>
-{% endif %}
-
-
-<section class="section">
-    <div class="container">
-        
-        <div class="columns">
-            <div class="column"></div>
-            <div class="column is-8">
-                <div class="content is-medium">
-                    
-        
-                    {{ content }}
-
-                    
-                    <hr class="mb-2">
-                    
-                    <div class="block is-flex is-justify-content-space-between">
-                        {% if page.previous %}
-                        <a class="button has-text-primary is-text is-small" href="{{ page.previous.url }}"
-                            title="{{ page.previous.title }}"
-                            >&lt;&lt; {{ page.previous.title | truncate: 40 }}</a>
-                        {% endif %}
-                        {% if page.next %}
-                        <a class="button has-text-primary is-text is-small" href="{{ page.next.url }}"
-                            title="{{ page.next.title }}"
-                        >{{ page.next.title | truncate: 40 }} &gt;&gt;</a>
-                        {% endif %}
-                    </div>
-                </div>
-            </div>
-            <div class="column"></div>
-        </div>
-    </div>
-</section>
-
+{% include text-content-section.html content=content %}
