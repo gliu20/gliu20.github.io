@@ -1,6 +1,9 @@
 ---
 title: What I learned winning 3rd place at Stuyhacks IX&#58; Misconceptions about Hackathons and Tips for Success
 description: I’m often surprised by the grand expectations that younger coders believe is necessary for success at Hackathon events. Here, in no particular order, are some of the most common misconceptions and tips I’ve learned.
+image: /assets/images/2020-01-04-coding-cover.jpg
+image_caption: <span>Photo by <a href="https://unsplash.com/@alexacea?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Alexandru Acea</a> on <a href="https://unsplash.com/s/photos/coding?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a></span>
+image_alt: A desk with a laptop showing a coding environment 
 ---
 I’m often surprised by the grand expectations that younger coders believe is necessary for success at Hackathon events. Here, in no particular order, are some of the most common misconceptions and tips I’ve learned.
 
