@@ -2,6 +2,8 @@
 short_name: puns
 name: Punderline
 description: A mix of comics, jokes, and punchlines plus puns!
+redirect_from:
+ - /projects/punderline.html
 ---
 
 # What is Punderline?
