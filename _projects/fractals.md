@@ -2,6 +2,8 @@
 short_name: fractals
 name: Fractals
 description: A GPU-accelerated viewer for the Julia and Mandelbrot Sets
+redirect_from:
+ - /projects/fractals.html
 ---
 Algebraic fractals, like those of the Julia and the Mandelbrot Sets, are rich with interesting textures and designs. They are mathematical curiosities: out of such simple equations arises great complexity and beauty. 
 

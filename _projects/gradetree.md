@@ -2,6 +2,8 @@
 short_name: gradetree
 name: Gradetree
 description: A utility for calculating grades and GPA
+redirect_from:
+ - /projects/gradetree.html
 ---
 
 # Purpose
