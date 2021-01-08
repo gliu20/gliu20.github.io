@@ -31,8 +31,6 @@
   links:
     - name: All Projects
       link: /projects/
-    - name: Featured Projects
-      link: /projects/featured/
     - name: Midway
       link: /projects/midway/
     - name: Polydice
