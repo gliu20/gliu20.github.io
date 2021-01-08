@@ -1,6 +1,9 @@
 ---
 title: Why you should build your own CSS framework and what I learned building one
 description: It's often too easy to just include a CSS framework, but before we mindlessly add it to our projects, let's consider what we are losing out on by doing so. 
+image: /assets/images/2020-03-23-css-framework.png
+image_caption: Photo by me
+image_alt: Picture of a CSS framework written in Sass
 ---
 
 With a flood of custom CSS frameworks and a rise in utility-first CSS libraries, it helps to dive deeper into why that's the case, and why we should re-invent the wheel. 
