@@ -1,5 +1,0 @@
----
-permalink: /about/mission/
----
-
-# Mission
