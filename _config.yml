@@ -16,7 +16,7 @@ defaults:
       type: "projects"
     values:
       layout: "project"
-      permalink: /projects/:collection/
+      permalink: /:collection/:name/
   - scope:
       path: "" # an empty string here means all files in the project
       type: "posts" # previously `post` in Jekyll 2.2.
