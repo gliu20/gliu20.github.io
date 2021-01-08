@@ -21,7 +21,8 @@ posts=include.posts
                 <a class="card is-hover-card is-flex-grow-1 is-flex-shrink-1" href="{{ item.url }}">
                     <div class="card-image">
                         <figure class="image is-4by3">
-                            <img class="is-smart" loading="lazy" src="{{ item.image | default: item_post_image_url }}" alt="Placeholder image">
+                            <img class="is-smart" loading="lazy" src="{{ item.image | default: item_post_image_url }}"
+                             alt="Cover photo for {{ item.title }}">
                         </figure>
                     </div>
                     <div class="card-content">
