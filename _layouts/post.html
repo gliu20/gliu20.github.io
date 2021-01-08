@@ -12,16 +12,34 @@ layout: default
                 {% include post-tags.html tags=page.tags %}
             </div>
             {% include social-share-links.html %}
+
+            
         </div>
     </div>
 </section>
 
 <section class="section">
     <div class="container">
+        {% if page.image %}
+            {% include post-image.html 
+                src=page.image 
+                alt=page.image_alt
+                caption=page.image_caption
+            %}
+        {% endif %}
+    </div>
+</section>
+
+
+<section class="section">
+    <div class="container">
+        
         <div class="columns">
             <div class="column"></div>
             <div class="column is-8">
-                <div class="content">
+                <div class="content is-medium">
+                    
+        
                     {{ content }}
 
                     
