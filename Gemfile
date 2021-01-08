@@ -16,6 +16,7 @@ group :jekyll_plugins do
   gem "jekyll-feed", "~> 0.12"
   gem "jekyll-seo-tag", github: "jekyll/jekyll-seo-tag"
   gem 'jekyll-redirect-from'
+  gem 'jekyll-sitemap'
   gem "classifier-reborn"
   gem "gsl"
 end
