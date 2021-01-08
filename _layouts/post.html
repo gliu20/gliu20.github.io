@@ -18,17 +18,18 @@ layout: default
     </div>
 </section>
 
+{% if page.image %}
 <section class="section">
     <div class="container">
-        {% if page.image %}
             {% include post-image.html 
                 src=page.image 
                 alt=page.image_alt
                 caption=page.image_caption
             %}
-        {% endif %}
     </div>
 </section>
+{% endif %}
+
 
 
 <section class="section">
