@@ -1,0 +1,958 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
+
+    <link rel="stylesheet" href="/assets/css/index.css">
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+<meta name="msapplication-TileColor" content="#2b5797">
+<meta name="theme-color" content="#ffffff">
+
+
+    
+<title>What I learned winning 3rd place at Stuyhacks IX: Misconceptions about Hackathons and Tips for Success | George Liu</title>
+
+<meta property="og:title" content="What I learned winning 3rd place at Stuyhacks IX: Misconceptions about Hackathons and Tips for Success" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="I’m often surprised by the grand expectations that younger coders believe is necessary for success at Hackathon events. Here, in no particular order, are some of the most common misconceptions and tips I’ve learned." />
+<meta property="og:description" content="I’m often surprised by the grand expectations that younger coders believe is necessary for success at Hackathon events. Here, in no particular order, are some of the most common misconceptions and tips I’ve learned." />
+<link rel="canonical" href="https://gliu20.github.io/blog/programming/2020/01/04/what-i-learned-winning-stuyhacks-ix/" />
+<meta property="og:url" content="https://gliu20.github.io/blog/programming/2020/01/04/what-i-learned-winning-stuyhacks-ix/" />
+<meta property="og:site_name" content="George Liu" />
+<meta property="og:image" content="https://gliu20.github.io/assets/images/2020-01-04-coding-cover.jpg" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-01-04T00:00:00+00:00" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta property="twitter:image" content="https://gliu20.github.io/assets/images/2020-01-04-coding-cover.jpg" />
+<meta property="twitter:title" content="What I learned winning 3rd place at Stuyhacks IX: Misconceptions about Hackathons and Tips for Success" />
+<script type="application/ld+json">
+{"url":"https://gliu20.github.io/blog/programming/2020/01/04/what-i-learned-winning-stuyhacks-ix/","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://gliu20.github.io/blog/programming/2020/01/04/what-i-learned-winning-stuyhacks-ix/"},"image":"https://gliu20.github.io/assets/images/2020-01-04-coding-cover.jpg","headline":"What I learned winning 3rd place at Stuyhacks IX: Misconceptions about Hackathons and Tips for Success","dateModified":"2020-01-04T00:00:00+00:00","description":"I’m often surprised by the grand expectations that younger coders believe is necessary for success at Hackathon events. Here, in no particular order, are some of the most common misconceptions and tips I’ve learned.","datePublished":"2020-01-04T00:00:00+00:00","@context":"https://schema.org"}</script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-110030906-2"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    window.kpi = {
+        active: true,
+        addEvent: function (event_name, event_data) {
+            if (window.kpi.active) {
+                gtag("event", event_name, event_data)
+            }
+        }
+    }
+
+    function gtag() { dataLayer.push(arguments); }
+
+    gtag('js', new Date());
+    gtag('config', 'UA-110030906-2');
+
+    /*
+    window.kpi.addEvent('click_view_more_snapshot', {
+        shown_posts: [],
+        heading: '',
+        hide_view_more: 
+    });
+
+    window.kpi.addEvent('click_post_snapshot', {
+        shown_posts: [],
+        clicked_post: {
+            title: '',
+            date: '',
+            url: ''
+        },
+        heading: '',
+        hide_view_more: 
+    });
+
+    window.kpi.addEvent('click_share', {
+        clicked_post: {
+            title: 'What I learned winning 3rd place at Stuyhacks IX&amp;#58; Misconceptions about Hackathons and Tips for Success',
+            date: '2020-01-04 00:00:00 +0000',
+            url: '/blog/programming/2020/01/04/what-i-learned-winning-stuyhacks-ix/'
+        },
+        share_method: ''
+    });*/
+</script>
+</head>
+
+<body class="full-height">
+    <nav class="navbar is-transparent is-spaced" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+        <a class="navbar-item" href="/">
+            <img class="mr-4" width="30px" height="30px" alt="Product-Minded Developer" src="/apple-touch-icon.png">
+            <h2 class="title is-4">George Liu</h2>
+        </a>
+
+        <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbar">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+        </a>
+    </div>
+    <div class="navbar-menu" id="navbar">
+        <div class="navbar-start">
+        </div>
+        <div class="navbar-end">
+            
+
+            
+                
+                
+                    
+                    <a 
+                        href="/"
+                        class="navbar-item is-tab is-radiusless ">
+                        Home
+                    </a>
+                
+            
+                
+                
+                    <div class="navbar-item navbar-link-tab is-hoverable has-dropdown is-active-page">
+                        <a href="/blog/" class="navbar-link is-arrowless">
+                            Blog
+                        </a>
+                        <div class="navbar-dropdown is-right">
+                            
+                                
+                                    
+                                        <a href="/blog/" class="navbar-item">
+                                            All posts
+                                        </a>
+                                    
+                                
+                            
+                                
+                                    
+                                        <a href="/blog/learning/" class="navbar-item">
+                                            Learning goals
+                                        </a>
+                                    
+                                
+                            
+                                
+                                    
+                                        <a href="/blog/programming/" class="navbar-item">
+                                            Programming
+                                        </a>
+                                    
+                                
+                            
+                                
+                                    
+                                        <a href="/blog/puns/" class="navbar-item">
+                                            Puns
+                                        </a>
+                                    
+                                
+                            
+                        </div>
+                    </div>
+                
+            
+                
+                
+                    <div class="navbar-item navbar-link-tab is-hoverable has-dropdown">
+                        <a href="/work/" class="navbar-link is-arrowless">
+                            Work
+                        </a>
+                        <div class="navbar-dropdown is-right">
+                            
+                                
+                                    
+                                        <a href="/work/" class="navbar-item">
+                                            All Work
+                                        </a>
+                                    
+                                
+                            
+                                
+                                    <hr class="navbar-divider">
+                                
+                            
+                                
+                                    
+                                        <a href="/work/entrepreneurship/" class="navbar-item">
+                                            Entrepreneurship
+                                        </a>
+                                    
+                                
+                            
+                                
+                                    
+                                        <a href="/work/product-management/" class="navbar-item">
+                                            Product Management
+                                        </a>
+                                    
+                                
+                            
+                                
+                                    
+                                        <a href="/work/engineering/" class="navbar-item">
+                                            Engineering
+                                        </a>
+                                    
+                                
+                            
+                                
+                                    
+                                        <a href="/work/graphics/" class="navbar-item">
+                                            Graphics
+                                        </a>
+                                    
+                                
+                            
+                                
+                                    
+                                        <a href="/work/marketing/" class="navbar-item">
+                                            Marketing
+                                        </a>
+                                    
+                                
+                            
+                                
+                                    <hr class="navbar-divider">
+                                
+                            
+                                
+                                    
+                                        <a href="/work/volunteer/" class="navbar-item">
+                                            Volunteer Work
+                                        </a>
+                                    
+                                
+                            
+                        </div>
+                    </div>
+                
+            
+                
+                
+                    <div class="navbar-item navbar-link-tab is-hoverable has-dropdown">
+                        <a href="/projects/" class="navbar-link is-arrowless">
+                            Projects
+                        </a>
+                        <div class="navbar-dropdown is-right">
+                            
+                                
+                                    
+                                        <a href="/projects/" class="navbar-item">
+                                            All Projects
+                                        </a>
+                                    
+                                
+                            
+                                
+                                    <hr class="navbar-divider">
+                                
+                            
+                                
+                                    
+                                        <a href="/projects/midway/" class="navbar-item">
+                                            Midway
+                                        </a>
+                                    
+                                
+                            
+                                
+                                    
+                                        <a href="/projects/polydice/" class="navbar-item">
+                                            Polydice
+                                        </a>
+                                    
+                                
+                            
+                                
+                                    
+                                        <a href="/projects/fractals/" class="navbar-item">
+                                            Fractals
+                                        </a>
+                                    
+                                
+                            
+                        </div>
+                    </div>
+                
+            
+                
+                
+                    <div class="navbar-item navbar-link-tab is-hoverable has-dropdown">
+                        <a href="/about/" class="navbar-link is-arrowless">
+                            About
+                        </a>
+                        <div class="navbar-dropdown is-right">
+                            
+                                
+                                    
+                                        <a href="/about/" class="navbar-item">
+                                            About
+                                        </a>
+                                    
+                                
+                            
+                                
+                                    
+                                        <a href="/about/mission/" class="navbar-item">
+                                            Mission
+                                        </a>
+                                    
+                                
+                            
+                                
+                                    
+                                        <a href="/about/values/" class="navbar-item">
+                                            Values
+                                        </a>
+                                    
+                                
+                            
+                                
+                                    <hr class="navbar-divider">
+                                
+                            
+                                
+                                    
+                                        <a href="/about/contact/" class="navbar-item">
+                                            Contact
+                                        </a>
+                                    
+                                
+                            
+                        </div>
+                    </div>
+                
+            
+
+        </div>
+    </div>
+</nav>
+
+    
+
+<header class="hero">
+    <div class="hero-body">
+        <div class="container has-text-centered">
+            <div class="block">
+                <h1 class="title">What I learned winning 3rd place at Stuyhacks IX&#58; Misconceptions about Hackathons and Tips for Success</h1>
+                <p class="subtitle">04 Jan 2020</p>
+                <p class="heading"><em>1402 words &bull; 5 mins</em></p>
+                
+            </div>
+            
+
+
+
+
+<div class="field has-addons is-inline-flex">
+    
+    
+    
+    
+    
+    
+    <p class="control">
+        <a class="button is-dark" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fgliu20.github.io%2Fblog%2Fprogramming%2F2020%2F01%2F04%2Fwhat-i-learned-winning-stuyhacks-ix%2F" title="Facebook">
+            <span class="icon">
+                <i class="fab fa-facebook-f fa-lg"></i>
+            </span>
+        </a>
+    </p>
+    
+    
+    
+    
+    
+    
+    <p class="control">
+        <a class="button is-dark" href="https://twitter.com/intent/tweet?text=What+I+learned+winning+3rd+place+at+Stuyhacks+IX%26%2358%3B+Misconceptions+about+Hackathons+and+Tips+for+Success&url=https%3A%2F%2Fgliu20.github.io%2Fblog%2Fprogramming%2F2020%2F01%2F04%2Fwhat-i-learned-winning-stuyhacks-ix%2F" title="Twitter">
+            <span class="icon">
+                <i class="fab fa-twitter fa-lg"></i>
+            </span>
+        </a>
+    </p>
+    
+    
+    
+    
+    
+    
+    <p class="control">
+        <a class="button is-dark" href="https://pinterest.com/pin/create/button/?url=https%3A%2F%2Fgliu20.github.io%2Fblog%2Fprogramming%2F2020%2F01%2F04%2Fwhat-i-learned-winning-stuyhacks-ix%2F&media=%2Fassets%2Fimages%2F2020-01-04-coding-cover.jpg&description=I%E2%80%99m+often+surprised+by+the+grand+expectations+that+younger+coders+believe+is+necessary+for+success+at+Hackathon+events.+Here%2C+in+no+particular+order%2C+are+some+of+the+most+common+misconceptions+and+tips+I%E2%80%99ve+learned." title="Pinterest">
+            <span class="icon">
+                <i class="fab fa-pinterest-p fa-lg"></i>
+            </span>
+        </a>
+    </p>
+    
+    
+    
+    
+    
+    
+    <p class="control">
+        <a class="button is-dark" href="http://www.reddit.com/submit?url=https%3A%2F%2Fgliu20.github.io%2Fblog%2Fprogramming%2F2020%2F01%2F04%2Fwhat-i-learned-winning-stuyhacks-ix%2F&title=What+I+learned+winning+3rd+place+at+Stuyhacks+IX%26%2358%3B+Misconceptions+about+Hackathons+and+Tips+for+Success" title="Reddit">
+            <span class="icon">
+                <i class="fab fa-reddit-alien fa-lg"></i>
+            </span>
+        </a>
+    </p>
+    
+    
+    
+    
+    
+    
+    <p class="control">
+        <a class="button is-dark" href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Fgliu20.github.io%2Fblog%2Fprogramming%2F2020%2F01%2F04%2Fwhat-i-learned-winning-stuyhacks-ix%2F&title=What+I+learned+winning+3rd+place+at+Stuyhacks+IX%26%2358%3B+Misconceptions+about+Hackathons+and+Tips+for+Success&summary=I%E2%80%99m+often+surprised+by+the+grand+expectations+that+younger+coders+believe+is+necessary+for+success+at+Hackathon+events.+Here%2C+in+no+particular+order%2C+are+some+of+the+most+common+misconceptions+and+tips+I%E2%80%99ve+learned." title="Linkedin">
+            <span class="icon">
+                <i class="fab fa-linkedin-in fa-lg"></i>
+            </span>
+        </a>
+    </p>
+    
+</div>
+        </div>
+    </div>
+</header>
+
+
+<section class="section">
+    <div class="container">
+            <figure class="image">
+    <img loading="lazy" src="/assets/images/2020-01-04-coding-cover.jpg"
+        alt="A desk with a laptop showing a coding environment" title="A desk with a laptop showing a coding environment">
+    <figcaption><span>Photo by <a href="https://unsplash.com/@alexacea?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Alexandru Acea</a> on <a href="https://unsplash.com/s/photos/coding?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a></span></figcaption>
+</figure>
+    </div>
+</section>
+
+
+<section class="section">
+    <div class="container">
+        
+        <div class="columns">
+            <div class="column"></div>
+            <div class="column is-8">
+                <div class="content is-medium">
+                    
+        
+                    <p>I’m often surprised by the grand expectations that younger coders believe is necessary for success at Hackathon events. Here, in no particular order, are some of the most common misconceptions and tips I’ve learned.</p>
+
+<h2 id="misconceptions">Misconceptions</h2>
+<h3 id="1-you-need-to-know-how-to-code">1. You need to know how to code</h3>
+<p>As I was waiting to sign in to the event, I often heard students bemoaning their lack of coding experience. They were wrongly convincing themselves to believe that because they don’t know how to code, they can’t make a great end product. Personally, I believe this thinking is self-deprecating. Ultimately, a working program is always a plus, but what’s more important are the ideas.</p>
+
+<p>In the course of 5 to 12 hours, it is unreasonable to expect completely flawless products — even for professionals. Instead, the potential for an idea to be a stepping stone to something greater is much more valuable. Earning the <a href="https://gliu20.github.io/2019/12/08/nyc-disrupt-hackathon.html">Innovation Award in December</a> with a team that had little experience with coding proved that. In fact, our prototype had barely any lines of real code at all. At the end of the day what matters most — and what we were judged on the most — was the idea. After all, there are plenty of coders out there, but what can make one stand out is having the vision — being an innovator.</p>
+
+<h3 id="2-you-need-a-team-of-smart-people">2. You need a team of “smart people”</h3>
+<p>For most fellow hackers, “smart people” seems to mean talented coders. But as we’ve just seen, coding knowledge is not of utmost importance. Instead, I’d argue that no team actually needs these so-called “smart people.”</p>
+
+<p>For me, I believe that any team can be successful — but only with the right mindset. What I’ve noticed was that these teams were the ones who didn’t necessarily have the most coding experience. Instead, they were the ones who focused most of the time perfecting their idea and pushing through difficult times. They were also often the ones who didn’t form teams with those they knew well.</p>
+
+<p>In my opinion, working with a random team is actually much better than joining those one knows best because being unfamiliar with the other members of the team encourages respect for one another, listening with an open mind, and accountability. Especially when working with a group of strangers, who’d dare to play around? Besides, friends are more likely to be distractions, and they often share many of the same backgrounds and viewpoints.</p>
+
+<p>With diverse perspectives comes diverse ideas — and these are often the ones that are most unconventional. So, to sum up, the best team is actually the most random team and the team with whom you share the least in common (but do make sure you have a common platform on which you <em>all</em> can collaborate!).</p>
+
+<h3 id="3-you-can-make-almost-anything">3. You can make almost anything</h3>
+<p>At some hackathons, there is often a theme — a creative constraint — that limits the ideas one could use. However, at Stuyhacks and other hackathons, the problem is often more general, or maybe there isn’t even a focus at all. With this these types of “open” hackathons, these students don’t pay enough attention to the ideas they come up with. I’ve seen everything from puzzle games to online price checkers to even a VR platformer.</p>
+
+<p>There is no doubt that these teams put a lot of effort into the work they’ve done and I applaud them for how hard they try. Yet, despite their hard work, their projects are deemed unoriginal and left at that. From watching numerous entrepreneurial TED Talks to studying the keys to successful startups in my Entrepreneurship class, I now come to understand that the difference between them is not about how hard they coded, but rather the effort they expended in researching the problem gaps that exist, finding existing solutions, and brainstorming <a href="https://en.wikipedia.org/wiki/Product_differentiation">key differentiating factors</a>: why their puzzle game, not a competitor’s is novel; why their online price checker is unique; why their VR platformer, not someone else’s is better.</p>
+
+<p>It is this last step that is often overlooked. Yet it has the most profound effect for converting a good idea into a great one. Oftentimes, differentiating factors don’t have to do with the primary goal of an app. For instance, the objective of a quiz game is to entertain the user — your differentiating factor doesn’t necessarily have to make the game more entertaining. Instead, you could add an aspect that also helps realize another human need: self-actualization — the need to feel part of a greater cause.</p>
+
+<p>The quiz game that won Stuyhacks wasn’t necessarily more fun to play. Rather, it combined the cause of global warming into a quiz game that not only entertained users, but also raised awareness for the staggering carbon footprint of the average person.</p>
+
+<h2 id="tips-for-success">Tips for success</h2>
+<h3 id="1-do-your-research">1. Do your research</h3>
+<p>Especially when you have no idea what to do, always make sure to research your problem carefully. Start by creating a team document for your research. Organize it with headings — you can press <code class="language-plaintext highlighter-rouge">ctrl-alt-1</code> to <code class="language-plaintext highlighter-rouge">ctrl-alt-2</code> etc. to make headings. Make sure to make a special section to cite your sources — you’re not making a research paper, but you should at least have some way of going back to what you found in case you might need it again.</p>
+
+<p>Any statistics or powerful quotes must definitely be placed in a section on its own. These pieces of information are essential for convincing any judge that your idea is worth considering — that other people have demonstrated that your problem truly necessitates a solution.</p>
+
+<h3 id="2-get-to-know-your-team-and-delegate-roles">2. Get to know your team and delegate roles</h3>
+<p>Teams go through several stages — forming, storming, norming, performing, and adjourning. Of course, in the course of one day, it is almost impossible to go through all stages. However, assuming you are working with a “random” team, make sure you at least start the processing of forming your team — getting to know them, becoming comfortable with working with them, and knowing the strengths and weaknesses of each other and the team as a whole. This is imperative for knowing to which parts of the projects you are best able to contribute. Then, divide responsibilities — it’ll help your team get a lot done faster.</p>
+
+<h3 id="3-make-a-pitch-presentation-and-practice-it">3. Make a pitch presentation and practice it</h3>
+<p>You can have the best app out there, but without a strong presentation, no one will bother to figure out why your team’s app should win versus someone else’s. It’s your job to help judges understand what makes your app special — why it’s innovative. Start by presenting your problem. What does your app solve? Why is it important to be solved? Are there any statistics or facts and figures that illustrate how urgent or quintessential it is to solve this issue? According to some of the judges I’ve spoken to, all too often teams don’t know what problem they are solving and end up scrambling for words when asked what their product solves.</p>
+
+<p>Next, present competing solutions (optional, since most pitches are too short to include this). Here, mention what competitors do and why their solution may not be optimal. Try to be objective here, don’t say your solution is better in all respects, but rather frame it in terms of tradeoffs.</p>
+
+<p>Then, present what your solution is. State explicitly how your app solves the problem and how its approach is unique in the way it solves the problem. Indicate to judges why your approach is better than others. The rest of the time you can demonstrate your app.</p>
+
+<p>Practice your pitch multiple times with your team — without doing so, your team may end up looking disorganized and lost which will not help your chances of winning. Also, looks matter more than you think — try using templates <a href="https://www.slidescarnival.com">from SlidesCarnival</a> instead of the default Google Slides themes since Google Slides themes are overused.</p>
+
+<h1 id="closing-thoughts">Closing thoughts</h1>
+<p>Ultimately, going to hackathons is not about the winning. Rather, it’s about the experience. If there are winners, there’s often those that don’t win. Don’t be discouraged if you don’t come home with prizes. Instead, realize that you should always pay attention to what types of projects are winning in each hackathon and try learning more from them. If you follow these tips, even if you end up empty-handed, you met new people, had fun coding, and made an app that also helps a greater cause.</p>
+
+
+
+                    
+                    <hr class="mb-2">
+                    
+                    <div class="block is-flex is-justify-content-space-between">
+                        
+                        <a class="button has-text-primary is-text is-small" href="/blog/learning/2020/01/01/my-goals-and-why-i-dont-have-resolutions/"
+                            title="Why I don't have New Year's resolutions"
+                            >&lt;&lt; Why I don't have New Year's resolutions</a>
+                        
+                        
+                        <a class="button has-text-primary is-text is-small" href="/blog/puns/punderline-1/"
+                            title="Punderline 1&#58; Why draw a Ram?"
+                        >Punderline 1&#58; Why draw a Ram? &gt;&gt;</a>
+                        
+                    </div>
+                </div>
+            </div>
+            <div class="column"></div>
+        </div>
+    </div>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+<section class="section">
+    <div class="container">
+        <h1 class="title heading is-6 has-text-centered">Related posts</h1>
+        <div class="columns">
+
+            
+            
+            <div class="column is-flex">
+                <a class="card is-hover-card is-flex-grow-1 is-flex-shrink-1" href="/blog/programming/2019/12/08/nyc-disrupt-hackathon/">
+                    <div class="card-image">
+                        <figure class="image is-4by3">
+                            <img class="is-smart" loading="lazy" src="/assets/images/2019-12-08-hackathon-team.jpg"
+                             alt="Cover photo for An Amazing Win at the NYC Student Disrupt Hackathon">
+                        </figure>
+                    </div>
+                    <div class="card-content">
+                        <div class="block">
+                            <p class="title is-4">An Amazing Win at the NYC Student Disrupt Hackathon</p>
+                            <p class="subtitle is-6">
+                                <time datetime="2019-12-08 00:00:00 +0000">Dec 08, 2019</time>
+                            </p>
+                        </div>
+                        <div class="block">
+                            Coming into the competition without a team, I was nervous about the people I’d meet and who I’d team up with. But, as I would later see, what matters most is not who’s on the team, but the attitude I carry.
+                        </div>
+                    </div>
+                </a>
+            </div>
+            
+            
+            <div class="column is-flex">
+                <a class="card is-hover-card is-flex-grow-1 is-flex-shrink-1" href="/blog/programming/2019/06/26/polydice-a-better-way-to-generate-passwords/">
+                    <div class="card-image">
+                        <figure class="image is-4by3">
+                            <img class="is-smart" loading="lazy" src="/assets/images/2019-06-26-polydice-screenshot.png"
+                             alt="Cover photo for A solution to passwords?">
+                        </figure>
+                    </div>
+                    <div class="card-content">
+                        <div class="block">
+                            <p class="title is-4">A solution to passwords?</p>
+                            <p class="subtitle is-6">
+                                <time datetime="2019-06-26 00:00:00 +0000">Jun 26, 2019</time>
+                            </p>
+                        </div>
+                        <div class="block">
+                            Passwords have become increasingly prevalent and complex. Indeed, the average user has around 90 accounts to manage. With so many accounts, users tend to rely on short, simple, and ineffective passwords, often reusing them on many accounts.
+                        </div>
+                    </div>
+                </a>
+            </div>
+            
+            
+            <div class="column is-flex">
+                <a class="card is-hover-card is-flex-grow-1 is-flex-shrink-1" href="/blog/programming/2019/11/05/midway-a-case-study-in-ux/">
+                    <div class="card-image">
+                        <figure class="image is-4by3">
+                            <img class="is-smart" loading="lazy" src="/assets/images/placeholder.png"
+                             alt="Cover photo for Midway&#58; A Case Study in UX">
+                        </figure>
+                    </div>
+                    <div class="card-content">
+                        <div class="block">
+                            <p class="title is-4">Midway&#58; A Case Study in UX</p>
+                            <p class="subtitle is-6">
+                                <time datetime="2019-11-05 00:00:00 +0000">Nov 05, 2019</time>
+                            </p>
+                        </div>
+                        <div class="block">
+                            Midway may seem like a simple application that displays the current period details, but there are surprising ways that can get in the way of a frictionless experience. As a Chrome extension developed by a student for teachers, Midway is committed to a great user experience.
+                        </div>
+                    </div>
+                </a>
+            </div>
+            
+        </div>
+
+        
+        
+    </div>
+</section>
+
+
+
+
+
+    
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+
+
+<section class="section">
+
+    <div class="container">
+
+        <h1 class="title heading is-6 has-text-centered">Must-reads</h1>
+
+        
+        
+
+        <a class="box is-hover-card" href="/blog/programming/2019/12/08/nyc-disrupt-hackathon/">
+            <div class="columns">
+                <div class="column is-one-third">
+                    <figure class="image is-4by3">
+                        <img class="is-smart" loading="lazy" src="/assets/images/2019-12-08-hackathon-team.jpg"
+                            alt="Cover photo for An Amazing Win at the NYC Student Disrupt Hackathon">
+                    </figure>
+                </div>
+                <div class="column is-flex is-flex-direction-column is-justify-content-center">
+                    <div class="block">
+                        <p class="title is-4">An Amazing Win at the NYC Student Disrupt Hackathon</p>
+                        <p class="subtitle is-6">
+                            <time datetime="2019-12-08 00:00:00 +0000">Dec 08, 2019</time>
+                        </p>
+                    </div>
+                    <div class="block">
+                        Coming into the competition without a team, I was nervous about the people I’d meet and who I’d team up with. But, as I would later see, what matters most is not who’s on the team, but the attitude I carry.
+                    </div>
+                </div>
+            </div>
+        </a>
+
+        
+        
+
+        <a class="box is-hover-card" href="/blog/programming/2019/11/05/midway-a-case-study-in-ux/">
+            <div class="columns">
+                <div class="column is-one-third">
+                    <figure class="image is-4by3">
+                        <img class="is-smart" loading="lazy" src="/assets/images/placeholder.png"
+                            alt="Cover photo for Midway&#58; A Case Study in UX">
+                    </figure>
+                </div>
+                <div class="column is-flex is-flex-direction-column is-justify-content-center">
+                    <div class="block">
+                        <p class="title is-4">Midway&#58; A Case Study in UX</p>
+                        <p class="subtitle is-6">
+                            <time datetime="2019-11-05 00:00:00 +0000">Nov 05, 2019</time>
+                        </p>
+                    </div>
+                    <div class="block">
+                        Midway may seem like a simple application that displays the current period details, but there are surprising ways that can get in the way of a frictionless experience. As a Chrome extension developed by a student for teachers, Midway is committed to a great user experience.
+                    </div>
+                </div>
+            </div>
+        </a>
+
+        
+        
+
+        <a class="box is-hover-card" href="/blog/programming/2019/10/24/midway-reaches-a-hundred-users/">
+            <div class="columns">
+                <div class="column is-one-third">
+                    <figure class="image is-4by3">
+                        <img class="is-smart" loading="lazy" src="/assets/images/2019-10-24-midway-100-thumbnail.jpg"
+                            alt="Cover photo for Midway reaches 100 users!">
+                    </figure>
+                </div>
+                <div class="column is-flex is-flex-direction-column is-justify-content-center">
+                    <div class="block">
+                        <p class="title is-4">Midway reaches 100 users!</p>
+                        <p class="subtitle is-6">
+                            <time datetime="2019-10-24 00:00:00 +0000">Oct 24, 2019</time>
+                        </p>
+                    </div>
+                    <div class="block">
+                        After a plethora of hard work pitching Midway to teachers, Midway has finally reached 100 users.
+                    </div>
+                </div>
+            </div>
+        </a>
+
+        
+        
+
+        <a class="box is-hover-card" href="/blog/programming/2020/01/04/what-i-learned-winning-stuyhacks-ix/">
+            <div class="columns">
+                <div class="column is-one-third">
+                    <figure class="image is-4by3">
+                        <img class="is-smart" loading="lazy" src="/assets/images/2020-01-04-coding-cover.jpg"
+                            alt="Cover photo for What I learned winning 3rd place at Stuyhacks IX&#58; Misconceptions about Hackathons and Tips for Success">
+                    </figure>
+                </div>
+                <div class="column is-flex is-flex-direction-column is-justify-content-center">
+                    <div class="block">
+                        <p class="title is-4">What I learned winning 3rd place at Stuyhacks IX&#58; Misconceptions about Hackathons and Tips for Success</p>
+                        <p class="subtitle is-6">
+                            <time datetime="2020-01-04 00:00:00 +0000">Jan 04, 2020</time>
+                        </p>
+                    </div>
+                    <div class="block">
+                        I’m often surprised by the grand expectations that younger coders believe is necessary for success at Hackathon events. Here, in no particular order, are some of the most common misconceptions and tips I’ve learned.
+                    </div>
+                </div>
+            </div>
+        </a>
+
+        
+
+        
+        
+    </div>
+
+</section>
+
+
+    
+    <div class="full-height-flex-space"></div>
+
+    <footer class="footer">
+    <div class="container is-fluid">
+        <div class="columns is-multiline is-mobile">
+            <div class="column full-height is-full-mobile is-full-tablet is-one-fifth-desktop">
+                <h2 class="title is-5">George Liu</h2>
+                <p class="subtitle is-6">Product-Minded Developer</p>
+                <div class="full-height-flex-space"></div>
+            </div>
+            
+            <div class="column content is-full-mobile is-half-tablet is-one-fifth-desktop">
+                <p class="title heading is-7">Blog</p>
+                
+                <p><a href="/blog/">All posts</a></p>
+                
+                <p><a href="/blog/learning/">Learning goals</a></p>
+                
+                <p><a href="/blog/programming/">Programming</a></p>
+                
+                <p><a href="/blog/puns/">Puns</a></p>
+                
+            </div>
+            
+            <div class="column content is-full-mobile is-half-tablet is-one-fifth-desktop">
+                <p class="title heading is-7">Work</p>
+                
+                <p><a href="/work/">All Work</a></p>
+                
+                <p><a href="/work/entrepreneurship/">Entrepreneurship</a></p>
+                
+                <p><a href="/work/product-management/">Product Management</a></p>
+                
+                <p><a href="/work/engineering/">Engineering</a></p>
+                
+                <p><a href="/work/graphics/">Graphics</a></p>
+                
+                <p><a href="/work/marketing/">Marketing</a></p>
+                
+                <p><a href="/work/volunteer/">Volunteer Work</a></p>
+                
+            </div>
+            
+            <div class="column content is-full-mobile is-half-tablet is-one-fifth-desktop">
+                <p class="title heading is-7">Projects</p>
+                
+                <p><a href="/projects/">All Projects</a></p>
+                
+                <p><a href="/projects/midway/">Midway</a></p>
+                
+                <p><a href="/projects/polydice/">Polydice</a></p>
+                
+                <p><a href="/projects/fractals/">Fractals</a></p>
+                
+            </div>
+            
+            <div class="column content is-full-mobile is-half-tablet is-one-fifth-desktop">
+                <p class="title heading is-7">About</p>
+                
+                <p><a href="/about/">About</a></p>
+                
+                <p><a href="/about/mission/">Mission</a></p>
+                
+                <p><a href="/about/values/">Values</a></p>
+                
+                <p><a href="/about/contact/">Contact</a></p>
+                
+            </div>
+            
+        </div>
+        <div class="level">
+            <div class="level-left">
+                <p>&copy; Copyright 2021. All rights reserved.</p>
+            </div>
+            <div class="level-right">
+                <div class="field has-addons is-flex-wrap-wrap">
+    
+    <p class="control">
+        <a class="button is-primary is-light" href="https://www.facebook.com/george.liu.dev/" title="Facebook @george.liu.dev">
+            <span class="icon">
+                <i class="fab fa-facebook-f fa-lg"></i>
+            </span>
+        </a>
+    </p>
+    
+    <p class="control">
+        <a class="button is-primary is-light" href="https://twitter.com/GeorgeLiuDev/" title="Twitter @GeorgeLiuDev">
+            <span class="icon">
+                <i class="fab fa-twitter fa-lg"></i>
+            </span>
+        </a>
+    </p>
+    
+    <p class="control">
+        <a class="button is-primary is-light" href="https://www.instagram.com/thepunderline/" title="Instagram @thepunderline">
+            <span class="icon">
+                <i class="fab fa-instagram fa-lg"></i>
+            </span>
+        </a>
+    </p>
+    
+    <p class="control">
+        <a class="button is-primary is-light" href="https://github.com/gliu20" title="Github @gliu20">
+            <span class="icon">
+                <i class="fab fa-github fa-lg"></i>
+            </span>
+        </a>
+    </p>
+    
+    <p class="control">
+        <a class="button is-primary is-light" href="https://www.freecodecamp.org/gliu20" title="freeCodeCamp @gliu20">
+            <span class="icon">
+                <i class="fab fa-free-code-camp fa-lg"></i>
+            </span>
+        </a>
+    </p>
+    
+    <p class="control">
+        <a class="button is-primary is-light" href="https://dev.to/gliu20" title="Dev.to @gliu20">
+            <span class="icon">
+                <i class="fab fa-dev fa-lg"></i>
+            </span>
+        </a>
+    </p>
+    
+    <p class="control">
+        <a class="button is-primary is-light" href="https://linkedin.com/in/george-liu-dev/" title="LinkedIn @george-liu-dev">
+            <span class="icon">
+                <i class="fab fa-linkedin-in fa-lg"></i>
+            </span>
+        </a>
+    </p>
+    
+</div>
+            </div>
+        </div>
+
+
+
+    </div>
+</footer>
+    <script>
+
+
+    function debounce(timeout, deferredCallback, immediateCallback) {
+        let instance;
+        return function () {
+            clearTimeout(instance);
+
+            immediateCallback = immediateCallback || function () { };
+            immediateCallback();
+
+            instance = setTimeout(deferredCallback, timeout);
+        }
+    }
+
+
+
+    document.addEventListener('DOMContentLoaded', () => {
+
+        // Get all "navbar-burger" elements
+        const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
+        const clearNavbarOnResize = debounce(100, () => {
+            $navbarBurgers.forEach(el => {
+
+                // Get the target from the "data-target" attribute
+                const target = el.dataset.target;
+                const $target = document.getElementById(target);
+
+                // Turn off the "is-active" class on both the "navbar-burger" and the "navbar-menu"
+                el.classList.remove('is-active');
+                $target.classList.remove('is-active');
+            });
+        });
+
+        // Check if there are any navbar burgers
+        if ($navbarBurgers.length > 0) {
+
+            // Add a click event on each of them
+            $navbarBurgers.forEach(el => {
+                el.addEventListener('click', () => {
+
+                    // Get the target from the "data-target" attribute
+                    const target = el.dataset.target;
+                    const $target = document.getElementById(target);
+
+                    // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
+                    el.classList.toggle('is-active');
+                    $target.classList.toggle('is-active');
+
+                });
+            });
+
+            // inactivate navbar on resize
+            window.addEventListener("resize", () => {
+                clearNavbarOnResize();
+            })
+        }
+
+    });
+</script>
+</body>
+
+</html>
