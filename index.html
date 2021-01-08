@@ -46,60 +46,11 @@
     </div>
 </section>
 
-{% comment %}
-This loop ranks the relevancy of each post (and lowers the amount of puns)
-{% endcomment %}
-{% assign sampled_posts = "" | split: "," %}
-
-    {% for post in site.posts %}
-        {% assign post_date = post.date | date: "%s" %}
-        {% assign time_now = site.time | date: "%s" %}
-
-        {% assign post_recency = time_now | minus: post_date %}
-
-        {% assign post_quality = post.description.size | times: post.content.size | times: post.title.size %}
-        {% assign post_relevancy = post_quality | times: post_quality | times: post_quality | divided_by: post_recency %}
-
-        {% assign post_relevancy = post_relevancy | times: post_relevancy | times: post_relevancy %}
-        {% assign post_relevancy = post_relevancy | divided_by: 65537 | divided_by: 65537 %}
-        {% assign post_relevancy = post_relevancy | append: "#" | size %}
-
-        {% assign index_post = post_relevancy | append: "-"  | append: forloop.index0 | append: post.title %}
-        {% assign sampled_posts = sampled_posts | push: index_post %}
-    {% endfor %}
-
-    
-
-{% comment %}
-We get rid of a bunch of articles that don't seem relevant
-{% endcomment %}
-{% assign sampled_posts = sampled_posts | sort | reverse | slice: 0, 3 %}
-
-
-{% comment %}
-We convert the indices of the best posts to the actual posts
-{% endcomment %}
-{% assign best_posts = "" | split: "," %}
-{% for item in sampled_posts %}
-
-    {% assign post_index = item | split: "-" | last | times: 1 %}
-    {% assign selected_post = site.posts[post_index] %} 
-    {% assign best_posts = best_posts | push: selected_post %}
-
-{% endfor %}
-
-{% assign good_three_posts = best_posts | sample: 3 %}
-
-
-{% include posts-snapshot.html
-heading="Featured posts"
-view_more="/blog/"
-posts=good_three_posts
-%}
-
-
-{% include posts-snapshot-vertical.html
-heading="Recent projects"
-posts=recent_three_posts
-view_more="/projects/"
+{% include posts-recommended.html 
+    view_type="vertical"
+    posts=site.posts
+    topk=3
+    count=3
+    heading="Recommended posts"
+    view_more="/blog/"
 %}
