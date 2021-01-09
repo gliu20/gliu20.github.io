@@ -23,11 +23,25 @@ layout: compress-js
     {% include nav-bar.html %}
 
     {{ content }}
-    
+
     <div class="full-height-flex-space"></div>
 
     {% include footer.html %}
     {% include nav-bar-js.html %}
+    <script>
+        // Feature detects Navigation Timing API support.
+        if (window.performance) {
+            // (rounds the result since the value must be an integer).
+            var timeSincePageLoad = Math.round(performance.now());
+
+            // Sends the timing event to Google Analytics.
+            gtag('event', 'timing_complete', {
+                'name': 'load',
+                'value': timeSincePageLoad,
+                'event_category': 'Parsed DOM'
+            });
+        }
+    </script>
 </body>
 
 </html>
