@@ -10,4 +10,12 @@ layout: default
 
 {% include feature-image.html %}
 
-{% include text-content-section.html content=content %}
+{% capture merged_content %}
+    {{ content }}
+    {% include text-content-paginator.html %}
+    {% include post-comments.html %}
+{% endcapture %}
+
+{% include text-content.html 
+    content=merged_content
+    %}
