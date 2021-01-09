@@ -2,6 +2,7 @@
 short_name: timescend
 name: Timescend
 description: Tools to help you make the most of your time
+date: 2018-12-06
 redirect_from:
  - /projects/timescend.html
 ---

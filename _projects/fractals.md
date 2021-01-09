@@ -2,6 +2,7 @@
 short_name: fractals
 name: Fractals
 description: A GPU-accelerated viewer for the Julia and Mandelbrot Sets
+date: 2019-05-06
 redirect_from:
  - /projects/fractals.html
 ---
