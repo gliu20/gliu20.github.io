@@ -39,46 +39,13 @@
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-110030906-2"></script>
 <script>
     window.dataLayer = window.dataLayer || [];
-    window.kpi = {
-        active: true,
-        addEvent: function (event_name, event_data) {
-            if (window.kpi.active) {
-                gtag("event", event_name, event_data)
-            }
-        }
-    }
 
     function gtag() { dataLayer.push(arguments); }
 
     gtag('js', new Date());
     gtag('config', 'UA-110030906-2');
 
-    /*
-    window.kpi.addEvent('click_view_more_snapshot', {
-        shown_posts: [],
-        heading: '',
-        hide_view_more: 
-    });
-
-    window.kpi.addEvent('click_post_snapshot', {
-        shown_posts: [],
-        clicked_post: {
-            title: '',
-            date: '',
-            url: ''
-        },
-        heading: '',
-        hide_view_more: 
-    });
-
-    window.kpi.addEvent('click_share', {
-        clicked_post: {
-            title: '',
-            date: '',
-            url: '/'
-        },
-        share_method: ''
-    });*/
+    
 </script>
 </head>
 
@@ -434,29 +401,6 @@
             
             
             <div class="column is-flex">
-                <a class="card is-hover-card is-flex-grow-1 is-flex-shrink-1" href="/blog/learning/2021/01/07/how-we-re-all-entrepreneurs/">
-                    <div class="card-image">
-                        <figure class="image is-4by3">
-                            <img class="is-smart" loading="lazy" src="/assets/images/2021-01-07-entrepreneur-cover-photo.jpg"
-                             alt="Cover photo for Why life needs entrepreneurial thinking&#58; How making goals is like starting a business">
-                        </figure>
-                    </div>
-                    <div class="card-content">
-                        <div class="block">
-                            <p class="title is-4">Why life needs entrepreneurial thinking&#58; How making goals is like starting a business</p>
-                            <p class="subtitle is-6">
-                                <time datetime="2021-01-07 00:00:00 +0000">Jan 07, 2021</time>
-                            </p>
-                        </div>
-                        <div class="block">
-                            I think that a lot of what entrepreneurs do is applicable to everyone. Our keen ability to find flaws in the status quo and then to take that initiative to spearhead a solution is something that we should apply to life itself and how we develop goals for ourselves.
-                        </div>
-                    </div>
-                </a>
-            </div>
-            
-            
-            <div class="column is-flex">
                 <a class="card is-hover-card is-flex-grow-1 is-flex-shrink-1" href="/blog/programming/2020/03/23/why-you-should-make-your-own-css-framework/">
                     <div class="card-image">
                         <figure class="image is-4by3">
@@ -473,6 +417,29 @@
                         </div>
                         <div class="block">
                             With a flood of custom CSS frameworks and a rise in utility-first CSS libraries, it helps to dive deeper into why that’s the case, and why we should re-invent the wheel.
+                        </div>
+                    </div>
+                </a>
+            </div>
+            
+            
+            <div class="column is-flex">
+                <a class="card is-hover-card is-flex-grow-1 is-flex-shrink-1" href="/blog/learning/2021/01/07/how-we-re-all-entrepreneurs/">
+                    <div class="card-image">
+                        <figure class="image is-4by3">
+                            <img class="is-smart" loading="lazy" src="/assets/images/2021-01-07-entrepreneur-cover-photo.jpg"
+                             alt="Cover photo for Why life needs entrepreneurial thinking&#58; How making goals is like starting a business">
+                        </figure>
+                    </div>
+                    <div class="card-content">
+                        <div class="block">
+                            <p class="title is-4">Why life needs entrepreneurial thinking&#58; How making goals is like starting a business</p>
+                            <p class="subtitle is-6">
+                                <time datetime="2021-01-07 00:00:00 +0000">Jan 07, 2021</time>
+                            </p>
+                        </div>
+                        <div class="block">
+                            I think that a lot of what entrepreneurs do is applicable to everyone. Our keen ability to find flaws in the status quo and then to take that initiative to spearhead a solution is something that we should apply to life itself and how we develop goals for ourselves.
                         </div>
                     </div>
                 </a>
@@ -683,6 +650,7 @@
                 });
             });
 
+            // TODO #25 fix issue where mobile scrolling causing this event to fire
             // inactivate navbar on resize
             window.addEventListener("resize", () => {
                 clearNavbarOnResize();

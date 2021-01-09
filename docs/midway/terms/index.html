@@ -39,46 +39,13 @@
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-110030906-2"></script>
 <script>
     window.dataLayer = window.dataLayer || [];
-    window.kpi = {
-        active: true,
-        addEvent: function (event_name, event_data) {
-            if (window.kpi.active) {
-                gtag("event", event_name, event_data)
-            }
-        }
-    }
 
     function gtag() { dataLayer.push(arguments); }
 
     gtag('js', new Date());
     gtag('config', 'UA-110030906-2');
 
-    /*
-    window.kpi.addEvent('click_view_more_snapshot', {
-        shown_posts: [],
-        heading: '',
-        hide_view_more: 
-    });
-
-    window.kpi.addEvent('click_post_snapshot', {
-        shown_posts: [],
-        clicked_post: {
-            title: '',
-            date: '',
-            url: ''
-        },
-        heading: '',
-        hide_view_more: 
-    });
-
-    window.kpi.addEvent('click_share', {
-        clicked_post: {
-            title: 'Midway Terms of Use',
-            date: '',
-            url: '/midway/terms/'
-        },
-        share_method: ''
-    });*/
+    
 </script>
 </head>
 
@@ -424,6 +391,8 @@
 
 
 
+
+
 <section class="section">
     <div class="container">
         
@@ -432,8 +401,7 @@
             <div class="column is-8">
                 <div class="content is-medium">
                     
-        
-                    <p><em>Effective as of 8/20/2019</em></p>
+    <p><em>Effective as of 8/20/2019</em></p>
 
 <p>Welcome to the Terms of Use agreement. For purposes of this Agreement, “Service” refers to the extension, which can be downloaded from the <a href="https://chrome.google.com/webstore/detail/midway/cgibedogghadelndgfacffoociffapii">Chrome Web Store</a>.
 Through these services, users can, where available, know the current period’s end time, find out about absent teachers, access the school’s bulletin board, and more.
@@ -578,20 +546,22 @@ You agree that you will not under any circumstances:</p>
 <p><strong>You acknowledge that you have read these Terms of Use, understand the Terms of Use, and will be bound by these Terms and Conditions. You further acknowledge that these Terms of Use together with the <a href="https://gliu20.github.io/midway/privacy">Privacy Policy</a> represent the complete and exclusive statement of the agreement between us and that it supersedes any proposal or prior agreement oral or written, and any other communications between us relating to the subject matter of this agreement.</strong></p>
 
 
+    <hr class="mb-2">
+<div class="is-flex is-justify-content-space-between is-flex-wrap-wrap">
+    
+    
+</div>
+<hr class="mt-2">
+    <button class="button is-light is-primary is-fullwidth" id="showCommentsBtn">Show comments</button>
+<div id="disqus_thread"></div>
 
-                    
-                    <hr class="mb-2">
-                    
-                    <div class="block is-flex is-justify-content-space-between is-flex-wrap-wrap">
-                        
-                        
-                    </div>
                 </div>
             </div>
             <div class="column"></div>
         </div>
     </div>
 </section>
+
 
 
 
@@ -638,6 +608,32 @@ You agree that you will not under any circumstances:</p>
         
         
 
+        <a class="box is-hover-card" href="/blog/programming/2019/07/12/gradetree-a-tool-for-calculating-weighted-averages/">
+            <div class="columns">
+                <div class="column is-one-third">
+                    <figure class="image is-4by3">
+                        <img class="is-smart" loading="lazy" src="https://gliu20.github.io/assets/images/2019-07-12-gradetree-screenshot.png"
+                            alt="Cover photo for Calculating weighted averages of weighted averages...">
+                    </figure>
+                </div>
+                <div class="column is-flex is-flex-direction-column is-justify-content-center">
+                    <div class="block">
+                        <p class="title is-4">Calculating weighted averages of weighted averages...</p>
+                        <p class="subtitle is-6">
+                            <time datetime="2019-07-12 00:00:00 +0000">Jul 12, 2019</time>
+                        </p>
+                    </div>
+                    <div class="block">
+                        About
+Gradetree is a utility for calculating grades and GPA, allowing you to assess your performance in school. Gradetree works exceptionally on nested grades.
+                    </div>
+                </div>
+            </div>
+        </a>
+
+        
+        
+
         <a class="box is-hover-card" href="/blog/programming/2020/01/04/what-i-learned-winning-stuyhacks-ix/">
             <div class="columns">
                 <div class="column is-one-third">
@@ -663,48 +659,23 @@ You agree that you will not under any circumstances:</p>
         
         
 
-        <a class="box is-hover-card" href="/blog/programming/2019/10/24/midway-reaches-a-hundred-users/">
+        <a class="box is-hover-card" href="/blog/programming/2019/08/27/midway-through-the-years/">
             <div class="columns">
                 <div class="column is-one-third">
                     <figure class="image is-4by3">
-                        <img class="is-smart" loading="lazy" src="/assets/images/2019-10-24-midway-100-thumbnail.jpg"
-                            alt="Cover photo for Midway reaches 100 users!">
+                        <img class="is-smart" loading="lazy" src="https://gliu20.github.io/assets/images/2019-08-27-midway-big-tile.png"
+                            alt="Cover photo for Midway Through the Years">
                     </figure>
                 </div>
                 <div class="column is-flex is-flex-direction-column is-justify-content-center">
                     <div class="block">
-                        <p class="title is-4">Midway reaches 100 users!</p>
+                        <p class="title is-4">Midway Through the Years</p>
                         <p class="subtitle is-6">
-                            <time datetime="2019-10-24 00:00:00 +0000">Oct 24, 2019</time>
+                            <time datetime="2019-08-27 00:00:00 +0000">Aug 27, 2019</time>
                         </p>
                     </div>
                     <div class="block">
-                        After a plethora of hard work pitching Midway to teachers, Midway has finally reached 100 users.
-                    </div>
-                </div>
-            </div>
-        </a>
-
-        
-        
-
-        <a class="box is-hover-card" href="/blog/learning/2020/01/01/my-goals-and-why-i-dont-have-resolutions/">
-            <div class="columns">
-                <div class="column is-one-third">
-                    <figure class="image is-4by3">
-                        <img class="is-smart" loading="lazy" src="/assets/images/2020-01-01-goals-new-year-resolution.jpg"
-                            alt="Cover photo for Why I don't have New Year's resolutions">
-                    </figure>
-                </div>
-                <div class="column is-flex is-flex-direction-column is-justify-content-center">
-                    <div class="block">
-                        <p class="title is-4">Why I don't have New Year's resolutions</p>
-                        <p class="subtitle is-6">
-                            <time datetime="2020-01-01 00:00:00 +0000">Jan 01, 2020</time>
-                        </p>
-                    </div>
-                    <div class="block">
-                        It’s that time of year when everyone asks about their New Year’s resolutions. While I like the rationale, personally, I don’t think it works. Here’s why.
+                        Midway changed a lot from its humble beginnings as a simple prototype to the complex extension it is now. Let’s explore how it changed. Check out the latest version of the extension on the Chrome Web Store.
                     </div>
                 </div>
             </div>
@@ -744,6 +715,28 @@ You agree that you will not under any circumstances:</p>
 </section>
 
 
+
+
+<script>
+    var disqus_config = function () {
+        this.page.url = "/midway/terms/";  
+        this.page.identifier = "";
+    };
+
+    document.getElementById("showCommentsBtn")
+        .addEventListener("click", showComments);
+
+    function showComments () {
+        document.getElementById("showCommentsBtn").remove();
+        (function() {
+            var d = document, s = d.createElement('script');
+            s.src = 'https://george-liu-dev.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+        })();
+    }
+    
+</script>
     
     <div class="full-height-flex-space"></div>
 
@@ -938,6 +931,7 @@ You agree that you will not under any circumstances:</p>
                 });
             });
 
+            // TODO #25 fix issue where mobile scrolling causing this event to fire
             // inactivate navbar on resize
             window.addEventListener("resize", () => {
                 clearNavbarOnResize();

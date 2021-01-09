@@ -39,46 +39,13 @@
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-110030906-2"></script>
 <script>
     window.dataLayer = window.dataLayer || [];
-    window.kpi = {
-        active: true,
-        addEvent: function (event_name, event_data) {
-            if (window.kpi.active) {
-                gtag("event", event_name, event_data)
-            }
-        }
-    }
 
     function gtag() { dataLayer.push(arguments); }
 
     gtag('js', new Date());
     gtag('config', 'UA-110030906-2');
 
-    /*
-    window.kpi.addEvent('click_view_more_snapshot', {
-        shown_posts: [],
-        heading: '',
-        hide_view_more: 
-    });
-
-    window.kpi.addEvent('click_post_snapshot', {
-        shown_posts: [],
-        clicked_post: {
-            title: '',
-            date: '',
-            url: ''
-        },
-        heading: '',
-        hide_view_more: 
-    });
-
-    window.kpi.addEvent('click_share', {
-        clicked_post: {
-            title: '',
-            date: '',
-            url: '/work/engineering/'
-        },
-        share_method: ''
-    });*/
+    
 </script>
 </head>
 
@@ -350,7 +317,7 @@
                         may be provided below. Keep in mind it may contain errors, could be partly unusable, or might not exist at all.
                     </p>
                 </div>
-                <p class="heading">Last updated at Jan  9, 2021 at  2:31 PM UTC</p>
+                <p class="heading">Last updated at Jan  9, 2021 at  7:20 PM UTC</p>
             </div>
         </div>
     </div>
@@ -560,6 +527,7 @@
                 });
             });
 
+            // TODO #25 fix issue where mobile scrolling causing this event to fire
             // inactivate navbar on resize
             window.addEventListener("resize", () => {
                 clearNavbarOnResize();
