@@ -30,7 +30,7 @@ layout: default
 
 <script>
     var metaRobots = document.createElement("meta")
-    metaRobots.name = "robots"
-    metaRobots.content = "noindex"
+    metaRobots.setAttribute('name', 'robots');
+    metaRobots.setAttribute('content', 'noindex');
     document.head.appendChild(metaRobots);
 </script>
