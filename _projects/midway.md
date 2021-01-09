@@ -2,6 +2,7 @@
 short_name: midway
 name: Midway
 description: Keep track of class time
+date: 2018-02-08
 redirect_from:
  - /projects/midway.html
 ---

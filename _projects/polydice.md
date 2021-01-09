@@ -2,6 +2,7 @@
 short_name: polydice
 name: Polydice
 description: Easily generate secure passwords using the diceware method
+date: 2019-06-25
 redirect_from:
  - /projects/polydice.html
 ---
