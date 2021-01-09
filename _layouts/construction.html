@@ -25,3 +25,12 @@ layout: default
 </section>
 
 {{ content }}
+
+
+
+<script>
+    var metaRobots = document.createElement("meta")
+    metaRobots.name = "robots"
+    metaRobots.content = "noindex"
+    document.head.appendChild(metaRobots);
+</script>
