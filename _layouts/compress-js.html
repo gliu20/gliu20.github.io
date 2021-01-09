@@ -1,13 +1,32 @@
 ---
+layout: compress-html
 ---
+
 {% capture NEW_LINE %}
 {% endcapture %}{% assign content_split = content | split: NEW_LINE %}
 {% assign no_js_comments_content = "" | split: "," %}
+
 {% for line in content_split %}
-    {% assign check_is_js_comment = line | split: "//" %}
-    {% if check_is_js_comment[0] != blank %}
+    {% assign js_comment_line = line | split: "//" %}
+
+    {% if line contains "href" or line contains "src" %}
         {% assign no_js_comments_content = no_js_comments_content | push: line %}
+        {% continue %}
+    {% endif %}
+
+    {% if line contains "://" %}
+        {% assign no_js_comments_content = no_js_comments_content | push: line %}
+        {% continue %}
+    {% endif %}
+
+    {% if line contains "//" %}
+        {% assign line_removed_comment = js_comment_line | first %}
+        {% assign no_js_comments_content = no_js_comments_content | push: line_removed_comment %}
+
+    {% else %}
+        {% assign no_js_comments_content = no_js_comments_content | push: line %}
+
     {% endif %}
 {% endfor %}
 
-{{ no_js_comments_content }}
+{{ no_js_comments_content | join: "" }}
