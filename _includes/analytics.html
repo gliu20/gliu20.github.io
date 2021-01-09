@@ -2,6 +2,16 @@
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-110030906-2"></script>
 <script>
     window.dataLayer = window.dataLayer || [];
+
+    function gtag() { dataLayer.push(arguments); }
+
+    gtag('js', new Date());
+    gtag('config', 'UA-110030906-2');
+
+    {% comment %}
+    /*
+
+    
     window.kpi = {
         active: true,
         addEvent: function (event_name, event_data) {
@@ -11,12 +21,6 @@
         }
     }
 
-    function gtag() { dataLayer.push(arguments); }
-
-    gtag('js', new Date());
-    gtag('config', 'UA-110030906-2');
-
-    /*
     window.kpi.addEvent('click_view_more_snapshot', {
         shown_posts: {{ include.posts | map: 'title' | jsonify }},
         heading: '{{ include.heading | escape }}',
@@ -42,4 +46,5 @@
         },
         share_method: '{{ social.name }}'
     });*/
+    {% endcomment %}
 </script>
