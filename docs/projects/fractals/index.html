@@ -41,46 +41,13 @@
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-110030906-2"></script>
 <script>
     window.dataLayer = window.dataLayer || [];
-    window.kpi = {
-        active: true,
-        addEvent: function (event_name, event_data) {
-            if (window.kpi.active) {
-                gtag("event", event_name, event_data)
-            }
-        }
-    }
 
     function gtag() { dataLayer.push(arguments); }
 
     gtag('js', new Date());
     gtag('config', 'UA-110030906-2');
 
-    /*
-    window.kpi.addEvent('click_view_more_snapshot', {
-        shown_posts: [],
-        heading: '',
-        hide_view_more: 
-    });
-
-    window.kpi.addEvent('click_post_snapshot', {
-        shown_posts: [],
-        clicked_post: {
-            title: '',
-            date: '',
-            url: ''
-        },
-        heading: '',
-        hide_view_more: 
-    });
-
-    window.kpi.addEvent('click_share', {
-        clicked_post: {
-            title: 'Fractals',
-            date: '2019-05-06 00:00:00 +0000',
-            url: '/projects/fractals/'
-        },
-        share_method: ''
-    });*/
+    
 </script>
 </head>
 
@@ -424,6 +391,8 @@
 
 
 
+
+
 <section class="section">
     <div class="container">
         
@@ -432,8 +401,7 @@
             <div class="column is-8">
                 <div class="content is-medium">
                     
-        
-                    <p>Algebraic fractals, like those of the Julia and the Mandelbrot Sets, are rich with interesting textures and designs. They are mathematical curiosities: out of such simple equations arises great complexity and beauty.</p>
+    <p>Algebraic fractals, like those of the Julia and the Mandelbrot Sets, are rich with interesting textures and designs. They are mathematical curiosities: out of such simple equations arises great complexity and beauty.</p>
 
 <h2 id="demo">Demo</h2>
 <p>Follow these links to try out the fractal viewers. Make sure to use a high-performance device (with a good GPU).</p>
@@ -494,28 +462,47 @@ Zoom indicates the size of the view window; if it’s small, then you’ll see a
   <li>Zooming in too much results in distorted images or horizontal bars (due to limited precision of Tensorflow.js)</li>
 </ul>
 
+    <hr class="mb-2">
+<div class="is-flex is-justify-content-space-between is-flex-wrap-wrap">
+    
+    <a class="button has-text-primary is-text is-small" href="/projects/timescend/"
+        title="Timescend">&lt;&lt; Timescend</a>
+    
+    
+    <a class="button has-text-primary is-text is-small" href="/projects/polydice/" title="Polydice">Polydice &gt;&gt;</a>
+    
+</div>
+<hr class="mt-2">
+    <button class="button is-light is-primary is-fullwidth" id="showCommentsBtn">Show comments</button>
+<div id="disqus_thread"></div>
 
-                    
-                    <hr class="mb-2">
-                    
-                    <div class="block is-flex is-justify-content-space-between is-flex-wrap-wrap">
-                        
-                        <a class="button has-text-primary is-text is-small" href="/projects/timescend/"
-                            title="Timescend"
-                            >&lt;&lt; Timescend</a>
-                        
-                        
-                        <a class="button has-text-primary is-text is-small" href="/projects/polydice/"
-                            title="Polydice"
-                        >Polydice &gt;&gt;</a>
-                        
-                    </div>
                 </div>
             </div>
             <div class="column"></div>
         </div>
     </div>
 </section>
+
+<script>
+    var disqus_config = function () {
+        this.page.url = "/projects/fractals/";  
+        this.page.identifier = "/projects/fractals";
+    };
+
+    document.getElementById("showCommentsBtn")
+        .addEventListener("click", showComments);
+
+    function showComments () {
+        document.getElementById("showCommentsBtn").remove();
+        (function() {
+            var d = document, s = d.createElement('script');
+            s.src = 'https://george-liu-dev.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+        })();
+    }
+    
+</script>
     
     <div class="full-height-flex-space"></div>
 
@@ -710,6 +697,7 @@ Zoom indicates the size of the view window; if it’s small, then you’ll see a
                 });
             });
 
+            // TODO #25 fix issue where mobile scrolling causing this event to fire
             // inactivate navbar on resize
             window.addEventListener("resize", () => {
                 clearNavbarOnResize();

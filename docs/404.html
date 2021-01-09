@@ -38,46 +38,13 @@
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-110030906-2"></script>
 <script>
     window.dataLayer = window.dataLayer || [];
-    window.kpi = {
-        active: true,
-        addEvent: function (event_name, event_data) {
-            if (window.kpi.active) {
-                gtag("event", event_name, event_data)
-            }
-        }
-    }
 
     function gtag() { dataLayer.push(arguments); }
 
     gtag('js', new Date());
     gtag('config', 'UA-110030906-2');
 
-    /*
-    window.kpi.addEvent('click_view_more_snapshot', {
-        shown_posts: [],
-        heading: '',
-        hide_view_more: 
-    });
-
-    window.kpi.addEvent('click_post_snapshot', {
-        shown_posts: [],
-        clicked_post: {
-            title: '',
-            date: '',
-            url: ''
-        },
-        heading: '',
-        hide_view_more: 
-    });
-
-    window.kpi.addEvent('click_share', {
-        clicked_post: {
-            title: '',
-            date: '',
-            url: '/404'
-        },
-        share_method: ''
-    });*/
+    
 </script>
 </head>
 
@@ -541,6 +508,7 @@
                 });
             });
 
+            // TODO #25 fix issue where mobile scrolling causing this event to fire
             // inactivate navbar on resize
             window.addEventListener("resize", () => {
                 clearNavbarOnResize();

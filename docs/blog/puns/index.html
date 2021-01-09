@@ -39,46 +39,13 @@
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-110030906-2"></script>
 <script>
     window.dataLayer = window.dataLayer || [];
-    window.kpi = {
-        active: true,
-        addEvent: function (event_name, event_data) {
-            if (window.kpi.active) {
-                gtag("event", event_name, event_data)
-            }
-        }
-    }
 
     function gtag() { dataLayer.push(arguments); }
 
     gtag('js', new Date());
     gtag('config', 'UA-110030906-2');
 
-    /*
-    window.kpi.addEvent('click_view_more_snapshot', {
-        shown_posts: [],
-        heading: '',
-        hide_view_more: 
-    });
-
-    window.kpi.addEvent('click_post_snapshot', {
-        shown_posts: [],
-        clicked_post: {
-            title: '',
-            date: '',
-            url: ''
-        },
-        heading: '',
-        hide_view_more: 
-    });
-
-    window.kpi.addEvent('click_share', {
-        clicked_post: {
-            title: '',
-            date: '',
-            url: '/blog/puns/'
-        },
-        share_method: ''
-    });*/
+    
 </script>
 </head>
 
@@ -370,52 +337,6 @@
             
             
             <div class="column is-flex">
-                <a class="card is-hover-card is-flex-grow-1 is-flex-shrink-1" href="/blog/puns/punderline-49/">
-                    <div class="card-image">
-                        <figure class="image is-4by3">
-                            <img class="is-smart" loading="lazy" src="/assets/puns/punderline 49.jpg"
-                             alt="Cover photo for Punderline 49&#58; When cats say sorry...">
-                        </figure>
-                    </div>
-                    <div class="card-content">
-                        <div class="block">
-                            <p class="title is-4">Punderline 49&#58; When cats say sorry...</p>
-                            <p class="subtitle is-6">
-                                <time datetime="2020-05-22 00:00:00 +0000">May 22, 2020</time>
-                            </p>
-                        </div>
-                        <div class="block">
-                            Tags: puns cats animals sorry
-                        </div>
-                    </div>
-                </a>
-            </div>
-            
-            
-            <div class="column is-flex">
-                <a class="card is-hover-card is-flex-grow-1 is-flex-shrink-1" href="/blog/puns/punderline-38/">
-                    <div class="card-image">
-                        <figure class="image is-4by3">
-                            <img class="is-smart" loading="lazy" src="/assets/puns/punderline 38.jpg"
-                             alt="Cover photo for Punderline 38&#58; Zoom and video conferences">
-                        </figure>
-                    </div>
-                    <div class="card-content">
-                        <div class="block">
-                            <p class="title is-4">Punderline 38&#58; Zoom and video conferences</p>
-                            <p class="subtitle is-6">
-                                <time datetime="2020-03-13 00:00:00 +0000">Mar 13, 2020</time>
-                            </p>
-                        </div>
-                        <div class="block">
-                            Tags: puns zoom zoom memes video conferencing
-                        </div>
-                    </div>
-                </a>
-            </div>
-            
-            
-            <div class="column is-flex">
                 <a class="card is-hover-card is-flex-grow-1 is-flex-shrink-1" href="/blog/puns/punderline-52/">
                     <div class="card-image">
                         <figure class="image is-4by3">
@@ -432,6 +353,52 @@
                         </div>
                         <div class="block">
                             Tags: puns bamboo animals pandas
+                        </div>
+                    </div>
+                </a>
+            </div>
+            
+            
+            <div class="column is-flex">
+                <a class="card is-hover-card is-flex-grow-1 is-flex-shrink-1" href="/blog/puns/punderline-56/">
+                    <div class="card-image">
+                        <figure class="image is-4by3">
+                            <img class="is-smart" loading="lazy" src="/assets/puns/punderline 56.jpg"
+                             alt="Cover photo for Punderline 56&#58; Boring lectures be like...">
+                        </figure>
+                    </div>
+                    <div class="card-content">
+                        <div class="block">
+                            <p class="title is-4">Punderline 56&#58; Boring lectures be like...</p>
+                            <p class="subtitle is-6">
+                                <time datetime="2020-07-17 00:00:00 +0000">Jul 17, 2020</time>
+                            </p>
+                        </div>
+                        <div class="block">
+                            Tags: puns lectures school teachers profs
+                        </div>
+                    </div>
+                </a>
+            </div>
+            
+            
+            <div class="column is-flex">
+                <a class="card is-hover-card is-flex-grow-1 is-flex-shrink-1" href="/blog/puns/punderline-33/">
+                    <div class="card-image">
+                        <figure class="image is-4by3">
+                            <img class="is-smart" loading="lazy" src="/assets/puns/punderline 33.jpg"
+                             alt="Cover photo for Punderline 33&#58; A world of astronomical scale...">
+                        </figure>
+                    </div>
+                    <div class="card-content">
+                        <div class="block">
+                            <p class="title is-4">Punderline 33&#58; A world of astronomical scale...</p>
+                            <p class="subtitle is-6">
+                                <time datetime="2020-02-28 00:00:00 +0000">Feb 28, 2020</time>
+                            </p>
+                        </div>
+                        <div class="block">
+                            Tags: puns astronomy physics milky way galaxy world
                         </div>
                     </div>
                 </a>
@@ -2286,6 +2253,7 @@
                 });
             });
 
+            // TODO #25 fix issue where mobile scrolling causing this event to fire
             // inactivate navbar on resize
             window.addEventListener("resize", () => {
                 clearNavbarOnResize();

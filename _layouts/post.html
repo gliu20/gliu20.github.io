@@ -12,7 +12,16 @@ layout: default
 
 {% include feature-image.html %}
 
-{% include text-content-section.html content=content %}
+{% capture merged_content %}
+    {{ content }}
+    {% include text-content-paginator.html %}
+    {% include post-comments.html %}
+{% endcapture %}
+
+{% include text-content.html 
+    content=merged_content
+    %}
+
 
 {% assign three_related_posts = site.related_posts | slice: 1,10 | sample: 3 %}
 
@@ -30,3 +39,6 @@ hide_view_more=true
     heading="Must-reads"
     hide_view_more=true
 %}
+
+
+{% include post-comments-js.html %}

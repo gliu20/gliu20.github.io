@@ -41,46 +41,13 @@
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-110030906-2"></script>
 <script>
     window.dataLayer = window.dataLayer || [];
-    window.kpi = {
-        active: true,
-        addEvent: function (event_name, event_data) {
-            if (window.kpi.active) {
-                gtag("event", event_name, event_data)
-            }
-        }
-    }
 
     function gtag() { dataLayer.push(arguments); }
 
     gtag('js', new Date());
     gtag('config', 'UA-110030906-2');
 
-    /*
-    window.kpi.addEvent('click_view_more_snapshot', {
-        shown_posts: [],
-        heading: '',
-        hide_view_more: 
-    });
-
-    window.kpi.addEvent('click_post_snapshot', {
-        shown_posts: [],
-        clicked_post: {
-            title: '',
-            date: '',
-            url: ''
-        },
-        heading: '',
-        hide_view_more: 
-    });
-
-    window.kpi.addEvent('click_share', {
-        clicked_post: {
-            title: 'Midway',
-            date: '2018-02-08 00:00:00 +0000',
-            url: '/projects/midway/'
-        },
-        share_method: ''
-    });*/
+    
 </script>
 </head>
 
@@ -424,6 +391,8 @@
 
 
 
+
+
 <section class="section">
     <div class="container">
         
@@ -432,8 +401,7 @@
             <div class="column is-8">
                 <div class="content is-medium">
                     
-        
-                    <h1 id="purpose">Purpose</h1>
+    <h1 id="purpose">Purpose</h1>
 <p>School schedules are confusing, especially with multiple lunch times and different versions on different days. What if there was a way to help both students and staff navigate the new schedule?</p>
 
 <h2 id="what-is-midway">What is Midway?</h2>
@@ -442,24 +410,44 @@
 <h2 id="how-do-i-get-it">How do I get it?</h2>
 <p>Midway is available as a <a href="https://chrome.google.com/webstore/detail/midway/cgibedogghadelndgfacffoociffapii">Chrome extension in the Chrome Web Store</a></p>
 
+    <hr class="mb-2">
+<div class="is-flex is-justify-content-space-between is-flex-wrap-wrap">
+    
+    
+    <a class="button has-text-primary is-text is-small" href="/projects/gradetree/" title="Gradetree">Gradetree &gt;&gt;</a>
+    
+</div>
+<hr class="mt-2">
+    <button class="button is-light is-primary is-fullwidth" id="showCommentsBtn">Show comments</button>
+<div id="disqus_thread"></div>
 
-                    
-                    <hr class="mb-2">
-                    
-                    <div class="block is-flex is-justify-content-space-between is-flex-wrap-wrap">
-                        
-                        
-                        <a class="button has-text-primary is-text is-small" href="/projects/gradetree/"
-                            title="Gradetree"
-                        >Gradetree &gt;&gt;</a>
-                        
-                    </div>
                 </div>
             </div>
             <div class="column"></div>
         </div>
     </div>
 </section>
+
+<script>
+    var disqus_config = function () {
+        this.page.url = "/projects/midway/";  
+        this.page.identifier = "/projects/midway";
+    };
+
+    document.getElementById("showCommentsBtn")
+        .addEventListener("click", showComments);
+
+    function showComments () {
+        document.getElementById("showCommentsBtn").remove();
+        (function() {
+            var d = document, s = d.createElement('script');
+            s.src = 'https://george-liu-dev.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+        })();
+    }
+    
+</script>
     
     <div class="full-height-flex-space"></div>
 
@@ -654,6 +642,7 @@
                 });
             });
 
+            // TODO #25 fix issue where mobile scrolling causing this event to fire
             // inactivate navbar on resize
             window.addEventListener("resize", () => {
                 clearNavbarOnResize();
