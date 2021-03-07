@@ -6,8 +6,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"No tests specified. No tests ran.\"",
-    "jekyll-watch": "bundle exec jekyll serve",
-    "start": "npm run jekyll-watch"
+    "start": "bundle exec jekyll serve",
+    "build": "bundle exec jekyll build && rm -rf docs && mv _site docs",
+    "watch": "npm run jekyll-watch"
   },
   "repository": {
     "type": "git",
