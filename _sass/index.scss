@@ -70,14 +70,17 @@ $body-overflow-y:auto;
 
 .skip-to-main-content {
 
+    background:#ffffff;
     position: absolute;
     top: 0;
     left: 50%;
     transform: translateX(-50%) translateY(-100%);
     z-index: 10000;
     padding: 10px 15px;
+    transition: all 0.2s ease;
 
     &:focus {
         transform: translateX(-50%) translateY(0%);
+        box-shadow: 0 0.5em 1em -0.125em rgba(7,10,14,0.1),0 0px 0 1px rgba(7,10,14,0.02);
     }
 }

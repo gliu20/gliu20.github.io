@@ -1,7 +1,7 @@
 $box-shadow-hover-custom: 0 0.5em 1em -0.125em rgba(7,10,14,0.1),0 0px 0 1px rgba(7,10,14,0.02);
 
 .is-hover-card {
-    transition: transform 0.2s ease ;
+    transition: transform 0.2s ease;
     &:hover {
         transform: scale(1.01) translateY(-2%);
     }
