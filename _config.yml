@@ -12,6 +12,8 @@ sass:
 
 exclude: [docs]
 
+lsi: true
+
 defaults:
   - scope:
       path: ""
