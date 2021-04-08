@@ -2,14 +2,14 @@ $box-shadow-hover-custom: 0 0.5em 1em -0.125em rgba(7,10,14,0.1),0 0px 0 1px rgb
 
 .is-hover-card {
     transition: transform 0.2s ease;
-    &:hover {
+    &:hover, &:focus {
         transform: scale(1.01) translateY(-2%);
     }
 }
 
 
 a.is-hover-card {
-    &:hover {
+    &:hover, &:focus {
         box-shadow:$box-shadow-hover-custom;
     }
 }
