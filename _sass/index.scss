@@ -77,7 +77,6 @@ $body-overflow-y:auto;
     transform: translateX(-50%) translateY(-100%);
     z-index: 10000;
     padding: 10px 15px;
-    transition: all 0.2s ease;
 
     &:focus {
         transform: translateX(-50%) translateY(0%);
