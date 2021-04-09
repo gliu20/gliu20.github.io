@@ -1,6 +1,7 @@
 {% capture post_image_urls %}
 {% include posts-image-grabber.html
 posts=include.posts
+use_post_index=include.use_post_index
 %}
 {% endcapture %}
 
@@ -17,6 +18,11 @@ posts=include.posts
         <h1 class="title heading is-6 has-text-centered">{{ include.heading }}</h1>
 
         {% for item in include.posts %}
+        
+        {% if include.use_post_index %}
+            {% assign item = site.posts[item] %}
+        {% endif %}
+        
         {% assign item_post_image_url = post_image_urls[forloop.index0] | strip_newlines %}
 
         <a class="box is-hover-card" href="{{ item.url }}">
