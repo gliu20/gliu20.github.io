@@ -18,3 +18,8 @@ jobs:
         docker run \
         -v ${{ github.workspace }}:/srv/jekyll -v ${{ github.workspace }}/_site:/srv/jekyll/_site \
         jekyll/builder:latest /bin/bash -c "chmod 777 -R /srv/jekyll && npm install && apk add --no-cache gsl-dev && bundle install && bundle exec jekyll build --future"
+        git config user.name gliu20
+        git config user.email 24921711+gliu20@users.noreply.github.com
+        git add .
+        git commit -m "generated"
+        git push origin master:gh-pages
