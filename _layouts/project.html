@@ -26,7 +26,8 @@ layout: default
 {% assign project_post_list = "" | split: "" %}
 {% for post in post_list %}
     {% if post.project == page.short_name %}
-        {% assign project_post_list = project_post_list | concat: post %}
+        {% assign post_index = forloop.index | append: "" | split: "" %}
+        {% assign project_post_list = project_post_list | concat: post_index %}
     {% endif %}
 {% endfor %}
 
@@ -34,4 +35,5 @@ layout: default
     posts=project_post_list
     heading="Latest updates"
     hide_view_more=true
+    use_post_index=true
 %}
