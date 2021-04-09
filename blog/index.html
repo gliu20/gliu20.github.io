@@ -34,6 +34,8 @@ hide_view_more=true
     <a class="button has-text-primary is-text is-small" href="{{ paginator.next_page_path }}" 
         title="Page {{ paginator.next_page }}">
         Page {{ paginator.next_page }} &gt;&gt;</a>
+    {% else %}
+        <div></div>    
     {% endif %}
 </div>
 <hr class="mt-2">
