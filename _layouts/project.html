@@ -21,3 +21,10 @@ layout: default
     %}
 
 {% include post-comments-js.html %}
+
+{% assign filtered_project_list = site.posts | where: "project", page.project %}
+{% include posts-snapshot-vertical.html 
+    posts=filtered_project_list
+    heading="Latest updates"
+    hide_view_more=true
+%}
