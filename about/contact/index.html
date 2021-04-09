@@ -1,3 +1,10 @@
 ---
-layout: construction
+layout: default
 ---
+{% capture content %}
+{% include contact-info.html %}
+{% endcapture %}
+
+{% include text-content.html 
+    content=content
+%}

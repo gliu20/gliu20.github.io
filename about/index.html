@@ -1,4 +1,13 @@
 ---
 layout: construction
 ---
+{% capture content %}
+<h2>About me</h2>
+<p>404 bio not found. Just kidding, more will be coming soon, so check back later!</p>
+
 {% include contact-info.html %}
+
+{% endcapture %}
+{% include text-content.html 
+    content=content
+%}
