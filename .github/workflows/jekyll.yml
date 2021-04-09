@@ -14,12 +14,17 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Build the site in the jekyll/builder container
+      env:
+        GH_USER: gliu20
+        GH_EMAIL: 24921711+gliu20@users.noreply.github.com
       run: |
         docker run \
         -v ${{ github.workspace }}:/srv/jekyll -v ${{ github.workspace }}/_site:/srv/jekyll/_site \
         jekyll/builder:latest /bin/bash -c "chmod 777 -R /srv/jekyll && npm install && apk add --no-cache gsl-dev && bundle install && bundle exec jekyll build --future"
-        git config user.name gliu20
-        git config user.email 24921711+gliu20@users.noreply.github.com
-        git add .
-        git commit -m "generated"
+        rm -rf docs && mv _site docs
+        git config user.name "$GH_USER"
+        git config user.email "$GH_EMAIL"
+        git add docs
+        NOW=$(TZ="EST" date)
+        git commit -m "Deploy generated on $NOW"
         git push origin master:gh-pages
