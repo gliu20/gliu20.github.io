@@ -19,29 +19,40 @@ use_post_index=include.use_post_index
 
         {% for item in include.posts %}
         
+        {% assign post = "" %}
         {% if include.use_post_index %}
-            {% assign item = site.posts[item] %}
+            {% for candidate in site.posts %}
+                {% assign candidate_index = item | plus: 0 %}
+                {% if forloop.index0 == candidate_index %}
+                    {% assign post = candidate %}
+                    {% break %}
+                {% endif %}
+            {% endfor %}
+        {% else %}
+            {% assign post = item %}
         {% endif %}
+
+        {{ post.title }}
         
         {% assign item_post_image_url = post_image_urls[forloop.index0] | strip_newlines %}
 
-        <a class="box is-hover-card" href="{{ item.url }}">
+        <a class="box is-hover-card" href="{{ post.url }}">
             <div class="columns">
                 <div class="column is-one-third">
                     <figure class="image is-4by3">
-                        <img class="is-smart" loading="lazy" src="{{ item.image | default: item_post_image_url }}"
-                            alt="Cover photo for {{ item.title }}">
+                        <img class="is-smart" loading="lazy" src="{{ post.image | default: item_post_image_url }}"
+                            alt="Cover photo for {{ post.title }}">
                     </figure>
                 </div>
                 <div class="column is-flex is-flex-direction-column is-justify-content-center">
                     <div class="block">
-                        <p class="title is-4">{{ item.title }}</p>
+                        <p class="title is-4">{{ post.title }}</p>
                         <p class="subtitle is-6">
-                            <time datetime="{{ item.date }}">{{ item.date | date: "%b %d, %Y" }}</time>
+                            <time datetime="{{ post.date }}">{{ post.date | date: "%b %d, %Y" }}</time>
                         </p>
                     </div>
                     <div class="block">
-                        {{ item.excerpt | strip_html | strip | default: item.description }}
+                        {{ post.excerpt | strip_html | strip | default: post.description }}
                     </div>
                 </div>
             </div>
