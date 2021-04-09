@@ -3,6 +3,9 @@ short_name: midway
 name: Midway
 description: Keep track of class time
 date: 2018-02-08
+image: /assets/images/2019-02-20-new-logo-midway.png
+image_alt: Image shows a clock inside of a blue circle
+image_caption: Image of the Midway Chrome Extension logo
 redirect_from:
  - /projects/midway.html
 ---
