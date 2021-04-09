@@ -17,8 +17,8 @@ jobs:
       env:
         GH_USER: gliu20
         GH_EMAIL: 24921711+gliu20@users.noreply.github.com
-        SOURCE_BRANCH: master
-        TARGET_BRANCH: gh-pages
+        SOURCE_BRANCH: main
+        TARGET_BRANCH: deploy
       run: |
         docker run \
         -v ${{ github.workspace }}:/srv/jekyll -v ${{ github.workspace }}/_site:/srv/jekyll/_site \
