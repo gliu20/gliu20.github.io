@@ -22,9 +22,16 @@ layout: default
 
 {% include post-comments-js.html %}
 
-{% assign filtered_project_list = site.posts | where: "project", page.project %}
+{% assign post_list = site.posts %}
+{% assign project_post_list = "" | split: "" %}
+{% for post in post_list %}
+    {% if post.project === page.short_name %}
+        {% assign project_post_list = project_post_list | concat: post %}
+    {% endif %}
+{% endfor %}
+
 {% include posts-snapshot-vertical.html 
-    posts=filtered_project_list
+    posts=project_post_list
     heading="Latest updates"
     hide_view_more=true
 %}
