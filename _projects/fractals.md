@@ -3,29 +3,25 @@ short_name: fractals
 name: Fractals
 description: A GPU-accelerated viewer for the Julia and Mandelbrot Sets
 date: 2019-05-06
+image: https://gliu20.github.io/fractals/img/download%20(3).png
+image_alt: The Mandelbrot Set
+image_caption: Image of the <a href="https://en.wikipedia.org/wiki/Mandelbrot_set">Mandelbrot Set</a>
 redirect_from:
  - /projects/fractals.html
 ---
 Algebraic fractals, like those of the Julia and the Mandelbrot Sets, are rich with interesting textures and designs. They are mathematical curiosities: out of such simple equations arises great complexity and beauty. 
 
 ## Demo
-Follow these links to try out the fractal viewers. Make sure to use a high-performance device (with a good GPU).
- * [Mandelbrot Set Generator](https://gliu20.github.io/fractals/mandelbrot.html)
- * [Julia Set Generator](https://gliu20.github.io/fractals/julia.html)
- * [EXPERIMENTAL: New Mandelbrot Set Generator](https://gliu20.github.io/fractals/new.html) (Currently only zooming with mouse scroll works)
+[Link to the demo.](https://gliu20.github.io/fractals/new.html) (Currently only zooming with mouse scroll works)
 
 ### Limitations
-Do not view on a mobile device. Controls will not work and there may be performance issues.
-Also, due to the limitations of the hardware / software, if you see bars or a solid color, you need to zoom out. 
+Due to the limitations of the precision of floating point arithmetic, if you see bars or a solid color, you may need to zoom out. 
  
 ### Controls
 * You'll need to scroll with your mouse in order to zoom in and out. 
 * \[NEW\] Click and drag to pan around.
+* \[NEW\] Touch screen support with panning and zoom gesture support
 
-### Notes
-In addition, if you set the x and y coordinates, you need to click on gen high res image in order for changes to update.
-Zoom indicates the size of the view window; if it's small, then you'll see a small part of the fractal, and if it's big you see more of the fractal. This number is usually between 0 and 1.5.
- 
 ### Here are some other coordinates to try in the Mandelbrot set
  * x: -0.761574           y: -0.0847596         zoom: 0.0000192
  * x: -1.04180483110546   y: 0.346342664848392  zoom: 0.008
@@ -34,27 +30,10 @@ Zoom indicates the size of the view window; if it's small, then you'll see a sma
  * x: -0.5659231995767843 y: 0.6389989720095453 zoom: 0.000194
 
 ## Examples
-![](https://gliu20.github.io/fractals/img/download.png)
 ![](https://gliu20.github.io/fractals/img/download%20(1).png)
-![](https://gliu20.github.io/fractals/img/download%20(2).png)
-![](https://gliu20.github.io/fractals/img/download%20(3).png)
-![](https://gliu20.github.io/fractals/img/download%20(4).png)
-![](https://gliu20.github.io/fractals/img/download%20(5).png)
-![](https://gliu20.github.io/fractals/img/download%20(6).png)
 ![](https://gliu20.github.io/fractals/img/download%20(7).png)
 ![](https://gliu20.github.io/fractals/img/download%20(8).png)
-![](https://gliu20.github.io/fractals/img/download%20(9).png)
-![](https://gliu20.github.io/fractals/img/download%20(10).png)
-![](https://gliu20.github.io/fractals/img/download%20(11).png)
-![](https://gliu20.github.io/fractals/img/download%20(12).png)
-![](https://gliu20.github.io/fractals/img/download%20(13).png)
 ![](https://gliu20.github.io/fractals/img/download%20(14).png)
 ![](https://gliu20.github.io/fractals/img/download%20(15).png)
-![](https://gliu20.github.io/fractals/img/download%20(16).png)
 ![](https://gliu20.github.io/fractals/img/download%20(17).png)
-![](https://gliu20.github.io/fractals/img/download%20(18).png)
 
-## Limitations
- * Currently, only quadratic complex equations are supported
- * Better coloring functions, or at least support for custom ones
- * Zooming in too much results in distorted images or horizontal bars (due to limited precision of Tensorflow.js)

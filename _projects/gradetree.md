@@ -3,6 +3,9 @@ short_name: gradetree
 name: Gradetree
 description: A utility for calculating grades and GPA
 date: 2018-11-15
+image: /assets/images/2019-07-12-gradetree-screenshot.png
+image_alt: Screeenshot of Gradetree shows the calculated GPA, marks, and the course averages
+image_caption: Screenshot of gradetree in action
 redirect_from:
  - /projects/gradetree.html
 ---
