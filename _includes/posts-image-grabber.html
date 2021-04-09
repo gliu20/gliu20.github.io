@@ -2,5 +2,5 @@
 The reason for everything being on one line is to prevent 
 unnecessary creation of newlines. This is necessary for later
 code that processes this because it expects one url per line.
-{% endcomment %}{% for item in include.posts %}
+{% endcomment %}{% for item in include.posts %}{% if include.use_post_index %}{% assign item = site.posts[item] %}{% endif %}
 {% assign imageUrlCandidate = item.content | get_image_url %}{{ imageUrlCandidate | default: "/assets/images/placeholder.png" }}{% endfor %}
