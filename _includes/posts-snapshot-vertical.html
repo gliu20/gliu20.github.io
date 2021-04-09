@@ -31,8 +31,6 @@ use_post_index=include.use_post_index
         {% else %}
             {% assign post = item %}
         {% endif %}
-
-        {{ post.title }}
         
         {% assign item_post_image_url = post_image_urls[forloop.index0] | strip_newlines %}
 
