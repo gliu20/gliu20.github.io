@@ -26,6 +26,7 @@ jobs:
         rm -rf docs && mv _site docs
         git config user.name "$GH_USER"
         git config user.email "$GH_EMAIL"
+        git rm -r --cached .
         git add docs
         NOW=$(TZ="EST" date)
         git commit -m "Deploy generated on $NOW"
