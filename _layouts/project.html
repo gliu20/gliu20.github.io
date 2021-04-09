@@ -26,7 +26,7 @@ layout: default
 {% assign project_post_list = "" | split: "" %}
 {% for post in post_list %}
     {% if post.project == page.short_name %}
-        {% assign post_index = forloop.index0 | append: "" | split: "" %}
+        {% assign post_index = forloop.index0 | append: "" | split: " " %}
         {% assign project_post_list = project_post_list | concat: post_index %}
     {% endif %}
 {% endfor %}

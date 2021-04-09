@@ -2,6 +2,7 @@
 {% capture post_image_urls %}
 {% include posts-image-grabber.html
 posts=include.posts
+use_post_index=include.use_post_index
 %}
 {% endcapture %}
 
@@ -13,10 +14,24 @@ posts=include.posts
 {% unless include.posts.size == 0 %}
 <section class="section">
     <div class="container">
-        <h1 class="title heading is-6 has-text-centered">{{ include.heading }}</h1>
+        <h2 class="title heading is-6 has-text-centered">{{ include.heading }}</h2>
         <div class="columns">
 
             {% for item in include.posts %}
+
+            {% assign post = "" %}
+            {% if include.use_post_index %}
+                {% for candidate in site.posts %}
+                    {% assign candidate_index = item | plus: 0 %}
+                    {% if forloop.index0 == candidate_index %}
+                        {% assign post = candidate %}
+                        {% break %}
+                    {% endif %}
+                {% endfor %}
+            {% else %}
+                {% assign post = item %}
+            {% endif %}
+
             {% assign item_post_image_url = post_image_urls[forloop.index0] | strip_newlines %}
             <div class="column is-flex">
                 <a class="card is-hover-card is-flex-grow-1 is-flex-shrink-1" href="{{ item.url }}">
