@@ -25,7 +25,7 @@ layout: default
 {% assign post_list = site.posts %}
 {% assign project_post_list = "" | split: "" %}
 {% for post in post_list %}
-    {% if post.project === page.short_name %}
+    {% if post.project == page.short_name %}
         {% assign project_post_list = project_post_list | concat: post %}
     {% endif %}
 {% endfor %}
