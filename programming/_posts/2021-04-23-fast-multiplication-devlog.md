@@ -7,13 +7,13 @@ project: fractals
 # Setup
 Assume you have an n by n grid, pictured below.
 
-![](/assets/images/2021-04-03-shape-grid.png)
+![](/assets/images/2021-04-21-shape-grid.png)
  
 
 # Goal
 You want to find the smallest set of rectangles and squares required so that you can form any of the diagonals that slant up and to the right (as shown below). 
 
-![](/assets/images/2021-04-03-shape-diagonals.png)
+![](/assets/images/2021-04-21-shape-diagonals.png)
 
 
 
@@ -21,13 +21,13 @@ You want to find the smallest set of rectangles and squares required so that you
 ## Rules for creating shapes
 You can only create a square or a rectangle. They can be of any size. For the purposes of counting how many shapes we have, a shape in a different location is a completely new shape. For example, the image below shows two different squares.
 
-![](/assets/images/2021-04-03-shape-location-matters.png)
+![](/assets/images/2021-04-21-shape-location-matters.png)
 
 
 ## Rules for combining rectangles and squares
 Adding adds the values together, while subtracting subtracts the values as shown below. 
 
-![](/assets/images/2021-04-03-shape-addition-subtraction.png)
+![](/assets/images/2021-04-21-shape-addition-subtraction.png)
 
 
 So we can think of this question in terms of set theory. That is, what is the smallest basis that allows us to create all of the up and to the right diagonals.
@@ -45,7 +45,7 @@ Another way to view the same operation is to use a table as shown in the figure 
 
 Then, to read out the result of the multiplication, we add up all of the values of the diagonals starting from the bottom right corner and multiply it by $$10^{\text{diagonal index (zero-based index)}}$$.
 
-![](/assets/images/2021-04-03-regular-multiplication-table.png)
+![](/assets/images/2021-04-21-regular-multiplication-table.png)
 
 
 
@@ -62,7 +62,7 @@ This saves one multiplication because we reuse the result in steps 1 and 3 to co
 ## The Shape Analogy
 So how does this connect to the shapes we mentioned at the beginning? Let’s define the value of a shape as $$ \text{the sum of the column headers} \times \text{the sum of the row headers}$$ for that specific square or rectangle. For example, refer to the below diagram. 
 
-![](/assets/images/2021-04-03-shape-value-equivalency.png)
+![](/assets/images/2021-04-21-shape-value-equivalency.png)
 
 
 
@@ -75,7 +75,7 @@ Now let’s look at Karatsuba’s approach using the shape analogy. Let’s cons
 
 From the start, the starting shapes include two of the required diagonals. The remaining diagonal shape can be recreated using a simple subtraction from the starting shapes. You can verify this fact using the corresponding math below each shape.
 
-![](/assets/images/2021-04-03-karatsuba-multiplication-efficiency.png)
+![](/assets/images/2021-04-21-karatsuba-multiplication-efficiency.png)
 
 
 ## Purpose
