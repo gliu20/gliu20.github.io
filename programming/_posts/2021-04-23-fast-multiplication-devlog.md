@@ -3,7 +3,9 @@ title: Towards Efficient Multiplication
 description: How viewing multiplication in a fresh perspective might offer new insights into generalizing the Karatsuba algorithm.
 project: fractals
 ---
-Recently, I was trying to figure out a way to create my own arbitrary precision floating point arithmetic library. For those of you unaware, floating point simply means numbers are represented in scientific notation and that allows computers to express really large or really small numbers and everything in between. However, one of floating point numbers is that they are normally represented with a limited amount of precision. So you end up getting funny errors like $$0.1 + 0.2 = 0.30000000000000004$$. This is problematic because the Fractal viewer uses floating point math to do computations and so at some point, the error is too great and zooming into a fractal image any further results in distortions. 
+Recently, I was trying to figure out a way to create my own arbitrary precision floating point arithmetic library. For those of you unaware, floating point simply means numbers are represented in scientific notation and that allows computers to express really large or really small numbers and everything in between. However, one problem of floating point numbers is that they are normally represented with a limited amount of precision. 
+
+So you end up getting funny errors like $$0.1 + 0.2 = 0.30000000000000004$$. This is problematic because the fractal viewer uses floating point math to do computations and so at some point, the error is too great and zooming into a fractal image any further results in distortions. 
 
 So how do we solve that? Well one way is by creating our own floating point number implementation so that we can use an arbitrary amount of precision to represent a number, allowing us to be more precise in our calculations. Now, the main challenge of doing so is accomplishing multiplications efficiently, and that led to creation of the following puzzle.
 
