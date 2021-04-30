@@ -1,8 +1,11 @@
 ---
-name: Towards Efficient Multiplication
+title: Towards Efficient Multiplication
 description: How viewing multiplication in a fresh perspective might offer new insights into generalizing the Karatsuba algorithm.
 project: fractals
 ---
+Recently, I was trying to figure out a way to create my own arbitrary precision floating point arithmetic library. For those of you unaware, floating point simply means numbers are represented in scientific notation and that allows computers to express really large or really small numbers and everything in between. However, one of floating point numbers is that they are normally represented with a limited amount of precision. So you end up getting funny errors like $$0.1 + 0.2 = 0.30000000000000004$$. This is problematic because the Fractal viewer uses floating point math to do computations and so at some point, the error is too great and zooming into a fractal image any further results in distortions. 
+
+So how do we solve that? Well one way is by creating our own floating point number implementation so that we can use an arbitrary amount of precision to represent a number, allowing us to be more precise in our calculations. Now, the main challenge of doing so is accomplishing multiplications efficiently, and that led to creation of the following puzzle.
 
 # Setup
 Assume you have an n by n grid, pictured below.
@@ -84,3 +87,10 @@ Now my purpose in formulating this problem is to see if we can shift our perspec
 I am well aware of [the work done by Toom and Cook](https://en.wikipedia.org/wiki/Toom%E2%80%93Cook_multiplication), but frankly, it is not something I quite understand and requires some manipulations that are not as simple to implement as the Karatsuba algorithm.
 
 My hope is that this new perspective might prove enlightening and that maybe some theorem from discrete mathematics, or some other field might apply here, and that maybe the shape formulation of the problem proves to be more tractable.
+
+# Further Reading
+
+* [Arithmetic Operations on Binary Numbers](https://www.doc.ic.ac.uk/~eedwards/compsys/arithmetic/index.html)
+* [What Every Computer Scientist Should Know About Floating-Point Arithmetic](https://docs.oracle.com/cd/E19957-01/806-3568/ncg_goldberg.html)
+* [Toom-Cook Algorithm for Multiplication](https://en.wikipedia.org/wiki/Toom%E2%80%93Cook_multiplication)
+* [Karatsuba Algorithm for Multiplication](https://en.wikipedia.org/wiki/Karatsuba_algorithm)
