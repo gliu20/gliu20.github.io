@@ -16,10 +16,11 @@
 
 
     document.addEventListener('DOMContentLoaded', () => {
-
+        // for the resize event
+        let windowWidth = 0;
+        
         // Get all "navbar-burger" elements
         const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
-        const windowWidth = 0;
         const clearNavbarOnResize = debounce(100, () => {
             $navbarBurgers.forEach(el => {
 
