@@ -1,6 +1,9 @@
 ---
 title: Towards Efficient Multiplication
 description: How viewing multiplication in a fresh perspective might offer new insights into generalizing the Karatsuba algorithm.
+image: /assets/images/2021-04-23-multiplication-cover.png
+image_caption: Photo created by me
+image_alt: Image of mathematical symbols like subtraction, addition, multiplication, and equal signs
 project: fractals
 ---
 Recently, I was trying to figure out a way to create my own arbitrary precision floating point arithmetic library. For those of you unaware, floating point simply means numbers are represented in scientific notation and that allows computers to express really large or really small numbers and everything in between. However, one problem of floating point numbers is that they are normally represented with a limited amount of precision. 
