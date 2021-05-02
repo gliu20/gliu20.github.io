@@ -19,6 +19,7 @@
 
         // Get all "navbar-burger" elements
         const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
+        const windowWidth = 0;
         const clearNavbarOnResize = debounce(100, () => {
             $navbarBurgers.forEach(el => {
 
@@ -50,10 +51,17 @@
                 });
             });
 
-            // TODO #25 fix issue where mobile scrolling causing this event to fire
-            // inactivate navbar on resize
+            // we only fire if the width changes since on mobile,
+            // scrolling causing this event to fire when browsers
+            // auto show or hide the toolbar.
+            // this inactivate navbar on resize
             window.addEventListener("resize", () => {
-                clearNavbarOnResize();
+                if (windowWidth !== window.innerWidth) {
+                    // this means that the window resized in width so we clear navbar
+                    clearNavbarOnResize();
+                }
+                
+                windowWidth = window.innerWidth;
             })
         }
 
