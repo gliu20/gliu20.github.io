@@ -3,11 +3,11 @@
 {% assign suffix = include.src | split: "/" | slice: 3 | join: "/" %}
 <figure class="image">
     <picture>
-        <source media="(min-width:0px)" srcset="{{ prefix | append: "xs" | append: suffix }}">
-        <source media="(min-width:300px)" srcset="{{ prefix | append: "sm" | append: suffix }}">
-        <source media="(min-width:750px)" srcset="{{ prefix | append: "md" | append: suffix }}">
-        <source media="(min-width:1200px)" srcset="{{ prefix | append: "lg" | append: suffix }}">
-        <source media="(min-width:2400px)" srcset="{{ prefix | append: "xl" | append: suffix }}">
+        <source media="(min-width:0px)" srcset="{{ prefix | append: "/xs/" | append: suffix }}">
+        <source media="(min-width:300px)" srcset="{{ prefix | append: "/sm/" | append: suffix }}">
+        <source media="(min-width:750px)" srcset="{{ prefix | append: "/md/" | append: suffix }}">
+        <source media="(min-width:1200px)" srcset="{{ prefix | append: "/lg/" | append: suffix }}">
+        <source media="(min-width:2400px)" srcset="{{ prefix | append: "/xl/" | append: suffix }}">
         <img loading="lazy" src="{{ defaultImage }}"
             alt="{{ include.alt }}" title="{{ include.alt }}">
     </picture>
