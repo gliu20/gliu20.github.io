@@ -37,8 +37,18 @@ use_post_index=include.use_post_index
                 <a class="card is-hover-card is-flex-grow-1 is-flex-shrink-1" href="{{ item.url }}">
                     <div class="card-image">
                         <figure class="image is-4by3">
-                            <img class="is-smart" loading="lazy" src="{{ item.image | default: item_post_image_url }}"
-                             alt="Cover photo for {{ item.title }}">
+                            {% assign defaultImage = post.image | default: item_post_image_url %}
+                            {% assign prefix = defaultImage | split: "/" | slice: 0, 3 | join: "/" %}
+                            {% assign suffix = defaultImage | split: "/" | slice: 3 | join: "/" %}
+                            <picture>
+                                <source media="(min-width:2400px)" srcset="{{ prefix | append: "/xl/" | append: suffix }}">
+                                <source media="(min-width:1200px)" srcset="{{ prefix | append: "/lg/" | append: suffix }}">
+                                <source media="(min-width:750px)" srcset="{{ prefix | append: "/md/" | append: suffix }}">
+                                <source media="(min-width:300px)" srcset="{{ prefix | append: "/sm/" | append: suffix }}">
+                                <source media="(min-width:0px)" srcset="{{ prefix | append: "/xs/" | append: suffix }}">
+                                <img class="is-smart" loading="lazy" src="{{ defaultImage }}"
+                                    alt="Cover photo for {{ post.title }}" title="Cover photo for {{ post.title }}">
+                            </picture>
                         </figure>
                     </div>
                     <div class="card-content">
