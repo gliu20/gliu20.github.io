@@ -22,19 +22,33 @@ jobs:
         -v ${{ github.workspace }}:/srv/jekyll -v ${{ github.workspace }}/_site:/srv/jekyll/_site \
         jekyll/builder:latest /bin/bash -c "chmod 777 -R /srv/jekyll && npm install && apk add --no-cache gsl-dev && bundle install && bundle exec jekyll build --future"
         rm -rf docs && mv _site docs
+    - name: Resize static image assets
+      run: |
         cd docs/assets/images
+        mkdir xs
+        mkdir sm
+        mkdir md
+        mkdir lg
+        mkdir xl
         find * -type f -exec convert {} -resize 10000@\> xs/{} \; \
         -exec convert {} -resize 100000@\> sm/{} \; \
         -exec convert {} -resize 500000@\> md/{} \; \
         -exec convert {} -resize 1500000@\> lg/{} \; \
         -exec convert {} -resize 5000000@\> xl/{} \;
         cd ../../assets/puns
+        mkdir xs
+        mkdir sm
+        mkdir md
+        mkdir lg
+        mkdir xl
         find * -type f -exec convert {} -resize 10000@\> xs/{} \; \
         -exec convert {} -resize 100000@\> sm/{} \; \
         -exec convert {} -resize 500000@\> md/{} \; \
         -exec convert {} -resize 1500000@\> lg/{} \; \
         -exec convert {} -resize 5000000@\> xl/{} \;
         cd ../../../
+    - name: Push changes to deploy branch
+      run: |
         git config user.name "$GH_USER"
         git config user.email "$GH_EMAIL"
         git rm -r --cached .
