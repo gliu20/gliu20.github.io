@@ -21,21 +21,25 @@ posts=paginator.posts
 hide_view_more=true
 %}
 
-<hr class="mb-2">
-<div class="is-flex is-justify-content-space-between is-flex-wrap-wrap">
-    {% if paginator.previous_page %}
-    <a class="button has-text-primary is-text is-small" href="{{ paginator.previous_page_path }}"
-        title="Page {{ paginator.previous_page }}">&lt;&lt; Page {{ paginator.previous_page }}</a>
-    {% else %}
-        <div></div>
-    {% endif %}
-    <p>Page {{ paginator.page }} of {{ paginator.total_pages }}</p>
-    {% if paginator.next_page %}
-    <a class="button has-text-primary is-text is-small" href="{{ paginator.next_page_path }}" 
-        title="Page {{ paginator.next_page }}">
-        Page {{ paginator.next_page }} &gt;&gt;</a>
-    {% else %}
-        <div></div>    
-    {% endif %}
-</div>
-<hr class="mt-2">
+<section class="section">
+    <div class="container">
+        <hr class="mb-2">
+        <div class="is-flex is-justify-content-space-between is-flex-wrap-wrap">
+            {% if paginator.previous_page %}
+            <a class="button has-text-primary is-text is-small" href="{{ paginator.previous_page_path }}"
+                title="Page {{ paginator.previous_page }}">&lt;&lt; Page {{ paginator.previous_page }}</a>
+            {% else %}
+                <div></div>
+            {% endif %}
+            <p>Page {{ paginator.page }} of {{ paginator.total_pages }}</p>
+            {% if paginator.next_page %}
+            <a class="button has-text-primary is-text is-small" href="{{ paginator.next_page_path }}" 
+                title="Page {{ paginator.next_page }}">
+                Page {{ paginator.next_page }} &gt;&gt;</a>
+            {% else %}
+                <div></div>    
+            {% endif %}
+        </div>
+        <hr class="mt-2">
+    </div>
+</section>
