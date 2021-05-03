@@ -3,7 +3,7 @@ short_name: fractals
 name: Fractals
 description: A WebAssembly accelerated online viewer for the Julia and Mandelbrot Sets
 date: 2019-05-06
-image: https://gliu20.github.io/fractals/img/download%20(3).png
+image: /assets/images/2021-05-02-mandelbrot-set-fractal-cover.png
 image_alt: The Mandelbrot Set
 image_caption: Image of the <a href="https://en.wikipedia.org/wiki/Mandelbrot_set">Mandelbrot Set</a>
 redirect_from:
