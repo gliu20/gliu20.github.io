@@ -4,7 +4,7 @@ description: Despite my initial qualms, I am proud to have not only won the Inno
 ---
 Coming into the competition without a team, I was nervous about the people I'd meet and who I'd team up with. But, as I would later see, what matters most is not who's on the team, but the attitude I carry. 
 
-Arriving early to nearly empty classrooms, I was anxious from the start. Even after several hours, my assigned team had yet to show up. Nonetheless, I made the most of my time there, [networking](https://www.linkedin.com/in/george-liu-dev) with the Computer Science teachers and students to figure out ways to [bring Midway to other schools](https://midway.web.app). 
+Arriving early to nearly empty classrooms, I was anxious from the start. Even after several hours, my assigned team had yet to show up. Nonetheless, I made the most of my time there, [speaking  with the Computer Science teachers and students](https://www.linkedin.com/in/george-liu-dev) to figure out ways to [bring Midway to other schools](https://midway.web.app). 
 
 After half an hour, the chairs beside me remained empty, so the event organizers formed new teams with the people who did show up. The people on my team were completely new to me, but within several hours, we were already laughing together, sharing our own experiences in high school, and speaking about our future desires.
 
@@ -14,8 +14,6 @@ By the end of the day, I'd almost forgotten that my team and I had only just met
 
 ![ProVote App Logo](/assets/images/2019-12-08-provote-logo.svg)
 
-Reflecting back on the work my team and I achieved at the hackathon, I recognize that they all had something to contribute. Kiara researched and brainstormed ideas, contributing key concepts like the betting aspect of our app. I organized our ideas and advised the team on the best pathways, like pursuing a social media type direction. Eileen, Weezie, and I all contributed to developing the app, working on each screen of the prototype.
-
-Without these amazing team members, I could have never have made this app. Personally, I think that the whole is truly greater than the sum of its parts. Alone, we are just a drop in the ocean, but together, we are the ocean. Acting in unison, we are a wave. 
+Reflecting back on the work my team and I achieved at the hackathon, I recognize that they all had something to contribute. Without these amazing team members, I could have never have made this app. Personally, I think that the whole is truly greater than the sum of its parts. Alone, we are just a drop in the ocean, but together, we are the ocean. Acting in unison, we are a wave. 
 
 ![Winners taking a group photo](/assets/images/2019-12-08-hackathon-award.jpg)
