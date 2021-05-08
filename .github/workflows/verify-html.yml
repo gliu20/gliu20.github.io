@@ -3,14 +3,13 @@
 name: Audit Website
 
 # Controls when the action will run. 
+
 on:
-  # Triggers the workflow on push or pull request events but only for the main branch
   push:
     branches: [ deploy ]
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
-
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -24,10 +23,7 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: 12.x
-      - name: npm install, build
-        run: |
-          npm install
-          npm run build
+        # no npm install or run build b/c we're assuming everything is already built
       - name: run Lighthouse CI
         run: |
           npm install -g @lhci/cli@0.7.x
