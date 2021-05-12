@@ -1,5 +1,4 @@
 ---
-layout: construction
 ---
 {% capture content %}
 ## About me
