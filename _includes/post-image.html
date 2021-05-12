@@ -1,6 +1,6 @@
 {% assign defaultImage = include.src %}
 {% assign prefix = include.src | split: "/" | slice: 0, 3 | join: "/" %}
-{% assign suffix = include.src | split: "/" | slice: 3 | join: "/" %}
+{% assign suffix = include.src | split: "/" | slice: 3 | join: "/" | url_encode %}
 <figure class="image">
     <picture>
         <source media="(min-width:2400px)" srcset="{{ prefix | append: "/xl/" | append: suffix }}">
