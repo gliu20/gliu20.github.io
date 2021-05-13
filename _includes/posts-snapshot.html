@@ -59,7 +59,11 @@ use_post_index=include.use_post_index
                             </p>
                         </div>
                         <div class="block">
-                            {{ item.excerpt | strip_html | strip | default: item.description }}
+                            {% if include.use_post_tags %}
+                                {% include post-tags.html tags=item.tags %}
+                            {% else %}
+                                {{ item.excerpt | strip_html | strip | default: item.description }}
+                            {% endif %}
                         </div>
                     </div>
                 </a>
