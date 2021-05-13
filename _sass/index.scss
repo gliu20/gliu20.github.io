@@ -61,6 +61,11 @@ $body-overflow-y:auto;
 @import "hover-card.scss";
 @import "markdown.scss";
 
+.text-content-paginator .button.is-small {
+    font-size: 0.875rem;
+    margin: 6px;
+}
+
 .image img.is-smart {
     width: 100%;
     height: 100%;
