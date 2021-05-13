@@ -40,7 +40,7 @@ use_post_index=include.use_post_index
                     <figure class="image is-4by3">
                         {% assign defaultImage = post.image | default: item_post_image_url %}
                         {% assign prefix = defaultImage | split: "/" | slice: 0, 3 | join: "/" %}
-                        {% assign suffix = defaultImage | split: "/" | slice: 3 | join: "/" | url_encode %}
+                        {% assign suffix = defaultImage | split: "/" | slice: 3 | join: "/" | url_encode | replace: "+", "%20" %}
                         <picture>
                             <source media="(min-width:2400px)" srcset="{{ prefix | append: "/xl/" | append: suffix }}">
                             <source media="(min-width:1200px)" srcset="{{ prefix | append: "/lg/" | append: suffix }}">
