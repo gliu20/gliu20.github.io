@@ -35,11 +35,14 @@ $body-overflow-y:auto;
 @import "../node_modules/bulma/sass/base/_all";
 //
 @import "../node_modules/bulma/sass/elements/button";
+@import "../node_modules/bulma/sass/elements/box";
 @import "../node_modules/bulma/sass/elements/container";
 @import "../node_modules/bulma/sass/elements/content";
 @import "../node_modules/bulma/sass/elements/icon";
 @import "../node_modules/bulma/sass/elements/title";
 @import "../node_modules/bulma/sass/elements/other";
+@import "../node_modules/bulma/sass/elements/image";
+@import "../node_modules/bulma/sass/elements/tag";
 //
 //
 @import "../node_modules/bulma/sass/form/shared";
@@ -47,11 +50,11 @@ $body-overflow-y:auto;
 //
 @import "../node_modules/bulma/sass/components/navbar";
 @import "../node_modules/bulma/sass/components/level";
+@import "../node_modules/bulma/sass/components/card";
 //
 @import "../node_modules/bulma/sass/grid/columns";
 //
-@import "../node_modules/bulma/sass/helpers/spacing";
-@import "../node_modules/bulma/sass/helpers/other";
+@import "../node_modules/bulma/sass/helpers/_all";
 //
 @import "../node_modules/bulma/sass/layout/_all";
 
