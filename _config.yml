@@ -30,8 +30,8 @@ defaults:
       layout: "post"
       permalink: /blog/:categories/:year/:month/:day/:slug/
   - scope:
-      path: "puns" 
-      type: "posts" # previously `post` in Jekyll 2.2.
+      path: ""
+      type: "puns" # previously `post` in Jekyll 2.2.
     values:
       layout: "post"
       permalink: /blog/:categories/:slug/ # de-emphasize dates which aren't important
