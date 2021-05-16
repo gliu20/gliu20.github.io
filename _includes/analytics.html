@@ -7,44 +7,4 @@
 
     gtag('js', new Date());
     gtag('config', 'UA-110030906-2');
-
-    {% comment %}
-    /*
-
-    
-    window.kpi = {
-        active: true,
-        addEvent: function (event_name, event_data) {
-            if (window.kpi.active) {
-                gtag("event", event_name, event_data)
-            }
-        }
-    }
-
-    window.kpi.addEvent('click_view_more_snapshot', {
-        shown_posts: {{ include.posts | map: 'title' | jsonify }},
-        heading: '{{ include.heading | escape }}',
-        hide_view_more: {{ include.hide_view_more }}
-    });
-
-    window.kpi.addEvent('click_post_snapshot', {
-        shown_posts: {{ include.posts | map: 'title' | jsonify }},
-        clicked_post: {
-            title: '{{ item.title | escape }}',
-            date: '{{ item.date | escape }}',
-            url: '{{ item.url | escape }}'
-        },
-        heading: '{{ include.heading | escape }}',
-        hide_view_more: {{ include.hide_view_more }}
-    });
-
-    window.kpi.addEvent('click_share', {
-        clicked_post: {
-            title: '{{ page.title | escape }}',
-            date: '{{ page.date | escape }}',
-            url: '{{ page.url | escape }}'
-        },
-        share_method: '{{ social.name }}'
-    });*/
-    {% endcomment %}
 </script>
