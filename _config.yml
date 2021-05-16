@@ -48,137 +48,137 @@ defaults:
       redirect_from:
         - /2021/01/07/how-we-re-all-entrepreneurs.html
   - scope:
-      path: puns/_posts/2020-09-25-punderline-66.md
+      path: _puns/2020-09-25-punderline-66.md
     values:
       redirect_from:
         - /2020/09/25/punderline-66.html
   - scope:
-      path: puns/_posts/2020-09-18-punderline-65.md
+      path: _puns/2020-09-18-punderline-65.md
     values:
       redirect_from:
         - /2020/09/18/punderline-65.html
   - scope:
-      path: puns/_posts/2020-09-11-punderline-64.md
+      path: _puns/2020-09-11-punderline-64.md
     values:
       redirect_from:
         - /2020/09/11/punderline-64.html
   - scope:
-      path: puns/_posts/2020-09-04-punderline-63.md
+      path: _puns/2020-09-04-punderline-63.md
     values:
       redirect_from:
         - /2020/09/04/punderline-63.html
   - scope:
-      path: puns/_posts/2020-08-28-punderline-62.md
+      path: _puns/2020-08-28-punderline-62.md
     values:
       redirect_from:
         - /2020/08/28/punderline-62.html
   - scope:
-      path: puns/_posts/2020-08-21-punderline-61.md
+      path: _puns/2020-08-21-punderline-61.md
     values:
       redirect_from:
         - /2020/08/21/punderline-61.html
   - scope:
-      path: puns/_posts/2020-08-14-punderline-60.md
+      path: _puns/2020-08-14-punderline-60.md
     values:
       redirect_from:
         - /2020/08/14/punderline-60.html
   - scope:
-      path: puns/_posts/2020-08-07-punderline-59.md
+      path: _puns/2020-08-07-punderline-59.md
     values:
       redirect_from:
         - /2020/08/07/punderline-59.html
   - scope:
-      path: puns/_posts/2020-07-31-punderline-58.md
+      path: _puns/2020-07-31-punderline-58.md
     values:
       redirect_from:
         - /2020/07/31/punderline-58.html
   - scope:
-      path: puns/_posts/2020-07-24-punderline-57.md
+      path: _puns/2020-07-24-punderline-57.md
     values:
       redirect_from:
         - /2020/07/24/punderline-57.html
   - scope:
-      path: puns/_posts/2020-07-17-punderline-56.md
+      path: _puns/2020-07-17-punderline-56.md
     values:
       redirect_from:
         - /2020/07/17/punderline-56.html
   - scope:
-      path: puns/_posts/2020-07-10-punderline-55.md
+      path: _puns/2020-07-10-punderline-55.md
     values:
       redirect_from:
         - /2020/07/10/punderline-55.html
   - scope:
-      path: puns/_posts/2020-07-03-punderline-54.md
+      path: _puns/2020-07-03-punderline-54.md
     values:
       redirect_from:
         - /2020/07/03/punderline-54.html
   - scope:
-      path: puns/_posts/2020-06-26-punderline-53.md
+      path: _puns/2020-06-26-punderline-53.md
     values:
       redirect_from:
         - /2020/06/26/punderline-53.html
   - scope:
-      path: puns/_posts/2020-06-19-punderline-52.md
+      path: _puns/2020-06-19-punderline-52.md
     values:
       redirect_from:
         - /2020/06/19/punderline-52.html
   - scope:
-      path: puns/_posts/2020-06-12-punderline-51.md
+      path: _puns/2020-06-12-punderline-51.md
     values:
       redirect_from:
         - /2020/06/12/punderline-51.html
   - scope:
-      path: puns/_posts/2020-05-29-punderline-50.md
+      path: _puns/2020-05-29-punderline-50.md
     values:
       redirect_from:
         - /2020/05/29/punderline-50.html
   - scope:
-      path: puns/_posts/2020-05-22-punderline-49.md
+      path: _puns/2020-05-22-punderline-49.md
     values:
       redirect_from:
         - /2020/05/22/punderline-49.html
   - scope:
-      path: puns/_posts/2020-05-15-punderline-48.md
+      path: _puns/2020-05-15-punderline-48.md
     values:
       redirect_from:
         - /2020/05/15/punderline-48.html
   - scope:
-      path: puns/_posts/2020-05-08-punderline-47.md
+      path: _puns/2020-05-08-punderline-47.md
     values:
       redirect_from:
         - /2020/05/08/punderline-47.html
   - scope:
-      path: puns/_posts/2020-05-01-punderline-46.md
+      path: _puns/2020-05-01-punderline-46.md
     values:
       redirect_from:
         - /2020/05/01/punderline-46.html
   - scope:
-      path: puns/_posts/2020-04-29-punderline-45.md
+      path: _puns/2020-04-29-punderline-45.md
     values:
       redirect_from:
         - /2020/04/29/punderline-45.html
   - scope:
-      path: puns/_posts/2020-04-24-punderline-44.md
+      path: _puns/2020-04-24-punderline-44.md
     values:
       redirect_from:
         - /2020/04/24/punderline-44.html
   - scope:
-      path: puns/_posts/2020-04-17-punderline-43.md
+      path: _puns/2020-04-17-punderline-43.md
     values:
       redirect_from:
         - /2020/04/17/punderline-43.html
   - scope:
-      path: puns/_posts/2020-04-10-punderline-42.md
+      path: _puns/2020-04-10-punderline-42.md
     values:
       redirect_from:
         - /2020/04/10/punderline-42.html
   - scope:
-      path: puns/_posts/2020-04-03-punderline-41.md
+      path: _puns/2020-04-03-punderline-41.md
     values:
       redirect_from:
         - /2020/04/03/punderline-41.html
   - scope:
-      path: puns/_posts/2020-03-27-punderline-40.md
+      path: _puns/2020-03-27-punderline-40.md
     values:
       redirect_from:
         - /2020/03/27/punderline-40.html
@@ -188,192 +188,192 @@ defaults:
       redirect_from:
         - /2020/03/23/why-you-should-make-your-own-css-framework.html
   - scope:
-      path: puns/_posts/2020-03-20-punderline-39.md
+      path: _puns/2020-03-20-punderline-39.md
     values:
       redirect_from:
         - /2020/03/20/punderline-39.html
   - scope:
-      path: puns/_posts/2020-03-13-punderline-38.md
+      path: _puns/2020-03-13-punderline-38.md
     values:
       redirect_from:
         - /2020/03/13/punderline-38.html
   - scope:
-      path: puns/_posts/2020-03-06-punderline-37.md
+      path: _puns/2020-03-06-punderline-37.md
     values:
       redirect_from:
         - /2020/03/06/punderline-37.html
   - scope:
-      path: puns/_posts/2020-03-01-punderline-36.md
+      path: _puns/2020-03-01-punderline-36.md
     values:
       redirect_from:
         - /2020/03/01/punderline-36.html
   - scope:
-      path: puns/_posts/2020-02-28-punderline-35.md
+      path: _puns/2020-02-28-punderline-35.md
     values:
       redirect_from:
         - /2020/02/28/punderline-35.html
   - scope:
-      path: puns/_posts/2020-02-28-punderline-34.md
+      path: _puns/2020-02-28-punderline-34.md
     values:
       redirect_from:
         - /2020/02/28/punderline-34.html
   - scope:
-      path: puns/_posts/2020-02-28-punderline-33.md
+      path: _puns/2020-02-28-punderline-33.md
     values:
       redirect_from:
         - /2020/02/28/punderline-33.html
   - scope:
-      path: puns/_posts/2020-02-28-punderline-32.md
+      path: _puns/2020-02-28-punderline-32.md
     values:
       redirect_from:
         - /2020/02/28/punderline-32.html
   - scope:
-      path: puns/_posts/2020-02-25-punderline-31.md
+      path: _puns/2020-02-25-punderline-31.md
     values:
       redirect_from:
         - /2020/02/25/punderline-31.html
   - scope:
-      path: puns/_posts/2020-02-10-punderline-30.md
+      path: _puns/2020-02-10-punderline-30.md
     values:
       redirect_from:
         - /2020/02/10/punderline-30.html
   - scope:
-      path: puns/_posts/2020-02-10-punderline-29.md
+      path: _puns/2020-02-10-punderline-29.md
     values:
       redirect_from:
         - /2020/02/10/punderline-29.html
   - scope:
-      path: puns/_posts/2020-02-10-punderline-28.md
+      path: _puns/2020-02-10-punderline-28.md
     values:
       redirect_from:
         - /2020/02/10/punderline-28.html
   - scope:
-      path: puns/_posts/2020-02-07-punderline-27.md
+      path: _puns/2020-02-07-punderline-27.md
     values:
       redirect_from:
         - /2020/02/07/punderline-27.html
   - scope:
-      path: puns/_posts/2020-02-07-punderline-26.md
+      path: _puns/2020-02-07-punderline-26.md
     values:
       redirect_from:
         - /2020/02/07/punderline-26.html
   - scope:
-      path: puns/_posts/2020-02-07-punderline-25.md
+      path: _puns/2020-02-07-punderline-25.md
     values:
       redirect_from:
         - /2020/02/07/punderline-25.html
   - scope:
-      path: puns/_posts/2020-02-07-punderline-24.md
+      path: _puns/2020-02-07-punderline-24.md
     values:
       redirect_from:
         - /2020/02/07/punderline-24.html
   - scope:
-      path: puns/_posts/2020-02-07-punderline-23.md
+      path: _puns/2020-02-07-punderline-23.md
     values:
       redirect_from:
         - /2020/02/07/punderline-23.html
   - scope:
-      path: puns/_posts/2020-02-07-punderline-22.md
+      path: _puns/2020-02-07-punderline-22.md
     values:
       redirect_from:
         - /2020/02/07/punderline-22.html
   - scope:
-      path: puns/_posts/2020-02-07-punderline-21.md
+      path: _puns/2020-02-07-punderline-21.md
     values:
       redirect_from:
         - /2020/02/07/punderline-21.html
   - scope:
-      path: puns/_posts/2020-02-07-punderline-20.md
+      path: _puns/2020-02-07-punderline-20.md
     values:
       redirect_from:
         - /2020/02/07/punderline-20.html
   - scope:
-      path: puns/_posts/2020-02-06-punderline-19.md
+      path: _puns/2020-02-06-punderline-19.md
     values:
       redirect_from:
         - /2020/02/06/punderline-19.html
   - scope:
-      path: puns/_posts/2020-02-06-punderline-18.md
+      path: _puns/2020-02-06-punderline-18.md
     values:
       redirect_from:
         - /2020/02/06/punderline-18.html
   - scope:
-      path: puns/_posts/2020-02-06-punderline-17.md
+      path: _puns/2020-02-06-punderline-17.md
     values:
       redirect_from:
         - /2020/02/06/punderline-17.html
   - scope:
-      path: puns/_posts/2020-02-06-punderline-16.md
+      path: _puns/2020-02-06-punderline-16.md
     values:
       redirect_from:
         - /2020/02/06/punderline-16.html
   - scope:
-      path: puns/_posts/2020-02-06-punderline-15.md
+      path: _puns/2020-02-06-punderline-15.md
     values:
       redirect_from:
         - /2020/02/06/punderline-15.html
   - scope:
-      path: puns/_posts/2020-02-06-punderline-14.md
+      path: _puns/2020-02-06-punderline-14.md
     values:
       redirect_from:
         - /2020/02/06/punderline-14.html
   - scope:
-      path: puns/_posts/2020-02-06-punderline-13.md
+      path: _puns/2020-02-06-punderline-13.md
     values:
       redirect_from:
         - /2020/02/06/punderline-13.html
   - scope:
-      path: puns/_posts/2020-02-06-punderline-12.md
+      path: _puns/2020-02-06-punderline-12.md
     values:
       redirect_from:
         - /2020/02/06/punderline-12.html
   - scope:
-      path: puns/_posts/2020-02-06-punderline-11.md
+      path: _puns/2020-02-06-punderline-11.md
     values:
       redirect_from:
         - /2020/02/06/punderline-11.html
   - scope:
-      path: puns/_posts/2020-02-06-punderline-10.md
+      path: _puns/2020-02-06-punderline-10.md
     values:
       redirect_from:
         - /2020/02/06/punderline-10.html
   - scope:
-      path: puns/_posts/2020-02-05-punderline-9.md
+      path: _puns/2020-02-05-punderline-9.md
     values:
       redirect_from:
         - /2020/02/05/punderline-9.html
   - scope:
-      path: puns/_posts/2020-02-05-punderline-8.md
+      path: _puns/2020-02-05-punderline-8.md
     values:
       redirect_from:
         - /2020/02/05/punderline-8.html
   - scope:
-      path: puns/_posts/2020-02-05-punderline-7.md
+      path: _puns/2020-02-05-punderline-7.md
     values:
       redirect_from:
         - /2020/02/05/punderline-7.html
   - scope:
-      path: puns/_posts/2020-02-05-punderline-6.md
+      path: _puns/2020-02-05-punderline-6.md
     values:
       redirect_from:
         - /2020/02/05/punderline-6.html
   - scope:
-      path: puns/_posts/2020-02-05-punderline-5.md
+      path: _puns/2020-02-05-punderline-5.md
     values:
       redirect_from:
         - /2020/02/05/punderline-5.html
   - scope:
-      path: puns/_posts/2020-02-05-punderline-3.md
+      path: _puns/2020-02-05-punderline-3.md
     values:
       redirect_from:
         - /2020/02/05/punderline-3.html
   - scope:
-      path: puns/_posts/2020-02-05-punderline-2.md
+      path: _puns/2020-02-05-punderline-2.md
     values:
       redirect_from:
         - /2020/02/05/punderline-2.html
   - scope:
-      path: puns/_posts/2020-02-05-punderline-1.md
+      path: _puns/2020-02-05-punderline-1.md
     values:
       redirect_from:
         - /2020/02/05/punderline-1.html
