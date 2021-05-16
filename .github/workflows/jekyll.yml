@@ -22,6 +22,9 @@ jobs:
         -v ${{ github.workspace }}:/srv/jekyll -v ${{ github.workspace }}/_site:/srv/jekyll/_site \
         jekyll/builder:latest /bin/bash -c "chmod 777 -R /srv/jekyll && npm install && apk add gsl-dev \
         && bundle install && bundle exec jekyll build"
+    - name: Allow modifications of files by all scripts
+      run: |
+        sudo chmod -R a+rwx _site
     - name: Move files to correct location
       run: |
         rm -rf docs && mv _site docs
@@ -36,27 +39,27 @@ jobs:
     - name: Resize static image assets
       run: |
         cd docs/assets/images
-        sudo mkdir xs
-        sudo mkdir sm
-        sudo mkdir md
-        sudo mkdir lg
-        sudo mkdir xl
-        find * -type f -exec sudo convert {} -resize 10000@\> xs/{} \; \
-        -exec sudo convert {} -resize 100000@\> sm/{} \; \
-        -exec sudo convert {} -resize 500000@\> md/{} \; \
-        -exec sudo convert {} -resize 1500000@\> lg/{} \; \
-        -exec sudo convert {} -resize 5000000@\> xl/{} \;
+        mkdir xs
+        mkdir sm
+        mkdir md
+        mkdir lg
+        mkdir xl
+        find * -type f -exec convert {} -resize 10000@\> xs/{} \; \
+        -exec convert {} -resize 100000@\> sm/{} \; \
+        -exec convert {} -resize 500000@\> md/{} \; \
+        -exec convert {} -resize 1500000@\> lg/{} \; \
+        -exec convert {} -resize 5000000@\> xl/{} \;
         cd ../../assets/puns
-        sudo mkdir xs
-        sudo mkdir sm
-        sudo mkdir md
-        sudo mkdir lg
-        sudo mkdir xl
-        find * -type f -exec sudo convert {} -resize 10000@\> xs/{} \; \
-        -exec sudo convert {} -resize 100000@\> sm/{} \; \
-        -exec sudo convert {} -resize 500000@\> md/{} \; \
-        -exec sudo convert {} -resize 1500000@\> lg/{} \; \
-        -exec sudo convert {} -resize 5000000@\> xl/{} \;
+        mkdir xs
+        mkdir sm
+        mkdir md
+        mkdir lg
+        mkdir xl
+        find * -type f -exec convert {} -resize 10000@\> xs/{} \; \
+        -exec convert {} -resize 100000@\> sm/{} \; \
+        -exec convert {} -resize 500000@\> md/{} \; \
+        -exec convert {} -resize 1500000@\> lg/{} \; \
+        -exec convert {} -resize 5000000@\> xl/{} \;
         cd ../../../
     - name: Push changes to deploy branch
       run: |
