@@ -32,7 +32,7 @@ jobs:
     - name: Minify html
       run: |
         npm install -g html-minifier
-        sudo ./minify-html.sh
+        sudo ./html-minify.sh
     - name: Resize static image assets
       run: |
         cd docs/assets/images
