@@ -1,6 +1,6 @@
 ---
 ---
-{% assign category_posts = site.puns %}
+{% assign category_posts = site.puns | sort: 'date' | reverse %}
 
 {% include posts-recommended.html 
     view_type="horizontal"
