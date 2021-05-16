@@ -4,7 +4,7 @@ name: Midway
 description: Keep track of class time
 date: 2018-02-08
 image: /assets/images/2021-04-08-midway-feature-slide.png
-image_alt: Image shows the Midway logo next to the text \"Keep track of class time\"
+image_alt: Image shows the Midway logo next to the text 'Keep track of class time'
 image_caption: Image of the Midway Chrome Extension logo
 redirect_from:
  - /projects/midway.html
