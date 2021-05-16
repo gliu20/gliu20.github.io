@@ -446,6 +446,8 @@ defaults:
 collections:
   projects:
     output: true
+  puns:
+    output: true
 
 # Build settings
 plugins:

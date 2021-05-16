@@ -1,6 +1,6 @@
 ---
 ---
-{% assign category_posts = site.posts | where_exp: "post","post.categories contains 'puns'" %}
+{% assign category_posts = site.puns %}
 
 {% include posts-recommended.html 
     view_type="horizontal"
