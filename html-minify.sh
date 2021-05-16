@@ -1,4 +1,4 @@
-find _site/* -type f -name "*.html" | while read INPUT_FILE; do
+find docs/* -type f -name "*.html" | while read INPUT_FILE; do
     echo "Minifying $INPUT_FILE"
     html-minifier --collapse-whitespace --remove-comments \
     --remove-optional-tags --remove-redundant-attributes \
