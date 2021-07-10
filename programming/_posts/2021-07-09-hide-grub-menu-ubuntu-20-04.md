@@ -1,15 +1,11 @@
 ---
 title: Hiding the GRUB menu in Ubuntu 20.04
 description: Removing the GRUB menu is a bit difficult in the latest version of Ubuntu, so here's a guide on how to fix that.
+image: /assets/images/2021-07-10-grub-menu-cover.png
+image_caption: Photo created by me
+image_alt: Image of the GRUB menu
 ---
 
-<!-- TODO add cover images
-
-image: /assets/images/2021-04-23-multiplication-cover.png
-image_caption: Photo created by me
-image_alt: Image of mathematical symbols like subtraction, addition, multiplication, and equal signs
-
--->
 
 If you're like me, most of the time I prefer to just work in Linux and only rarely use Windows in my dual-boot setup. So, I'd rather only see the GRUB menu if I'm holding down a key to switch into Windows and otherwise simply default to Ubuntu. The process to set that up is a little involved, though, so be warned!
 
@@ -20,19 +16,26 @@ But first off, a mandatory disclaimer.
 > Follow these instructions at your own risk. Make sure to backup your data and/or GRUB configuration in case something goes wrong. Furthermore, editing your GRUB configuration has a risk in resulting in an unbootable system, so make sure to do your own research. 
 
 # Hiding the menu in GRUB options
-The process outlined here is mainly inspired by [Arch Linux's Guide to hiding GRUB unless shift key is pressed](https://wiki.archlinux.org/title/GRUB/Tips_and_tricks#Hide_GRUB_unless_the_Shift_key_is_held_down), but with some slight modifications.
+The process outlined here is mainly from Arch Linux's wiki [^1], but with some modifications to work on Ubuntu.
 
 First, we have to enable the hidden menu by adding the following options in `/etc/default/grub`
+
 
 ```bash
 GRUB_FORCE_HIDDEN_MENU="true"
 GRUB_GFXPAYLOAD_LINUX=keep
 ```
 
-You might be wondering why we have to enable `GRUB_GFXPAYLOAD_LINUX=keep`. In fact, it's currently a known error where hwmatch (a module that has allowlists and denylists for certain hardware platforms) is omitted from 64-bit based linux distributions, so GRUB scripts relying on the module will show an error such as `error: can't find command hwmatch` [^1]. The fix recommended in the bug report is to enable `GRUB_GFXPAYLOAD_LINUX=keep` which causes the GRUB scripts to skip the logic requiring `hwmatch`, effectively hiding the error [^2].
 
-# Creating the scripts to skip the GRUB menu unless shift key is held
-Then we copy the [script](https://gist.githubusercontent.com/anonymous/8eb2019db2e278ba99be/raw/257f15100fd46aeeb8e33a7629b209d0a14b9975/gistfile1.sh) linked to in Arch Linux's guide to `/etc/grub.d/31_hold_shift`. However, we have to modify a couple lines for it to work on Ubuntu. If we don't, then you'll see an error like `/etc/grub.d/31_hold_shift: 10: source: not found` when running `update-grub`.
+You might be wondering why we have to enable `GRUB_GFXPAYLOAD_LINUX=keep`. In fact, it's currently a known error where hwmatch (a module that has allowlists and denylists for certain hardware platforms) is omitted from 64-bit based linux distributions, so GRUB scripts relying on the module will show an error such as `error: can't find command hwmatch` [^2]. 
+
+The fix recommended in the bug report is to enable `GRUB_GFXPAYLOAD_LINUX=keep` which causes the GRUB scripts to skip the logic requiring `hwmatch`, effectively hiding the error [^3].
+
+
+# Creating the GRUB scripts
+Then we copy the [script](https://gist.githubusercontent.com/anonymous/8eb2019db2e278ba99be/raw/257f15100fd46aeeb8e33a7629b209d0a14b9975/gistfile1.sh) linked to in Arch Linux's guide to `/etc/grub.d/31_hold_shift`. However, we have to modify a couple lines for it to work on Ubuntu. 
+
+If we don't, then you'll see an error like `/etc/grub.d/31_hold_shift: 10: source: not found` when running `update-grub`.
 
 To fix the issue, we remove the following lines,
 ```bash
@@ -45,7 +48,10 @@ export TEXTDOMAINDIR="${datarootdir}/locale"
 source "${datarootdir}/grub/grub-mkconfig_lib"
 ```
 
+
 replacing it with the below.
+
+
 ```bash
 prefix="/usr"
 exec_prefix="/usr"
@@ -68,7 +74,9 @@ Now that we finished editing the GRUB script, just make it executable and run up
 sudo chmod a+x /etc/grub.d/31_hold_shift
 sudo update-grub
 ```
+
 Now reboot, and all should be good to go!
 
-[^1]: https://bugs.launchpad.net/ubuntu/+source/grub2-signed/+bug/1840560
-[^2]: https://bugs.launchpad.net/ubuntu/+source/grub2-signed/+bug/1840560/comments/4
+[^1]: [Arch Linux's Guide to hiding GRUB unless shift key is pressed](https://wiki.archlinux.org/title/GRUB/Tips_and_tricks#Hide_GRUB_unless_the_Shift_key_is_held_down)
+[^2]: [Bug report for hwmatch not found error](https://bugs.launchpad.net/ubuntu/+source/grub2-signed/+bug/1840560)
+[^3]: [Suggested fix for missing the hwmatch module](https://bugs.launchpad.net/ubuntu/+source/grub2-signed/+bug/1840560/comments/4)
