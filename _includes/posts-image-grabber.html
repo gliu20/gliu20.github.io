@@ -1,6 +1,0 @@
-{% comment %} 
-The reason for everything being on one line is to prevent 
-unnecessary creation of newlines. This is necessary for later
-code that processes this because it expects one url per line.
-{% endcomment %}{% for item in include.posts %}{% assign post = "" %}{% if include.use_post_index %}{% for candidate in site.posts %}{% assign candidate_index = item | plus: 0 %}{% if forloop.index0 == candidate_index %}{% assign post = candidate %}{% break %}{% endif %}{% endfor %}{% else %}{% assign post = item %}{% endif %}
-{% assign imageUrlCandidate = post.content | get_image_url %}{{ imageUrlCandidate | default: "/assets/images/placeholder.png" }}{% endfor %}
