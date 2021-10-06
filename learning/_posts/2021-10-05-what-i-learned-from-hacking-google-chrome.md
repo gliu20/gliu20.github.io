@@ -3,7 +3,7 @@ title: What I learned from hacking Google Chrome
 description: I never expected to find a medium severity security bug, much less at 18 years old with little background in ethical hacking. Discovering the vulnerability as a complete beginner changed the way I thought about bug bounty and learning. Here's what I discovered.
 image: /assets/images/2021-10-05-google-chrome-hack-cover.png
 image_caption: Photo created by me
-image_alt: Image of a terminal window with the words "What I learned from hacking Google Chrome." In the top right corner, the text "CVE-2021-30582" can be seen.
+image_alt: Image of a terminal window with the words \"What I learned from hacking Google Chrome.\" In the top right corner, the text \"CVE-2021-30582\" can be seen.
 ---
 
 I’m just a regular engineering student. I mean, sure, I like watching random educational youtube videos, using computers, and programming for fun, but I mean, hey, that’s why I’m in ECE. Yet, I’m not a hacker, nor do I have the skills to even remotely consider myself one. And even despite the plethora of reasons I should fail, I managed to do what I thought I could never do.
