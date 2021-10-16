@@ -9,7 +9,7 @@
         <source media="(min-width:300px)" srcset="{{ prefix | append: "/sm/" | append: suffix }}">
         <source media="(min-width:0px)" srcset="{{ prefix | append: "/xs/" | append: suffix }}">
         <img loading="lazy" src="{{ defaultImage }}"
-            alt="{{ include.alt }}" title="{{ include.alt }}">
+            alt="{{ include.alt | escape }}" title="{{ include.alt | escape }}">
     </picture>
     <figcaption>{{ include.caption }}</figcaption>
 </figure>
