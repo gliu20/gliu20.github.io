@@ -12,12 +12,18 @@ redirect_from:
 Algebraic fractals, like those of the Julia and the Mandelbrot Sets, are rich with interesting textures and designs. They are mathematical curiosities: out of such simple equations arises great complexity and beauty. 
 
 ## Demo
-[Link to the demo.](https://gliu20.github.io/fractals/new.html) (Currently only zooming with mouse scroll works)
+[Link to the demo of the WebAssembly-accelerated fractal viewer.](https://gliu20.github.io/fractals/)
 
-### Limitations
-Due to the limitations of the precision of floating point arithmetic, if you see bars or a solid color, you may need to zoom out. 
- 
-### Controls
+## Key features
+- **Progressive Refinement** - The viewer starts with a pixelated image and iteratively increases the resolution of the output. This UX consideration gives the user immediate feedback
+- **Gesture support** - Uses touch APIs to support pinching in and out to zoom and dragging to move the image around
+- **Adaptive throttling** - adapts to your computer's hardware and/or workload to maintain responsiveness while rendering as many pixels as it can
+- **Performance** - Key code is run on WebAssembly for better performance, plus optimizations to escape iterations early to avoid doing unnecessary work 
+
+## Limitations
+- Arbitrary precision arithmetic is not yet supported 
+
+## Controls
 * Mouse
   * Scroll with your mouse in order to zoom in and out
   * Click and drag to pan around
@@ -25,14 +31,16 @@ Due to the limitations of the precision of floating point arithmetic, if you see
   * Use pinch gestures to zoom in and out
   * Touch and drag to pan around
 
-### Coordinates of interest in the Mandelbrot set
+## Coordinates of interest in the Mandelbrot set
  * x: -0.761574           y: -0.0847596         zoom: 0.0000192
  * x: -1.04180483110546   y: 0.346342664848392  zoom: 0.008
  * x: -0.751095959125087  y: -0.116817186889238 zoom: 0.009
  * x: -0.812223315621338  y: -0.185453926110785 zoom: 0.0008
  * x: -0.5659231995767843 y: 0.6389989720095453 zoom: 0.000194
 
-## Examples
+## Example images
+
+<div class="is-flex is-flex-direction-row">
 {% include post-image.html 
  src="/assets/images/2021-04-30-mandelbrot-1.png"
  alt="Image of the Mandelbrot Set"
@@ -99,4 +107,5 @@ Due to the limitations of the precision of floating point arithmetic, if you see
  alt="Image of the Mandelbrot Set"
  caption="A close up of a minibrot surrounded by a white intricate pattern against a dark blue background"
 %}
+ </div>
 
