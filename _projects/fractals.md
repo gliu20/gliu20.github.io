@@ -39,8 +39,9 @@ Algebraic fractals, like those of the Julia and the Mandelbrot Sets, are rich wi
  * x: -0.5659231995767843 y: 0.6389989720095453 zoom: 0.000194
 
 ## Example images
-
-<div class="is-flex is-flex-direction-row">
+<details>
+<summary>View images</summary>
+ 
 {% include post-image.html 
  src="/assets/images/2021-04-30-mandelbrot-1.png"
  alt="Image of the Mandelbrot Set"
@@ -107,5 +108,7 @@ Algebraic fractals, like those of the Julia and the Mandelbrot Sets, are rich wi
  alt="Image of the Mandelbrot Set"
  caption="A close up of a minibrot surrounded by a white intricate pattern against a dark blue background"
 %}
- </div>
+ 
+</details>
+
 
