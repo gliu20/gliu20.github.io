@@ -7,6 +7,8 @@ image_alt: Image of mathematical symbols like subtraction, addition, multiplicat
 project: fractals
 ---
 
+From learning WebAssembly to eliminating unnecessary work with period checking to progressive refinement, this is how I made my fractal viewer faster and more usable.
+
 ## 1. Migration away from TensorflowJS, progressive refinement, and workload-adaptive calculations
 The original fractal viewer indirectly used WebGL by running matrix operations using TensorflowJS, a javascript-based machine learning framework. However, the system was extremely laggy due to the overhead of transferring matrices between the CPU and GPU for each operation that needed to be done. This severely limited the frames per second and greatly impacted responsiveness. Additionally, the precision of floats are severely limited as compared to native Javascript floats. 
 
