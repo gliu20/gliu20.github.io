@@ -21,7 +21,7 @@ jobs:
         docker run \
         -v ${{ github.workspace }}:/srv/jekyll \
         -v ${{ github.workspace }}/_site:/srv/jekyll/_site \
-        jekyll/jekyll:latest \
+        jekyll/jekyll:4.2.0 \
         /bin/bash -c "chmod 777 -R /srv/jekyll && npm install && apk add gsl-dev \
         && bundle install && bundle exec jekyll build"
     - name: Move files to_docs
