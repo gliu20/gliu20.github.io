@@ -1,9 +1,10 @@
 ---
+project: firefox
 title: How I Got Started With Contributing to Firefox
 description: I used to think it was hard to meaningfully contribute to open source. I felt overwhelmed. How could I find something that I could actually meaningfully improve? I’ve considered contributing to browsers, but I never thought I’d be able to. This is the story of how I contributed to Firefox despite not knowing how.
-image: /assets/images/2020-03-23-css-framework.png
-image_caption: Photo by me
-image_alt: Picture of CSS code
+image: /assets/images/2022-04-19-firefox-how-i-got-started-cover.png
+image_caption: Illustration by me
+image_alt: Firefox logo
 ---
 
 I used to think it was hard to meaningfully contribute to open source. I’d browse on Github scouring for good first issues only to find them already taken or far outside my depth. 
