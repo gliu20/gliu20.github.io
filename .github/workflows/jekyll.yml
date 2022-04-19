@@ -16,18 +16,17 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-    - name: Build the site in the jekyll/builder container
+    - name: Build the site in the jekyll container
       run: |
         docker run \
-        -v ${{ github.workspace }}:/srv/jekyll -v ${{ github.workspace }}/_site:/srv/jekyll/_site \
-        jekyll/builder:latest /bin/bash -c "chmod 777 -R /srv/jekyll && npm install && apk add gsl-dev \
+        -v ${{ github.workspace }}:/srv/jekyll \
+        -v ${{ github.workspace }}/_site:/srv/jekyll/_site \
+        jekyll/jekyll:latest \
+        /bin/bash -c "chmod 777 -R /srv/jekyll && npm install && apk add gsl-dev \
         && bundle install && bundle exec jekyll build"
-    - name: Allow modifications of files by all scripts
+    - name: Move files to_docs
       run: |
-        sudo chmod -R a+rwx _site
-    - name: Move files to correct location
-      run: |
-        rm -rf docs && mv _site docs
+        sudo chmod -R a+rwx _site && rm -rf docs && mv _site docs
     - name: Use Node.js 12.x
       uses: actions/setup-node@v1
       with:

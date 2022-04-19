@@ -33,6 +33,6 @@
   },
   "homepage": "https://github.com/gliu20/gliu20.github.io#readme",
   "dependencies": {
-    "bulma": "^0.9.1"
+    "bulma": "^0.9.3"
   }
 }
