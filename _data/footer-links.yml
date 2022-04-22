@@ -9,23 +9,23 @@
       link: /blog/programming/
     - name: Puns
       link: /blog/puns/
-- name: Work
-  link: /work/
-  links:
-    - name: All Work
-      link: /work/
-    #- name: Entrepreneurship
-    #  link: /work/entrepreneurship/
-    - name: Product Thinking
-      link: /work/product-management/
-    #- name: Engineering
-    #  link: /work/engineering/
-    - name: Graphics
-      link: /work/graphics/
-    - name: Marketing
-      link: /work/marketing/
-    #- name: Volunteer Work
-    #  link: /work/volunteer/
+#- name: Work
+#  link: /work/
+#  links:
+#    - name: All Work
+#      link: /work/
+#    #- name: Entrepreneurship
+#    #  link: /work/entrepreneurship/
+#    - name: Product Thinking
+#      link: /work/product-management/
+#    #- name: Engineering
+#    #  link: /work/engineering/
+#    - name: Graphics
+#      link: /work/graphics/
+#    - name: Marketing
+#      link: /work/marketing/
+#    #- name: Volunteer Work
+#    #  link: /work/volunteer/
 - name: Projects
   link: /projects/
   links:
@@ -42,8 +42,8 @@
   links:
     - name: About
       link: /about/
-    - name: Mission
-      link: /about/mission/
+#    - name: Mission
+#      link: /about/mission/
     - name: Values
       link: /about/values/
     - name: Contact
