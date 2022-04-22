@@ -20,7 +20,6 @@ layout: default
     content=merged_content
     %}
 
-{% include post-comments-js.html %}
 
 {% assign post_list = site.posts %}
 {% assign project_post_list = "" | split: "" %}
@@ -37,3 +36,6 @@ layout: default
     hide_view_more=true
     use_post_index=true
 %}
+
+
+{% include post-comments-js.html %}
