@@ -7,11 +7,11 @@ image_caption: Illustration by me
 image_alt: Firefox
 ---
 
-> **Note** While I've done my best to make sure the content here is correct, there may be slight inaccuracies. 
+> **Note** that while I've done my best to make sure the content here is correct, there may be slight inaccuracies. At time of publishing, there isn't much documentation on the inner workings of modules in Firefox, but I'm planning on sending in a patch to the official Firefox docs.
 
 This is just going to be a quick tutorial to getting started with contributing to the Javascript parts of Firefox. I guess in a way, this would be *a what I wish I knew when I started [creating patches for Firefox](https://firefox-source-docs.mozilla.org/contributing/contribution_quickref.html#to-submit-a-patch)*, or *what I wished the [Firefox source docs](firefox-source-docs.mozilla.org/) covered*.
 
-# Overview of files
+# Overview of f'iles
 Firefox's Javascript files are organized into js modules `.jsm` and regular js `.js` files. `.js` files are generally used for visible content and often associated with a `.xhtml` file. By contrast, `.jsm` files define a bunch of functions which can be used by other modules or `.js` files.
 
 Javascript files of both types can be found in the `browser` folder and `toolkit`. There might be more js files elsewhere, but I haven't worked with them yet.
