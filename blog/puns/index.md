@@ -5,29 +5,32 @@ redirect_from:
  - /projects/punderline.html
  - /projects/punderline/
 date: 2020-02-05
+image: /assets/puns/punderline banner.jpg
+image_caption: Illustration by me
+image_alt: 'Punderline: Puns on every Friday'
 ---
 
+{% include feature-image.html %}
+
 {% capture pun_description %}
-    
+
 # What is Punderline?
-Punderline is a webcomic that consists of a unique mix of comics, jokes, and punchlines combined with puns that are published on a weekly basis on every Friday. Topics range from animals to physics to math. 
+Punderline is a webcomic that consists of a unique mix of comics, jokes, and punchlines combined with puns. Topics range from animals to physics to math. 
 
-![Punderline: Puns on every Friday](/assets/puns/punderline banner.jpg)
+## Where does the name, Punderline, come from?
+Punderline is a pun in and of itself! It is named after the fact that nearly every drawing has a pun that is underlined. Punderlined!
 
-# About the name
-Punderline is a pun in and of itself! It is named after the fact that nearly every comic has a pun that is underlined. Punderlined!
-
-# But what's a pun?
+## But what's a pun?
 For those of you who don't already know, puns are jokes that exploit different meanings of a word for a humorous effect.
 
-    {% include text-content-paginator.html %}
-    {% include post-comments.html %}
 {% endcapture %}
+
+{% assign pun_description = pun_description | markdownify %}
+
 
 {% include text-content.html 
     content=pun_description
     %}
-
 
 {% assign category_posts = site.puns | sort: 'date' | reverse %}
 
@@ -47,3 +50,8 @@ For those of you who don't already know, puns are jokes that exploit different m
     hide_view_more=true
     use_post_tags=true
     %}
+
+
+
+
+
