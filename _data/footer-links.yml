@@ -31,12 +31,12 @@
   links:
     - name: All Projects
       link: /projects/
-    - name: Midway
-      link: /projects/midway/
-    - name: Polydice
-      link: /projects/polydice/
+    - name: Firefox
+      link: /projects/firefox/
     - name: Fractals
       link: /projects/fractals/
+    - name: Midway
+      link: /projects/midway/
 - name: About
   link: /about/
   links:
