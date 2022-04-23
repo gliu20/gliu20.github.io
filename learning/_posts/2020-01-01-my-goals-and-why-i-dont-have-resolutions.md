@@ -35,5 +35,7 @@ Do more fun things
  - Learn something new each month by watching educational Youtube videos from channels like 3Blue1Brown, Numberphile, Ted Talks, Physics Girl, Computerphile, Practical Engineering etc. 
  - Make more puns (hope you punderstand!)
 
+While I admit, these look awfully close to New Year's Resolutions, the difference is that I revisit my goals and subgoals regularly and update them to match what I value and what I think I've been missing in my life. As a result, my goals are effectively a reification of my long-term vision in the same way that a to-do list is a concrete description of my short-term vision.
+
 # A Challenge to You
 No matter what day it is that you're reading this, I challenge you to come up with your own life-long commitments. Plans are scary, but at least figure out what's the first tiny steps needed to achieve it.

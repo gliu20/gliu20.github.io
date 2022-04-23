@@ -7,7 +7,7 @@ image_alt: A light bulb hangs from the cieling
 ---
 I think that a lot of what entrepreneurs do is applicable to everyone. Our keen ability to find flaws in the status quo and then to take that initiative to spearhead a solution is something that we should apply to life itself and how we develop goals for ourselves.
 
-A while back I talked about [why I don't have New Year's Resolutions]({% post_url learning/2020-01-01-my-goals-and-why-i-dont-have-resolutions %}), and how we should reframe our thinking in terms of Life-Long Commitments (LLCs). Revisting this idea, I think what the core at what I was getting at is the fact that life goals shouldn't be seen as something we create every year but instead represent some sort of North Star that gives us purpose. The exact goal can change, but the essence of what it is should stay the same. 
+A while back I talked about [why I don't have New Year's Resolutions]({% post_url learning/2020-01-01-my-goals-and-why-i-dont-have-resolutions %}), and how we should reframe our thinking in terms of Life-Long Commitments (LLCs). Revisting this idea, I think the core at what I was getting at is that life goals shouldn't be seen as something we create every year but instead represent some sort of North Star that gives us purpose. The exact goal can change, but the essence of what it is should stay the same. 
 
 In short, I think the metaphor that goals are a business is an enlightening angle that frames our thinking in terms of the legacy of our actions rather than reaching for the next safest path.
 
