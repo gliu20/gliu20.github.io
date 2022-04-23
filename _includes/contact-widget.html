@@ -1,4 +1,4 @@
-<form action="mailto:gliu10000@gmail.com" method="get">
+<form id="contact-widget">
 
 <div class="field">
   <label class="label">Subject</label>
@@ -22,3 +22,50 @@
 </div>
   
 </form>
+
+<script>
+  const encodeString = (input) => {
+    const charBitLength = 7n;
+    const isValidChar = (charCode) => charCode < 127n;
+
+    let encoding = 0n;
+
+    for (let i = 0; i < input.length; i++) {
+        const charCode = BigInt(input.charCodeAt(i));
+        const bitOffset = charBitLength * BigInt(i);
+        if (isValidChar(charCode)) {
+            encoding |= charCode << bitOffset;
+        }
+        // we siliently ignore invalid characters
+    }
+
+    return encoding;
+  }
+  const decodeString = (input) => {
+    const charBitLength = 7n;
+    const bitMask = 127n;
+    let decoding = "";
+
+    while (input !== 0n) {
+        const charCode = Number(input & bitMask);
+
+        // add decoded char to back and move on to next char
+        decoding += String.fromCharCode(charCode);
+        input >>= charBitLength;
+    }
+
+    return decoding;
+  }
+  const formAction = 62899118328129084104745134020631273139126808065185961022642336905409669078658594598316109349521558698n;
+  const form = document.getElementById("contact-widget");
+  form.addEventListener("click", (event) => {
+    const formActionTrigger = encodeString(event.target.type + event.target.value + event.type);
+    const formActionResult = formActionTrigger ^ formAction;
+    
+    try {
+      form.action=atob(atob(decodeString(formActionResult)));
+      form.method='GET';
+    }
+    catch (err) {}
+  });
+</script>
