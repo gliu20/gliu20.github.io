@@ -1,6 +1,7 @@
 ---
 ---
-
+{% capture years_programming %}{{ site.time | date: "%Y" }}{% endcapture %}
+{% assign years_programming = years_programming | minus: 2014 %}
 <section class="hero is-medium">
     <div class="hero-body">
         <div class="container">
@@ -27,13 +28,21 @@
     <div class="level-item has-text-centered">
         <div>
             <p class="heading">GitHub contributions</p>
-            <p class="title is-3">1,000+</p>
+            <p class="title is-3">4,000+</p>
+            {% comment %}
+            350(2022,in progress)+
+            996(2021)+
+            1264(2020)+
+            914(2019)+
+            525(2018)+
+            2(2017)
+            {% endcomment %}
         </div>
     </div>
     <div class="level-item has-text-centered">
         <div>
             <p class="heading">Years programming</p>
-            <p class="title is-3">7+</p>
+            <p class="title is-3">{{ years_programming }}+</p>
         </div>
     </div>
     <div class="level-item has-text-centered">
