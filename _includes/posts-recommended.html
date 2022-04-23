@@ -12,29 +12,35 @@ params available are
 {% endcomment %}
 {% assign sampled_posts = "" | split: "," %}
 
-    {% for post in include.posts %}
-        {% assign post_date = post.date | date: "%s" %}
-        {% assign time_now = site.time | date: "%s" %}
+{% for post in include.posts %}
+    {% assign post_date = post.date | date: "%s" %}
+    {% assign time_now = site.time | date: "%s" %}
 
-        {% assign post_recency = time_now | minus: post_date %}
+    {% assign post_recency = time_now | minus: post_date %}
+    {% assign post_recency = 500000000 | divided_by: post_recency %}
+    {% assign post_length = post.content | strip_html | number_of_words %}
+    {% assign post_title_length = post.title.size | times: 10 %}
+    {% assign post_description_length = post.description.size | times: 12 %}
 
-        {% assign post_quality = post.description.size | times: post.content.size | times: post.title.size %}
-        {% assign post_relevancy = post_quality | times: post_quality | times: post_quality | divided_by: post_recency %}
+    {% assign post_quality = post_length | plus: post_title_length | plus: post_description_length %}
+    {% assign post_relevancy = post_quality | plus: post_recency %}
 
-        {% assign post_relevancy = post_relevancy | times: post_relevancy | times: post_relevancy %}
-        {% assign post_relevancy = post_relevancy | divided_by: 65537 | divided_by: 65537 %}
-        {% assign post_relevancy = post_relevancy | append: "#" | size %}
+    {% assign post_relevancy_size = post_relevancy | append: "#" | size | minus: 1 %}
 
-        {% assign index_post = post_relevancy | append: "-"  | append: forloop.index0 | append: post.title %}
-        {% assign sampled_posts = sampled_posts | push: index_post %}
+    {% comment %} leftpad post_relevancy {% endcomment %}
+    {% assign leftpad_amount = 20 | minus: post_relevancy_size %}
+    {% for i in (1..leftpad_amount) %}
+        {% assign post_relevancy = post_relevancy | prepend: "0" %}
     {% endfor %}
 
-    
+    {% assign index_post = post_relevancy | append: "-" | append: forloop.index0 | append: "-" | append: post.title %}
+    {% assign sampled_posts = sampled_posts | push: index_post %}
+{% endfor %}
 
-{% comment %}
-We get rid of a bunch of articles that don't seem relevant
-{% endcomment %}
-{% assign sampled_posts = sampled_posts | sort | reverse | slice: 0, include.topk %}
+{% assign sampled_posts = sampled_posts | sort | reverse %}
+
+{% comment %} We get rid of a bunch of articles that don't seem relevant {% endcomment %}
+{% assign sampled_posts = sampled_posts | slice: 0, include.topk %}
 
 
 {% comment %}
@@ -43,7 +49,8 @@ We convert the indices of the best posts to the actual posts
 {% assign best_posts = "" | split: "," %}
 {% for item in sampled_posts %}
 
-    {% assign post_index = item | split: "-" | last | plus: 0 %}
+    {% assign post_indices = item | split: "-" %}
+    {% assign post_index = post_indices[1] | plus: 0 %}
     {% assign selected_post = include.posts[post_index] %} 
     {% assign best_posts = best_posts | push: selected_post %}
 
