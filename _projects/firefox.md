@@ -2,7 +2,7 @@
 short_name: firefox
 title: Contributing to Firefox
 description: My quest to becoming a Mozillian
-date: 2022-04-19
+date: 2022-03-12
 image: /assets/images/2022-04-19-firefox-project-cover.png
 image_alt: Firefox
 image_caption: Illustration by me
