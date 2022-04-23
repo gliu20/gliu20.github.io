@@ -1,0 +1,452 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.1.1">Jekyll</generator><link href="https://gliu20.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://gliu20.github.io/" rel="alternate" type="text/html" /><updated>2022-04-23T00:29:11-04:00</updated><id>https://gliu20.github.io/feed.xml</id><title type="html">George Liu</title><subtitle>Get the latest updates from George Liu regarding recent projects, learning goals, puns, and reflections on life, entrepreneurship, and software</subtitle><entry><title type="html">A Javascript Developer’s Guide to Contributing to Firefox</title><link href="https://gliu20.github.io/blog/programming/2022/04/19/a-javascript-developer-s-guide-to-contributing-to-firefox/" rel="alternate" type="text/html" title="A Javascript Developer’s Guide to Contributing to Firefox" /><published>2022-04-19T00:00:00-04:00</published><updated>2022-04-19T00:00:00-04:00</updated><id>https://gliu20.github.io/blog/programming/2022/04/19/a-javascript-developer-s-guide-to-contributing-to-firefox</id><content type="html" xml:base="https://gliu20.github.io/blog/programming/2022/04/19/a-javascript-developer-s-guide-to-contributing-to-firefox/">&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;Note&lt;/strong&gt; that while I’ve done my best to make sure the content here is correct, there may be slight inaccuracies. At time of publishing, there isn’t much documentation on the inner workings of modules in Firefox, but I’m planning on sending in a patch to the official Firefox docs.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;This is just going to be a quick tutorial to getting started with contributing to the Javascript parts of Firefox. I guess in a way, this would be &lt;em&gt;a what I wish I knew when I started &lt;a href=&quot;https://firefox-source-docs.mozilla.org/contributing/contribution_quickref.html#to-submit-a-patch&quot;&gt;creating patches for Firefox&lt;/a&gt;&lt;/em&gt;, or &lt;em&gt;what I wished the &lt;a href=&quot;firefox-source-docs.mozilla.org/&quot;&gt;Firefox source docs&lt;/a&gt; covered&lt;/em&gt;.&lt;/p&gt;
+
+&lt;h1 id=&quot;overview-of-files&quot;&gt;Overview of f’iles&lt;/h1&gt;
+&lt;p&gt;Firefox’s Javascript files are organized into js modules &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;.jsm&lt;/code&gt; and regular js &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;.js&lt;/code&gt; files. &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;.js&lt;/code&gt; files are generally used for visible content and often associated with a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;.xhtml&lt;/code&gt; file. By contrast, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;.jsm&lt;/code&gt; files define a bunch of functions which can be used by other modules or &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;.js&lt;/code&gt; files.&lt;/p&gt;
+
+&lt;p&gt;Javascript files of both types can be found in the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;browser&lt;/code&gt; folder and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;toolkit&lt;/code&gt;. There might be more js files elsewhere, but I haven’t worked with them yet.&lt;/p&gt;
+
+&lt;p&gt;Some interesting places:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;browser/actors&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;toolkit/actors&lt;/code&gt; - &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;.jsm&lt;/code&gt; files that define &lt;a href=&quot;https://firefox-source-docs.mozilla.org/dom/ipc/jsactors.html&quot;&gt;actors&lt;/a&gt;. These are interesting since &lt;a href=&quot;https://blog.mozilla.org/attack-and-defense/2021/04/27/examining-javascript-inter-process-communication-in-firefox/&quot;&gt;the boundary between parent and child can have interesting security implications&lt;/a&gt;.&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;browser/base/content&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;toolkit/components&lt;/code&gt; -  These generally define user-facing components&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;toolkit/modules&lt;/code&gt; - &lt;a href=&quot;https://firefox-source-docs.mozilla.org/toolkit/modules/toolkit_modules/index.html&quot;&gt;Toolkit modules&lt;/a&gt; are usable from Firefox for Desktop, Firefox for Android, Thunderbird, etc.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;From my understanding, I’m pretty sure &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;browser/&lt;/code&gt; is for things specific to Firefox for Desktop, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;mobile/&lt;/code&gt; is for Firefox for Android, and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;toolkit/&lt;/code&gt; is for all platforms and Thunderbird, though I may be wrong.&lt;/p&gt;
+
+&lt;h1 id=&quot;anatomy-of-a-module&quot;&gt;Anatomy of a module&lt;/h1&gt;
+
+&lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;use strict&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;EXPORTED_SYMBOLS&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;UrlUtils&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;EXPORTED_SYMBOLS&lt;/code&gt; exports the module. I’ve pretty much only seen this contain one symbol, which would be the module that the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;.jsm&lt;/code&gt; file defines.&lt;/p&gt;
+
+&lt;h2 id=&quot;importing-modules&quot;&gt;Importing modules&lt;/h2&gt;
+&lt;p&gt;There are several ways to import files.&lt;/p&gt;
+&lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;XPCOMUtils&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;ChromeUtils&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
+  &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;resource://gre/modules/XPCOMUtils.jsm&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Services&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;ChromeUtils&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;resource://gre/modules/Services.jsm&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;This method using &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ChromeUtils.import&lt;/code&gt; imports modules immediately. Generally, we should only use this for modules that we know are always loaded such as &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Services&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;XPCOMUtils&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;If we want to defer loading of modules to when we actually need the modules, we can use:&lt;/p&gt;
+&lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nx&quot;&gt;ChromeUtils&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;defineModuleGetter&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;PluralForm&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;resource://gre/modules/PluralForm.jsm&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;If there are multiple modules to load, we can use:&lt;/p&gt;
+&lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nx&quot;&gt;XPCOMUtils&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;defineLazyModuleGetters&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;AppConstants&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;resource://gre/modules/AppConstants.jsm&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;BrowserSearchTelemetry&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;resource:///modules/BrowserSearchTelemetry.jsm&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;FormHistory&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;resource://gre/modules/FormHistory.jsm&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;PlacesUtils&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;resource://gre/modules/PlacesUtils.jsm&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;defining-the-module&quot;&gt;Defining the module&lt;/h2&gt;
+&lt;p&gt;Not sure what I can add here other than looking at the structure of other &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;.jsm&lt;/code&gt; files.&lt;/p&gt;
+
+&lt;h2 id=&quot;testing&quot;&gt;Testing&lt;/h2&gt;
+&lt;p&gt;Test files are generally found in a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;test&lt;/code&gt; or &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;tests&lt;/code&gt; folder in the place where you found the js file or it might be in a parent folder. There are multiple types of tests available, but I will focus on browser tests and xpcshell tests. Browser tests simulate the entire browser and can simulate clicks and other user interaction. XPCShell tests are more limited and doesn’t expose the full browser. XPCShell tests are preferred since it runs faster.&lt;/p&gt;
+
+&lt;h3 id=&quot;how-does-the-build-system-mach-know-which-tests-to-run&quot;&gt;How does the build system (mach) know which tests to run?&lt;/h3&gt;
+&lt;p&gt;Tests are declared in &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;browser.ini&lt;/code&gt; or &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;xpcshell.ini&lt;/code&gt; files in their respective test folders. The files are pretty self-explanatory and to add a test you have to add an entry like &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;[browser_contextmenu_linkselect.js]&lt;/code&gt;.&lt;/p&gt;
+
+&lt;h3 id=&quot;more-details&quot;&gt;More details&lt;/h3&gt;
+&lt;p&gt;Firefox docs does a good job here so there isn’t much to add other than reading:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;https://firefox-source-docs.mozilla.org/testing/mochitest-plain/index.html&lt;/li&gt;
+  &lt;li&gt;https://firefox-source-docs.mozilla.org/testing/xpcshell/index.html&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;test-methods&quot;&gt;Test methods&lt;/h3&gt;
+&lt;p&gt;You have access to these objects to help you test:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://searchfox.org/mozilla-central/source/testing/mochitest/tests/SimpleTest/EventUtils.js&quot;&gt;EventUtils&lt;/a&gt; - Available in the global scope of the test. There are also methods in the other objects to get this object if not available.&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://searchfox.org/mozilla-central/source/testing/mochitest/BrowserTestUtils/BrowserTestUtils.jsm&quot;&gt;BrowserTestUtils&lt;/a&gt; - Available in the global scope of the test&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://searchfox.org/mozilla-central/source/testing/mochitest/BrowserTestUtils/ContentTaskUtils.jsm&quot;&gt;ContentTaskUtils&lt;/a&gt; - Available when run inside of a ?content? process. This has way less access than BrowserTestUtils.&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://searchfox.org/mozilla-central/source/testing/specialpowers/content/SpecialPowersChild.jsm&quot;&gt;SpecialPowers&lt;/a&gt; - For when you need to get data from a ?content? process to the more privileged ?browser?.
+    &lt;ul&gt;
+      &lt;li&gt;A useful function:
+        &lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  &lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;someValue&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;SpecialPowers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;spawn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;gBrowser&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;selectedBrowser&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;arg1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;arg2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;arg3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;etc&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;
+  &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;arg1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;arg2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;arg3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;etc&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;c1&quot;&gt;// do something&lt;/span&gt;
+      &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;someValue&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;        &lt;/div&gt;
+        &lt;p&gt;where the function is something we want to run on the test page. This allows us to do so from the test and also optionally access &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;someValue&lt;/code&gt;. &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;someValue&lt;/code&gt; should be something we are able to be clone, otherwise this would fail.&lt;/p&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+
+    &lt;blockquote&gt;
+      &lt;p&gt;Note that the function will be serialized and then run on the test page so it doesn’t have access to anything outside of the arguments that we pass in and the test page (aka no access to BrowserTestUtils and SpecialPowers).&lt;/p&gt;
+    &lt;/blockquote&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h1&gt;
+&lt;p&gt;That’s all! Hope this was helpful!! I’m not really sure how to conclude this other than happy hacking! If you have questions, feel free to join &lt;a href=&quot;https://chat.mozilla.org&quot;&gt;the Matrix (I have no clue why it’s called the Matrix even though the app is running on element, but whatever, it sounds cool!!)&lt;/a&gt;. Rooms like #introduction, #general, #developers, #fx-desktop-dev will probably be helpful.&lt;/p&gt;</content><author><name></name></author><category term="programming" /><summary type="html">Note that while I’ve done my best to make sure the content here is correct, there may be slight inaccuracies. At time of publishing, there isn’t much documentation on the inner workings of modules in Firefox, but I’m planning on sending in a patch to the official Firefox docs.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://gliu20.github.io/assets/images/2022-04-19-firefox-js-guide-to-firefox.png" /><media:content medium="image" url="https://gliu20.github.io/assets/images/2022-04-19-firefox-js-guide-to-firefox.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">How I Got Started With Contributing to Firefox</title><link href="https://gliu20.github.io/blog/programming/2022/04/01/how-i-got-started-with-contributing-to-firefox/" rel="alternate" type="text/html" title="How I Got Started With Contributing to Firefox" /><published>2022-04-01T00:00:00-04:00</published><updated>2022-04-01T00:00:00-04:00</updated><id>https://gliu20.github.io/blog/programming/2022/04/01/how-i-got-started-with-contributing-to-firefox</id><content type="html" xml:base="https://gliu20.github.io/blog/programming/2022/04/01/how-i-got-started-with-contributing-to-firefox/">&lt;p&gt;I admit, I used to think contributing to Firefox was basically impossible, especially as someone who didn’t yet know Rust or C++. And even if I overcame this hurdle, I thought it was hard to get set up, difficult to find bugs that are well-scoped to what I can actually accomplish given my skillset, and challenging to understand the complex codebases that would be typical of large software projects. But I wanted to help. And after &lt;a href=&quot;/blog/learning/2021/10/05/what-i-learned-from-hacking-google-chrome/&quot;&gt;hacking Google Chrome&lt;/a&gt;, I realized that maybe I could, or at least I could try.&lt;/p&gt;
+
+&lt;p&gt;After scouring &lt;a href=&quot;https://codetribute.mozilla.org&quot;&gt;codetribute.mozilla.org&lt;/a&gt; I finally found something that fit me. While Firefox is written in C++ and Rust, much of the browser user interface is written in good old HTML, Javascript, and CSS−all things I was familiar with. Furthermore, since Firefox code wasn’t hosted on Github, there were many more good first bugs to choose from (probably because it’ll be harder for someone to include on their Github profile or resume).&lt;/p&gt;
+
+&lt;p&gt;After searching for hours, I finally found a bug that was easy enough to get started with. It was a &lt;a href=&quot;https://bugzilla.mozilla.org/show_bug.cgi?id=1755008&quot;&gt;bug that involved a modal button being cut off&lt;/a&gt;. Debugging the issue, it was a problem with its flexbox layout and I was able to fix it in a single line of code.&lt;/p&gt;
+
+&lt;p&gt;From there, I’ve progressed onto more challenging bugs like implementing a feature where you can &lt;a href=&quot;https://bugzilla.mozilla.org/show_bug.cgi?id=875614&quot;&gt;open the context menu on a phone number&lt;/a&gt; and copy the number or fixing a bug in &lt;a href=&quot;https://bugzilla.mozilla.org/show_bug.cgi?id=694856&quot;&gt;detecting urls in plain text link selections&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Don’t get me wrong, it was hard to get started and still took time to learn the Firefox codebase. It took weeks of head-scratching, scouring &lt;a href=&quot;https://searchfox.org&quot;&gt;searchfox.org&lt;/a&gt;, and asking plenty of beginner questions on &lt;a href=&quot;https://chat.mozilla.org&quot;&gt;Matrix&lt;/a&gt; and &lt;a href=&quot;https://phabricator.services.mozilla.com/&quot;&gt;Phabricator&lt;/a&gt;. And though I’ve quickly gotten better at figuring out what I need to do in each bug, and gleaned some of the &lt;a href=&quot;https://en.wikipedia.org/wiki/Tribal_knowledge&quot;&gt;tribal knowledge&lt;/a&gt; from my interactions with the more senior devs during code reviews, it’s still a struggle.&lt;/p&gt;
+
+&lt;p&gt;But I’ve realized the biggest challenge is overcoming the arbitrary limits that our minds set for ourselves. We may think something is impossible, and maybe it’s true. But to never try as a result of that hypothesis is to deny ourselves the possibility that we may actually be able achieve something. And just like people should be innocent until proven guilty, I think it’s worthwhile to consider challenges as possible until proven impossible.&lt;/p&gt;
+
+&lt;p&gt;While I ultimately hope to become a Core Contributor to Firefox, I still have a long way to go. I know the journey may be difficult, just as it has been thus far. But the philosophy that keeps me going is knowing the people who achieve the impossible are the people delusional enough to try regardless. And regardless of what happens, I’m happy to keep &lt;del&gt;deluding myself&lt;/del&gt; trying, and hopefully you would too.&lt;/p&gt;</content><author><name></name></author><category term="programming" /><summary type="html">I admit, I used to think contributing to Firefox was basically impossible, especially as someone who didn’t yet know Rust or C++. And even if I overcame this hurdle, I thought it was hard to get set up, difficult to find bugs that are well-scoped to what I can actually accomplish given my skillset, and challenging to understand the complex codebases that would be typical of large software projects. But I wanted to help. And after hacking Google Chrome, I realized that maybe I could, or at least I could try.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://gliu20.github.io/assets/images/2022-04-19-firefox-how-i-got-started-cover.png" /><media:content medium="image" url="https://gliu20.github.io/assets/images/2022-04-19-firefox-how-i-got-started-cover.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">How I optimized my fractal viewer and the things I learned along the way</title><link href="https://gliu20.github.io/blog/programming/2021/12/30/how-i-optimized-my-fractal-viewer/" rel="alternate" type="text/html" title="How I optimized my fractal viewer and the things I learned along the way" /><published>2021-12-30T00:00:00-05:00</published><updated>2021-12-30T00:00:00-05:00</updated><id>https://gliu20.github.io/blog/programming/2021/12/30/how-i-optimized-my-fractal-viewer</id><content type="html" xml:base="https://gliu20.github.io/blog/programming/2021/12/30/how-i-optimized-my-fractal-viewer/">&lt;p&gt;From learning WebAssembly to eliminating unnecessary work with period checking to progressive refinement, this is how I made my fractal viewer faster and more usable.&lt;/p&gt;
+
+&lt;h2 id=&quot;1-migration-away-from-tensorflowjs-progressive-refinement-and-workload-adaptive-calculations&quot;&gt;1. Migration away from TensorflowJS, progressive refinement, and workload-adaptive calculations&lt;/h2&gt;
+&lt;p&gt;The original fractal viewer indirectly used WebGL by running matrix operations using TensorflowJS, a javascript-based machine learning framework. However, the system was extremely laggy due to the overhead of transferring matrices between the CPU and GPU for each operation that needed to be done. This severely limited the frames per second and greatly impacted responsiveness. Additionally, the precision of floats are severely limited as compared to native Javascript floats.&lt;/p&gt;
+
+&lt;p&gt;By rewriting everything to use native Javascript, we can avoid the overhead of sending calculations to and from the GPU, while also allowing me to create a straightforward implementation of progressive enhancement, a usability technique that displays a coarse resolution of the image and iteratively increases the resolution to give the user immediate feedback.&lt;/p&gt;
+
+&lt;p&gt;Next, I developed an adaptive engine to calculate a number of pixels while maintaining responsiveness. It accomplishes this by checking how long it takes to render a given number of pixels and then updates the number of pixels it renders each frame. The algorithm is a slight modification of the AIMD algorithm (inspired from the TCP protocol), in which the algorithm increases the number of pixels it renders additively but if it fails to meet a target frame rate, it multiplicatively decreases the number of pixels it handles on the next frame.&lt;/p&gt;
+
+&lt;h2 id=&quot;2-critical-code-was-rewritten-in-webassembly&quot;&gt;2. Critical code was rewritten in WebAssembly&lt;/h2&gt;
+&lt;p&gt;Using Chrome’s developer tools, I identified critical sections of code which I rewrote to avoid slow operations like the creation of unnecessary arrays or objects. Then for extremely critical code, such as the Mandelbrot and Julia fractal calculating code, I rewrote them in C and used Emscripten to compile it to WebAssembly (WASM). I don’t remember the exact numbers, but the difference in calculation speed between the analogous native js version vs the WASM version was tremendous.&lt;/p&gt;
+
+&lt;h2 id=&quot;3-removed-dead-work-by-implementing-periodicity-checking&quot;&gt;3. Removed dead work by implementing periodicity checking&lt;/h2&gt;
+&lt;p&gt;For the Mandelbrot and Julia sets, we know that points in the set (aka the points that are colored black) are periodic. Using this knowledge, we don’t need to wait until these points reach &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;maxIterations&lt;/code&gt; for us to determine that it belongs in the set. Instead, we can check for periodicity and quit calculating early. This saves a tremendous amount of time especially if much of the current field of view is part of the Mandelbrot set.&lt;/p&gt;
+
+&lt;h2 id=&quot;4-used-fast-approximations-of-exponential-function&quot;&gt;4. Used fast approximations of exponential function&lt;/h2&gt;
+&lt;p&gt;Finally, since the colouring algorithm didn’t require precise numbers, it was reasonable to switch to fast approximations of the exponential algorithm which allowed an even faster speed up.&lt;/p&gt;
+
+&lt;h2 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h2&gt;
+&lt;p&gt;Altogether, this resulted in quite a speedup from the original proof of concept. The progressive refinement technique in particular even allowed my fractal viewer to work surprisingly well on mobile, despite the lackluster hardware. Hopefully you found this helpful! I’ve attached some further resources below in case you want to learn more!&lt;/p&gt;
+
+&lt;h2 id=&quot;further-resources&quot;&gt;Further resources&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=oewDaISQpw0&quot;&gt;Youtube video from SimonDev on optimizing your Javascript&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.smashingmagazine.com/2012/11/writing-fast-memory-efficient-javascript/&quot;&gt;Smashing Magazine’s article on fast, efficient Javascript&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><author><name></name></author><category term="programming" /><summary type="html">From learning WebAssembly to eliminating unnecessary work with period checking to progressive refinement, this is how I made my fractal viewer faster and more usable.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://gliu20.github.io/assets/images/2021-04-23-multiplication-cover.png" /><media:content medium="image" url="https://gliu20.github.io/assets/images/2021-04-23-multiplication-cover.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">What I learned from hacking Google Chrome</title><link href="https://gliu20.github.io/blog/learning/2021/10/05/what-i-learned-from-hacking-google-chrome/" rel="alternate" type="text/html" title="What I learned from hacking Google Chrome" /><published>2021-10-05T00:00:00-04:00</published><updated>2021-10-05T00:00:00-04:00</updated><id>https://gliu20.github.io/blog/learning/2021/10/05/what-i-learned-from-hacking-google-chrome</id><content type="html" xml:base="https://gliu20.github.io/blog/learning/2021/10/05/what-i-learned-from-hacking-google-chrome/">&lt;p&gt;I’m just a regular engineering student. I mean, sure, I like watching random educational youtube videos, using computers, and programming for fun, but I mean, hey, that’s why I’m in ECE. Yet, I’m not a hacker, nor do I have the skills to even remotely consider myself one. And even despite the plethora of reasons I should fail, I managed to do what I thought I could never do.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;It started near the end of the school year, just before I was about to be swamped by finals season. I was thinking about how browsers like Firefox or Chrome could improve privacy. I remembered hearing somewhere that a design flaw in browsers allowed malicious websites to infer the browser history of unsuspecting visitors. It worked because any website could apply different styles depending on whether a link was visited or unvisited (in other words, whether it was in a user’s history). Then, using code, they could check which links were visited simply by checking the style of each link. It was a serious enough risk that major browsers had long fixed this issue.&lt;/p&gt;
+
+&lt;p&gt;And I remember sitting at my desk seriously doubting if I could find a similar bug. Real ethical hackers would know so many more advanced techniques and tools than I would. Given that Google Chrome is such a popular browser, I didn’t think that I’d find anything new, especially since so many security researchers were working on finding these bugs.&lt;/p&gt;
+
+&lt;p&gt;I’ve no idea why, but I decided to press on and find ways in which visited links exhibit different behaviour than unvisited links that are detectable using code. I could then exploit this property to create an automated script to probe a user’s browser history.&lt;/p&gt;
+
+&lt;p&gt;I spent hours figuring out different combinations until I remembered a recent video introducing the Web Animations API. It then hit me that I could craft styles that used a transition animation on visited links but not on unvisited links. Then using the Web Animations API, I could determine which links had the animation and thus deduce which links were visited.&lt;/p&gt;
+
+&lt;p&gt;I typed up a proof-of-concept and tested it on Google Chrome on Windows. When I checked the page, I just froze. I tried it again on Linux. And then Microsoft Edge.&lt;/p&gt;
+
+&lt;p&gt;It worked.&lt;/p&gt;
+
+&lt;p&gt;I was thrilled to have found a bug, yet I was absolutely terrified. It wasn’t just the bug’s existence that bothered me, but also that it worked on Microsoft Edge. The thing is that Google Chrome relies on the Chromium engine, which powers almost all major browsers except Firefox and Safari. This meant if a vulnerability worked in both Edge and Chrome, it was likely a Chromium bug. Thus, its effects aren’t limited to just &lt;a href=&quot;https://bugs.chromium.org/p/chromium/issues/detail?id=1205981&quot;&gt;Google Chrome&lt;/a&gt; and &lt;a href=&quot;https://msrc.microsoft.com/update-guide/vulnerability/CVE-2021-30582&quot;&gt;Microsoft Edge&lt;/a&gt;, but also everywhere Chromium is used, including &lt;a href=&quot;https://security.archlinux.org/ASA-202108-5&quot;&gt;Opera&lt;/a&gt;, Brave, &lt;a href=&quot;https://security.archlinux.org/ASA-202107-74&quot;&gt;Vivaldi&lt;/a&gt;, and &lt;a href=&quot;https://bugs.chromium.org/p/chromium/issues/detail?id=1205981&quot;&gt;Chrome OS&lt;/a&gt;. Even more troubling was the fact that someone like me who knew very little about hacking could find a bug in such a critical part of the web.&lt;/p&gt;
+
+&lt;p&gt;I didn’t know what to do, much less about reporting bugs, and knowing that a company could sue me for disclosing a vulnerability disturbed me. But researching Google’s policy, I felt relieved as they actually rewarded people for finding bugs through their Vulnerability Rewards Program. More importantly, their rules seemed to protect security researchers who did this kind of work.&lt;/p&gt;
+
+&lt;p&gt;Even once I got to the page where I was supposed to actually report the bug, I couldn’t help but think about how I should describe it−I didn’t even know what went in a bug report, let alone one for a security vulnerability. Even just reading previously published security bug reports showed a level of technical depth that I simply didn’t have. But somehow, despite all that, it turned out to be a medium-severity security bug, and I was rewarded $5,000 for finding it.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;I’m still shocked about finding that vulnerability, but I know that if I hadn’t tried, I definitely never would have found it. I’m well aware that there is survivorship bias for me to say this, and I know it is a cliche, but I really believe that people miss 100% of the shots they don’t take.&lt;/p&gt;
+
+&lt;p&gt;I just wanted to get this out there because I think so many people are skilled in their own ways but don’t let themselves recognize it. I was and maybe still am one of these people. But I guess even if people don’t see it in themselves, I hope that people don’t let it hold them back from trying things even if they think they won’t succeed.&lt;/p&gt;
+
+&lt;p&gt;One of the things this experience reminds me of is how &lt;a href=&quot;https://www.cs.unc.edu/~azuma/hitch4.html&quot;&gt;A Graduate School Survival Guide: “So long, and thanks for the Ph.D.!”&lt;/a&gt; describes great Ph.D. students as “delusional.” Although the author spoke only about Ph.D. students, I think it applies to everyone: the people who accomplish things they never expect are the ones who are delusional enough to still be trying, even if all odds seem stacked against them. And I, for one, would be happy to keep trying, even if it means I’d have to be a bit delusional−and hopefully, you would too.&lt;/p&gt;</content><author><name></name></author><category term="learning" /><summary type="html">I’m just a regular engineering student. I mean, sure, I like watching random educational youtube videos, using computers, and programming for fun, but I mean, hey, that’s why I’m in ECE. Yet, I’m not a hacker, nor do I have the skills to even remotely consider myself one. And even despite the plethora of reasons I should fail, I managed to do what I thought I could never do.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://gliu20.github.io/assets/images/2021-10-05-google-chrome-hack-cover.png" /><media:content medium="image" url="https://gliu20.github.io/assets/images/2021-10-05-google-chrome-hack-cover.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Hiding the GRUB menu in Ubuntu 20.04</title><link href="https://gliu20.github.io/blog/programming/2021/07/09/hide-grub-menu-ubuntu-20-04/" rel="alternate" type="text/html" title="Hiding the GRUB menu in Ubuntu 20.04" /><published>2021-07-09T00:00:00-04:00</published><updated>2021-07-09T00:00:00-04:00</updated><id>https://gliu20.github.io/blog/programming/2021/07/09/hide-grub-menu-ubuntu-20-04</id><content type="html" xml:base="https://gliu20.github.io/blog/programming/2021/07/09/hide-grub-menu-ubuntu-20-04/">&lt;p&gt;If you’re like me, most of the time I prefer to just work in Linux and only rarely use Windows in my dual-boot setup. So, I’d rather only see the GRUB menu if I’m holding down a key to switch into Windows and otherwise simply default to Ubuntu. The process to set that up is a little involved, though, so be warned!&lt;/p&gt;
+
+&lt;p&gt;But first off, a mandatory disclaimer.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;Disclaimer&lt;/strong&gt;&lt;/p&gt;
+
+  &lt;p&gt;Follow these instructions at your own risk. Make sure to backup your data and/or GRUB configuration in case something goes wrong. Furthermore, editing your GRUB configuration has a risk in resulting in an unbootable system, so make sure to do your own research.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h1 id=&quot;hiding-the-menu-in-grub-options&quot;&gt;Hiding the menu in GRUB options&lt;/h1&gt;
+&lt;p&gt;The process outlined here is mainly from Arch Linux’s wiki &lt;sup id=&quot;fnref:1&quot; role=&quot;doc-noteref&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot; rel=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;, but with some modifications to work on Ubuntu.&lt;/p&gt;
+
+&lt;p&gt;First, we have to enable the hidden menu by adding the following options in &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/etc/default/grub&lt;/code&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;GRUB_FORCE_HIDDEN_MENU&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;true&quot;&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;GRUB_GFXPAYLOAD_LINUX&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;keep
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;You might be wondering why we have to enable &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;GRUB_GFXPAYLOAD_LINUX=keep&lt;/code&gt;. In fact, it’s currently a known error where hwmatch (a module that has allowlists and denylists for certain hardware platforms) is omitted from 64-bit based linux distributions, so GRUB scripts relying on the module will show an error such as &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;error: can't find command hwmatch&lt;/code&gt; &lt;sup id=&quot;fnref:2&quot; role=&quot;doc-noteref&quot;&gt;&lt;a href=&quot;#fn:2&quot; class=&quot;footnote&quot; rel=&quot;footnote&quot;&gt;2&lt;/a&gt;&lt;/sup&gt;.&lt;/p&gt;
+
+&lt;p&gt;The fix recommended in the bug report is to enable &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;GRUB_GFXPAYLOAD_LINUX=keep&lt;/code&gt; which causes the GRUB scripts to skip the logic requiring &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;hwmatch&lt;/code&gt;, effectively hiding the error &lt;sup id=&quot;fnref:3&quot; role=&quot;doc-noteref&quot;&gt;&lt;a href=&quot;#fn:3&quot; class=&quot;footnote&quot; rel=&quot;footnote&quot;&gt;3&lt;/a&gt;&lt;/sup&gt;.&lt;/p&gt;
+
+&lt;h1 id=&quot;creating-the-grub-scripts&quot;&gt;Creating the GRUB scripts&lt;/h1&gt;
+&lt;p&gt;Then we copy the &lt;a href=&quot;https://gist.githubusercontent.com/anonymous/8eb2019db2e278ba99be/raw/257f15100fd46aeeb8e33a7629b209d0a14b9975/gistfile1.sh&quot;&gt;script&lt;/a&gt; linked to in Arch Linux’s guide to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/etc/grub.d/31_hold_shift&lt;/code&gt;. However, we have to modify a couple lines for it to work on Ubuntu.&lt;/p&gt;
+
+&lt;p&gt;If we don’t, then you’ll see an error like &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/etc/grub.d/31_hold_shift: 10: source: not found&lt;/code&gt; when running &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;update-grub&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;To fix the issue, we remove the following lines,&lt;/p&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;prefix&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;/usr&quot;&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;exec_prefix&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;prefix&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;datarootdir&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;prefix&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;/share&quot;&lt;/span&gt;
+
+&lt;span class=&quot;nb&quot;&gt;export &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;TEXTDOMAIN&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;grub
+&lt;span class=&quot;nb&quot;&gt;export &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;TEXTDOMAINDIR&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;datarootdir&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;/locale&quot;&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;source&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;datarootdir&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;/grub/grub-mkconfig_lib&quot;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;replacing it with the below.&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;prefix&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;/usr&quot;&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;exec_prefix&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;/usr&quot;&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;datarootdir&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;/usr/share&quot;&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;quick_boot&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;1&quot;&lt;/span&gt;
+
+&lt;span class=&quot;nb&quot;&gt;export &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;TEXTDOMAIN&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;grub
+&lt;span class=&quot;nb&quot;&gt;export &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;TEXTDOMAINDIR&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;datarootdir&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;/locale&quot;&lt;/span&gt;
+
+&lt;span class=&quot;nb&quot;&gt;.&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$pkgdatadir&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;/grub-mkconfig_lib&quot;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;These lines were taken directly from the other grub scripts already in &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/etc/grub.d/&lt;/code&gt;. It seems like the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;source&lt;/code&gt; command in particular is not available when running &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;update-grub&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;An important thing to note is that this script uses keystatus, which might not be available as pointed out in the &lt;a href=&quot;https://wiki.archlinux.org/title/GRUB/Tips_and_tricks#Hide_GRUB_unless_the_Shift_key_is_held_down&quot;&gt;Arch Linux wiki&lt;/a&gt;. If that is the case, you likely won’t be able to enter the GRUB menu without removing all the modifications we’ve done so far.&lt;/p&gt;
+
+&lt;h1 id=&quot;finalizing-the-grub-script&quot;&gt;Finalizing the GRUB script&lt;/h1&gt;
+&lt;p&gt;Now that we finished editing the GRUB script, just make it executable and run update grub.&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo chmod &lt;/span&gt;a+x /etc/grub.d/31_hold_shift
+&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;update-grub
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Now reboot, and all should be good to go!&lt;/p&gt;
+
+&lt;div class=&quot;footnotes&quot; role=&quot;doc-endnotes&quot;&gt;
+  &lt;ol&gt;
+    &lt;li id=&quot;fn:1&quot; role=&quot;doc-endnote&quot;&gt;
+      &lt;p&gt;&lt;a href=&quot;https://wiki.archlinux.org/title/GRUB/Tips_and_tricks#Hide_GRUB_unless_the_Shift_key_is_held_down&quot;&gt;Arch Linux’s Guide to hiding GRUB unless shift key is pressed&lt;/a&gt; &lt;a href=&quot;#fnref:1&quot; class=&quot;reversefootnote&quot; role=&quot;doc-backlink&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+    &lt;li id=&quot;fn:2&quot; role=&quot;doc-endnote&quot;&gt;
+      &lt;p&gt;&lt;a href=&quot;https://bugs.launchpad.net/ubuntu/+source/grub2-signed/+bug/1840560&quot;&gt;Bug report for hwmatch not found error&lt;/a&gt; &lt;a href=&quot;#fnref:2&quot; class=&quot;reversefootnote&quot; role=&quot;doc-backlink&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+    &lt;li id=&quot;fn:3&quot; role=&quot;doc-endnote&quot;&gt;
+      &lt;p&gt;&lt;a href=&quot;https://bugs.launchpad.net/ubuntu/+source/grub2-signed/+bug/1840560/comments/4&quot;&gt;Suggested fix for missing the hwmatch module&lt;/a&gt; &lt;a href=&quot;#fnref:3&quot; class=&quot;reversefootnote&quot; role=&quot;doc-backlink&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+  &lt;/ol&gt;
+&lt;/div&gt;</content><author><name></name></author><category term="programming" /><summary type="html">If you’re like me, most of the time I prefer to just work in Linux and only rarely use Windows in my dual-boot setup. So, I’d rather only see the GRUB menu if I’m holding down a key to switch into Windows and otherwise simply default to Ubuntu. The process to set that up is a little involved, though, so be warned!</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://gliu20.github.io/assets/images/2021-07-10-grub-menu-cover.png" /><media:content medium="image" url="https://gliu20.github.io/assets/images/2021-07-10-grub-menu-cover.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Towards Efficient Multiplication</title><link href="https://gliu20.github.io/blog/programming/2021/04/23/fast-multiplication-devlog/" rel="alternate" type="text/html" title="Towards Efficient Multiplication" /><published>2021-04-23T00:00:00-04:00</published><updated>2021-04-23T00:00:00-04:00</updated><id>https://gliu20.github.io/blog/programming/2021/04/23/fast-multiplication-devlog</id><content type="html" xml:base="https://gliu20.github.io/blog/programming/2021/04/23/fast-multiplication-devlog/">&lt;p&gt;Recently, I was trying to figure out a way to create my own arbitrary precision floating point arithmetic library. For those of you unaware, floating point simply means numbers are represented in scientific notation and that allows computers to express really large or really small numbers and everything in between. However, one problem of floating point numbers is that they are normally represented with a limited amount of precision.&lt;/p&gt;
+
+&lt;p&gt;So you end up getting funny errors like \(0.1 + 0.2 = 0.30000000000000004\). This is problematic because the fractal viewer uses floating point math to do computations and so at some point, the error is too great and zooming into a fractal image any further results in distortions.&lt;/p&gt;
+
+&lt;p&gt;So how do we solve that? Well one way is by creating our own floating point number implementation so that we can use an arbitrary amount of precision to represent a number, allowing us to be more precise in our calculations. Now, the main challenge of doing so is accomplishing multiplications efficiently, and that led to creation of the following puzzle.&lt;/p&gt;
+
+&lt;h1 id=&quot;setup&quot;&gt;Setup&lt;/h1&gt;
+&lt;p&gt;Assume you have an n by n grid, pictured below.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/2021-04-23-shape-grid.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;goal&quot;&gt;Goal&lt;/h1&gt;
+&lt;p&gt;You want to find the smallest set of rectangles and squares required so that you can form any of the diagonals that slant up and to the right (as shown below).&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/2021-04-23-shape-diagonals.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;rules&quot;&gt;Rules&lt;/h1&gt;
+&lt;h2 id=&quot;rules-for-creating-shapes&quot;&gt;Rules for creating shapes&lt;/h2&gt;
+&lt;p&gt;You can only create a square or a rectangle. They can be of any size. For the purposes of counting how many shapes we have, a shape in a different location is a completely new shape. For example, the image below shows two different squares.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/2021-04-23-shape-location-matters.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;rules-for-combining-rectangles-and-squares&quot;&gt;Rules for combining rectangles and squares&lt;/h2&gt;
+&lt;p&gt;Adding adds the values together, while subtracting subtracts the values as shown below.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/2021-04-23-shape-addition-subtraction.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;So we can think of this question in terms of set theory. That is, what is the smallest basis that allows us to create all of the up and to the right diagonals.&lt;/p&gt;
+
+&lt;hr /&gt;
+&lt;h1 id=&quot;applications&quot;&gt;Applications&lt;/h1&gt;
+&lt;p&gt;By now, you might be wondering why did you come up with something so esoteric as this? Why does this even matter and what is the motivation behind this toy problem?&lt;/p&gt;
+
+&lt;p&gt;So, the question came about when I was diving into the &lt;a href=&quot;https://en.wikipedia.org/wiki/Karatsuba_algorithm&quot;&gt;Karatsuba Multiplication Algorithm&lt;/a&gt;. I was creating a &lt;a href=&quot;https://gliu20.github.io/fractals/&quot;&gt;Fractal Viewer&lt;/a&gt; and was thinking of creating my own arbitrary precision arithmetic program for it. Obviously, this needed to be very efficient since I wouldn’t want to wait hours for the fractal images to render, and algorithms like Karatsuba’s would make my multiplication code more efficient.&lt;/p&gt;
+
+&lt;h2 id=&quot;karatsuba-algorithm&quot;&gt;Karatsuba Algorithm&lt;/h2&gt;
+&lt;p&gt;So how does the algorithm work? Let’s first consider a regular multiplication. For example, if we want to compute \(34 \times 21\), we do \(30 \times 1 +  4 \times 1 + 30 \times 20 + 4 \times 20\). Notice how we have to do four multiplications here.&lt;/p&gt;
+
+&lt;p&gt;Another way to view the same operation is to use a table as shown in the figure below. The top-most row represents \(34\) and the left-most column represents \(21\). To do the multiplication, we do \(\text{row} \times \text{column}\).&lt;/p&gt;
+
+&lt;p&gt;Then, to read out the result of the multiplication, we add up all of the values of the diagonals starting from the bottom right corner and multiply it by \(10^{\text{diagonal index (zero-based index)}}\).&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/2021-04-23-regular-multiplication-table.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;As you can see, to multiply \(34\) and \(21\), we had to do four multiplications. Multiplications are usually slower than addition, and so replacing them with addition and subtraction is often faster.&lt;/p&gt;
+
+&lt;p&gt;Karatsuba knew that and so they sought a way to avoid an extra multiplication. They noted that \((3 + 4) \times (2 + 1)\) is the same as doing \(6 + 8 + 3 + 4\). Their key insight is that if you only computed \((3 + 4) \times (2 + 1)\), \(3 \times 2\), and \(4 \times 1\), you can avoid computing \(4 \times 2\) and \(3 \times 1\) because \(\text{the middle diagonal} = 4 \times 2 + 3 \times 1 = (3 + 4) \times (2 + 1) - 3 \times 2 - 4 \times 1\).&lt;/p&gt;
+
+&lt;p&gt;So, to compute the diagonal values we only needed to compute:&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;\(3 \times 2\) to get 6&lt;/li&gt;
+  &lt;li&gt;\((3 + 4) \times (2 + 1) - 3 \times 2 - 4 \times 1\) to get 3 + 8&lt;/li&gt;
+  &lt;li&gt;And \(4 \times 1\) to get 4&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;This saves one multiplication because we reuse the result in steps 1 and 3 to compute step 2.&lt;/p&gt;
+&lt;h2 id=&quot;the-shape-analogy&quot;&gt;The Shape Analogy&lt;/h2&gt;
+&lt;p&gt;So how does this connect to the shapes we mentioned at the beginning? Let’s define the value of a shape as \(\text{the sum of the column headers} \times \text{the sum of the row headers}\) for that specific square or rectangle. For example, refer to the below diagram.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/2021-04-23-shape-value-equivalency.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;This definition is particularly convenient because each rectangle or square represents a single multiplication. Thus, by minimizing the number of rectangles or squares, we automatically minimize the number of multiplications. Adding or subtracting squares or rectangles corresponds to adding or subtracting the values of the squares or rectangles.&lt;/p&gt;
+
+&lt;p&gt;Once we add and subtract shapes to produce a diagonal shape using the rules described earlier, then the value of the diagonal shape represents a portion of the resulting product. For example, if it were the second diagonal shape from the bottom right corner, it would represent the value of the tenths place (with the exception of the carry value if it exists).&lt;/p&gt;
+
+&lt;h2 id=&quot;karatsuba-and-the-shape-analogy&quot;&gt;Karatsuba and the Shape Analogy&lt;/h2&gt;
+&lt;p&gt;Now let’s look at Karatsuba’s approach using the shape analogy. Let’s consider multiplication but instead for arbitrary digits. So Karatsuba used three shapes. One was the entire square, and the other two were the top-left and the bottom-right corners.&lt;/p&gt;
+
+&lt;p&gt;From the start, the starting shapes include two of the required diagonals. The remaining diagonal shape can be recreated using a simple subtraction from the starting shapes. You can verify this fact using the corresponding math below each shape.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/2021-04-23-karatsuba-multiplication-efficiency.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;purpose&quot;&gt;Purpose&lt;/h2&gt;
+&lt;p&gt;Now my purpose in formulating this problem is to see if we can shift our perspective using the formulation above to find a generalized approach to Karatsuba’s multiplication method that is more efficient for larger sizes.&lt;/p&gt;
+
+&lt;p&gt;I am well aware of &lt;a href=&quot;https://en.wikipedia.org/wiki/Toom%E2%80%93Cook_multiplication&quot;&gt;the work done by Toom and Cook&lt;/a&gt;, but frankly, it is not something I quite understand and requires some manipulations that are not as simple to implement as the Karatsuba algorithm.&lt;/p&gt;
+
+&lt;p&gt;My hope is that this new perspective might prove enlightening and that maybe some theorem from discrete mathematics, or some other field might apply here, and that maybe the shape formulation of the problem proves to be more tractable.&lt;/p&gt;
+
+&lt;h1 id=&quot;further-reading&quot;&gt;Further Reading&lt;/h1&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.doc.ic.ac.uk/~eedwards/compsys/arithmetic/index.html&quot;&gt;Arithmetic Operations on Binary Numbers&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://docs.oracle.com/cd/E19957-01/806-3568/ncg_goldberg.html&quot;&gt;What Every Computer Scientist Should Know About Floating-Point Arithmetic&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://en.wikipedia.org/wiki/Toom%E2%80%93Cook_multiplication&quot;&gt;Toom-Cook Algorithm for Multiplication&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://en.wikipedia.org/wiki/Karatsuba_algorithm&quot;&gt;Karatsuba Algorithm for Multiplication&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><author><name></name></author><category term="programming" /><summary type="html">Recently, I was trying to figure out a way to create my own arbitrary precision floating point arithmetic library. For those of you unaware, floating point simply means numbers are represented in scientific notation and that allows computers to express really large or really small numbers and everything in between. However, one problem of floating point numbers is that they are normally represented with a limited amount of precision.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://gliu20.github.io/assets/images/2021-04-23-multiplication-cover.png" /><media:content medium="image" url="https://gliu20.github.io/assets/images/2021-04-23-multiplication-cover.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Why life needs entrepreneurial thinking: How making goals is like starting a business</title><link href="https://gliu20.github.io/blog/learning/2021/01/07/how-we-re-all-entrepreneurs/" rel="alternate" type="text/html" title="Why life needs entrepreneurial thinking: How making goals is like starting a business" /><published>2021-01-07T00:00:00-05:00</published><updated>2021-01-07T00:00:00-05:00</updated><id>https://gliu20.github.io/blog/learning/2021/01/07/how-we-re-all-entrepreneurs</id><content type="html" xml:base="https://gliu20.github.io/blog/learning/2021/01/07/how-we-re-all-entrepreneurs/">&lt;p&gt;I think that a lot of what entrepreneurs do is applicable to everyone. Our keen ability to find flaws in the status quo and then to take that initiative to spearhead a solution is something that we should apply to life itself and how we develop goals for ourselves.&lt;/p&gt;
+
+&lt;p&gt;A while back I talked about &lt;a href=&quot;/blog/learning/2020/01/01/my-goals-and-why-i-dont-have-resolutions/&quot;&gt;why I don’t have New Year’s Resolutions&lt;/a&gt;, and how we should reframe our thinking in terms of Life-Long Commitments (LLCs). Revisting this idea, I think the core at what I was getting at is that life goals shouldn’t be seen as something we create every year but instead represent some sort of North Star that gives us purpose. The exact goal can change, but the essence of what it is should stay the same.&lt;/p&gt;
+
+&lt;p&gt;In short, I think the metaphor that goals are a business is an enlightening angle that frames our thinking in terms of the legacy of our actions rather than reaching for the next safest path.&lt;/p&gt;
+
+&lt;p&gt;The acronym itself is meant to allude to the importance of life-long learning and be reminiscient of the acronym for businesses: &lt;a href=&quot;https://www.investopedia.com/terms/l/llc.asp&quot;&gt;Limited Liability Company&lt;/a&gt;. Both Life Long Commitmments and businesses take time to nurture, and it’s often hard to maintain it. But by viewing LLCs as a sort of business to grow, not a sort of one-off gig, I think we gain a greater sense of being in it for the long haul. As cliché as it might sound, I think there’s some truth in the saying that life’s a marathon, not a sprint.&lt;/p&gt;
+
+&lt;p&gt;To have a lasting business requires a long-term vision and the steps to execute that vision. A great entrepreneur does both–they have the vision and the execution to accomplish what hasn’t been done before. To succeed in life, we need the same. But I think that in the age of information, the fast pace of society, and the constant flow of distractions means that few people actually take the time to introspect and develop that long-term vision. And thus, thinking entrepreneurially and developing that vision is especially quintessential.&lt;/p&gt;
+
+&lt;p&gt;By thinking of our goals in terms of businesses, it naturally follows that we should only tackle a few goals, but address them deeply and meaningfully. After all, it’s nearly impossible to successfully split time between numerous businesses and the opportunity cost of pursuing an unmeaningful business is high.&lt;/p&gt;
+
+&lt;p&gt;It’s the same in life. Pursuing a path for which one has no passion is tiring and ultimately unfulfilling. Only when we find our passion are we able to pour our time and effort into the things we care about since it’s so much easier to find the time to do things we’re genuinely interested in. It didn’t bother me one bit making posters for &lt;a href=&quot;https://gliu20.github.io/projects/midway/&quot;&gt;Midway&lt;/a&gt;. I actually enjoyed visiting nearly two thirds of all teachers in my high school to get the word out. I was thrilled to contact the school administration for the necessary approval. It was easy for me because I’m passionate about it.&lt;/p&gt;
+
+&lt;p&gt;Beyond these guiding principles and our intuitions behind businesses, I think that the last and arguably the most important quality that all great entrepreneurs have is humility. To be the best we can be requires a strong ability to figure out what we’re doing well and what needs improvement. As we know from entrepreneurship, no product is ever perfect the first time around, but by iterating and testing our capbabilities we can, in the long run, approach perfection.&lt;/p&gt;</content><author><name></name></author><category term="learning" /><summary type="html">I think that a lot of what entrepreneurs do is applicable to everyone. Our keen ability to find flaws in the status quo and then to take that initiative to spearhead a solution is something that we should apply to life itself and how we develop goals for ourselves.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://gliu20.github.io/assets/images/2021-01-07-entrepreneur-cover-photo.jpg" /><media:content medium="image" url="https://gliu20.github.io/assets/images/2021-01-07-entrepreneur-cover-photo.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Why you should build your own CSS framework and what I learned building one</title><link href="https://gliu20.github.io/blog/programming/2020/03/23/why-you-should-make-your-own-css-framework/" rel="alternate" type="text/html" title="Why you should build your own CSS framework and what I learned building one" /><published>2020-03-23T00:00:00-04:00</published><updated>2020-03-23T00:00:00-04:00</updated><id>https://gliu20.github.io/blog/programming/2020/03/23/why-you-should-make-your-own-css-framework</id><content type="html" xml:base="https://gliu20.github.io/blog/programming/2020/03/23/why-you-should-make-your-own-css-framework/">&lt;p&gt;With the rise in utility-first CSS libraries, I wanted to dive deeper into why that’s the case, and why we I think it’s valuable to re-invent the wheel.&lt;/p&gt;
+
+&lt;p&gt;Since many mainstream frameworks include kilobytes of never used CSS and tons of styles that need to be overridden, it’s not hard to see how most frameworks do too much, adding unnecessary bloat and slowing page speeds. But beyond heavy &lt;a href=&quot;https://getbootstrap.com/&quot;&gt;frameworks like Bootstrap&lt;/a&gt;, there are a rising number of utility-first frameworks, such as &lt;a href=&quot;https://tailwindcss.com/&quot;&gt;Tailwind&lt;/a&gt;, that don’t have the bloat and customization issues like Bootstrap and their counterparts&lt;sup id=&quot;fnref:1&quot; role=&quot;doc-noteref&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot; rel=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;. Plus, with tools like &lt;a href=&quot;https://sass-lang.com/&quot;&gt;Sass&lt;/a&gt; and modern utilities like &lt;a href=&quot;https://css-tricks.com/quick-whats-the-difference-between-flexbox-and-grid/&quot;&gt;CSS flexbox and grid&lt;/a&gt;, it’s never been easier to build custom frameworks.&lt;/p&gt;
+
+&lt;p&gt;With this in mind, I sought to create a replacement–one that also passes &lt;a href=&quot;https://developers.google.com/web/tools/lighthouse&quot;&gt;Google’s Lighthouse&lt;/a&gt; and that has my own personal flair.&lt;/p&gt;
+
+&lt;h1 id=&quot;so-why-reinvent-the-wheel&quot;&gt;So, why reinvent the wheel?&lt;/h1&gt;
+&lt;p&gt;Oftentimes, I found the best way to learn is to do things on your own. While our individual implementations might not be as advanced, I think it’s enlightening to go through the process without a framework and discover the rationale behind the design choices.&lt;/p&gt;
+
+&lt;p&gt;For instance, building &lt;a href=&quot;https://github.com/gliu20/faketailwind&quot;&gt;my own remake of TailwindCSS&lt;/a&gt; made me appreciate the unique quirks of &lt;a href=&quot;https://tailwindcss.com/docs/responsive-design#targeting-mobile-screens&quot;&gt;Tailwind’s mobile-first approach to responsive styles&lt;/a&gt;. By having having mobile styles as the base and layering on styles for devices of increasing power, Tailwind encourages developers to make design decisions that help mobile devices take less processing time for media queries.&lt;/p&gt;
+
+&lt;p&gt;In addition, through struggling to scale my own framework with numerous css classes, I’ve discovered important discussions on conventions like &lt;a href=&quot;https://getbem.com/&quot;&gt;BEM&lt;/a&gt; or &lt;a href=&quot;https://suitcss.github.io/&quot;&gt;SUIT&lt;/a&gt;. Furthermore, I’ve also learned about common solutions to widespread problems like clearfix for layouts built with floats that I wouldn’t have found otherwise. Without creating my own tools, I might not have stumbled upon such ideas.&lt;/p&gt;
+
+&lt;h1 id=&quot;takeaways&quot;&gt;Takeaways&lt;/h1&gt;
+&lt;p&gt;Building your own framework can help you:&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;Gain a greater appreciation for what they try to solve&lt;/li&gt;
+  &lt;li&gt;Discover new discussions of which you were previously unaware&lt;/li&gt;
+  &lt;li&gt;Broaden your understanding of the fundamentals&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;To conclude this post, I challenge you to build your own CSS framework, and I encourage you to share what you learned.&lt;/p&gt;
+
+&lt;div class=&quot;footnotes&quot; role=&quot;doc-endnotes&quot;&gt;
+  &lt;ol&gt;
+    &lt;li id=&quot;fn:1&quot; role=&quot;doc-endnote&quot;&gt;
+      &lt;p&gt;Well, that is if you use &lt;a href=&quot;https://tailwindcss.com/docs/optimizing-for-production&quot;&gt;PurgeCSS, as described on the Tailwind docs&lt;/a&gt; &lt;a href=&quot;#fnref:1&quot; class=&quot;reversefootnote&quot; role=&quot;doc-backlink&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+  &lt;/ol&gt;
+&lt;/div&gt;</content><author><name></name></author><category term="programming" /><summary type="html">With the rise in utility-first CSS libraries, I wanted to dive deeper into why that’s the case, and why we I think it’s valuable to re-invent the wheel.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://gliu20.github.io/assets/images/2020-03-23-css-framework.png" /><media:content medium="image" url="https://gliu20.github.io/assets/images/2020-03-23-css-framework.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">What I learned winning 3rd place at StuyHacks IX: Misconceptions about Hackathons and Tips for Success</title><link href="https://gliu20.github.io/blog/programming/2020/01/04/what-i-learned-winning-stuyhacks-ix/" rel="alternate" type="text/html" title="What I learned winning 3rd place at StuyHacks IX: Misconceptions about Hackathons and Tips for Success" /><published>2020-01-04T00:00:00-05:00</published><updated>2020-01-04T00:00:00-05:00</updated><id>https://gliu20.github.io/blog/programming/2020/01/04/what-i-learned-winning-stuyhacks-ix</id><content type="html" xml:base="https://gliu20.github.io/blog/programming/2020/01/04/what-i-learned-winning-stuyhacks-ix/">&lt;p&gt;I’m often surprised by the grand expectations that younger coders believe is necessary for success at Hackathon events. Here, in no particular order, are some of the most common misconceptions and tips I’ve learned.&lt;/p&gt;
+
+&lt;h2 id=&quot;misconceptions&quot;&gt;Misconceptions&lt;/h2&gt;
+&lt;h3 id=&quot;1-you-need-to-know-how-to-code&quot;&gt;1. You need to know how to code&lt;/h3&gt;
+&lt;p&gt;As I was waiting to sign in to StuyHacks, I often heard students bemoaning their lack of coding experience. They were wrongly convincing themselves to believe that because they don’t have as much coding experience, they couldn’t make a great end product. Personally, I believe this thinking is wrong. While a working prototype is nice to have, ideas are more important.&lt;/p&gt;
+
+&lt;p&gt;In the course of 5 to 12 hours, it is unreasonable to expect flawless products — even for professional Software Engineers. Instead, the potential for an idea to be a stepping stone to something greater is much more valuable. Earning the &lt;a href=&quot;https://gliu20.github.io/2019/12/08/nyc-disrupt-hackathon.html&quot;&gt;Innovation Award in December&lt;/a&gt; with a team that didn’t have the most coding experience proved that. In fact, our prototype had barely any lines of code at all.&lt;/p&gt;
+
+&lt;p&gt;I think the key insight is that programs are merely communication mediums through which we can express our ideas. What matters most — and what we were judged on the most — was the idea. It doesn’t matter how advanced or technical your program is as long as the idea is unique and solves something that people care about.&lt;/p&gt;
+
+&lt;h3 id=&quot;2-you-need-a-team-of-smart-people&quot;&gt;2. You need a team of “smart people”&lt;/h3&gt;
+&lt;p&gt;For most fellow hackers, “smart people” seems to mean talented coders. But coding knowledge is not the most important. Instead, I’d argue that ideas are paramount.&lt;/p&gt;
+
+&lt;p&gt;For me, I believe that any team can be successful — but only with the right mindset. At most hackathons I’ve been to, successful teams weren’t the ones with the most coding experience, but instead people who focused most of the time perfecting their idea and connected their ideas to solving real world problems. As long as you form teams with the people you know would actually get work done, and who care about connecting solutions to “societal problems”, then honestly it doesn’t matter what their level of coding experience is.&lt;/p&gt;
+
+&lt;p&gt;In fact, I think, working with a random team is actually much better since being unfamiliar with the other members of the team encourages respect for one another, listening with an open mind, and accountability. Especially when working with a group of strangers, it’s easier to hold one another accountable. Plus, they often bring diverse backgrounds and viewpoints, which makes it’s easier to come up with unconventional ideas.&lt;/p&gt;
+
+&lt;h3 id=&quot;3-you-can-make-almost-anything&quot;&gt;3. You can make almost anything&lt;/h3&gt;
+&lt;p&gt;At some hackathons, there is often a theme that helps focus the ideas that teams come up with. However, &lt;a href=&quot;https://www.stuyhacks.org/&quot;&gt;at StuyHacks&lt;/a&gt; and other hackathons, the problem is often more general, or maybe there isn’t even a focus at all. With this these types of ‘open’ hackathons, I find that many students don’t spend as much time coming up with original ideas. In fact, I’ve seen everything from puzzle games to online price checkers to even a VR platformer. While I love these ideas, and there is no doubt that these teams put a lot of effort into the work they’ve done, the problem is that they’re not unique, and don’t solve a specific customer need.&lt;/p&gt;
+
+&lt;p&gt;From watching numerous &lt;a href=&quot;https://www.ted.com/talks?sort=newest&amp;amp;topics%5B%5D=Business&quot;&gt;entrepreneurial TED Talks&lt;/a&gt; to studying the keys to successful startups in my Entrepreneurship class, I now come to understand that the difference between them is not about the effort they put in, but rather the time they spent in researching the problem gaps that exist, finding existing solutions, and brainstorming &lt;a href=&quot;https://en.wikipedia.org/wiki/Product_differentiation&quot;&gt;key differentiating factors&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;It is this step that is often overlooked. Yet it has the most profound effect for converting a good idea into a great one. Oftentimes, differentiating factors don’t have to do with the primary goal of an app. For instance, the objective of a quiz game is to entertain the user, but your differentiating factor doesn’t necessarily have to make the game the most entertaining thing of all time. Instead, you could add an aspect that helps realize another human need: self-actualization — the need to feel part of a greater cause.&lt;/p&gt;
+
+&lt;p&gt;As an example, the quiz game that won StuyHacks wasn’t necessarily the most entertaining game in the world. Rather, it combined the cause of global warming into a quiz that not only entertained users, but also raised awareness for the staggering carbon footprint of the average person.&lt;/p&gt;
+
+&lt;h2 id=&quot;tips-for-success&quot;&gt;Tips for success&lt;/h2&gt;
+&lt;h3 id=&quot;1-do-your-research&quot;&gt;1. Do your research&lt;/h3&gt;
+&lt;p&gt;Especially when you have no idea what to do, always make sure to research your problem carefully. Start by creating a team document for your research. Organize it with headings — you can press &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ctrl-alt-1&lt;/code&gt; to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ctrl-alt-2&lt;/code&gt; etc. to make headings. Make sure to make a special section to cite your sources — you’re not making a research paper, but you should at least have some way of going back to what you found in case you might need it again.&lt;/p&gt;
+
+&lt;p&gt;Any statistics or powerful quotes must definitely be placed in a section on its own. These pieces of information are essential for convincing any judge that your idea is worth considering — that other people have demonstrated that your problem truly necessitates a solution.&lt;/p&gt;
+
+&lt;h3 id=&quot;2-get-to-know-your-team-and-delegate-roles&quot;&gt;2. Get to know your team and delegate roles&lt;/h3&gt;
+&lt;p&gt;Teams go through several stages — forming, storming, norming, performing, and adjourning. Of course, in the course of one day, it is almost impossible to go through all stages. However, assuming you are working with a ‘random’ team, make sure you at least start the processing of forming your team — getting to know them, becoming comfortable with working with them, and knowing the strengths and weaknesses of each other and the team as a whole. This is imperative for knowing to which parts of the projects you are best able to contribute. Then, divide responsibilities — it’ll help your team get a lot done faster.&lt;/p&gt;
+
+&lt;h3 id=&quot;3-make-a-pitch-presentation-and-practice-it&quot;&gt;3. Make a pitch presentation and practice it&lt;/h3&gt;
+&lt;p&gt;You can have the best app out there, but without a strong presentation, no one will bother to figure out why your team’s app should win versus someone else’s. It’s your job to help judges understand what makes your app special. Start by presenting your problem. What does your app solve? Why is it important to be solved? Are there any statistics or facts and figures that illustrate how urgent or quintessential it is to solve this issue? According to some of the judges I’ve spoken to, too often teams don’t know what problem they are solving and end up scrambling for words when asked what their product solves.&lt;/p&gt;
+
+&lt;p&gt;Next, present competing solutions (optional, since most pitches are too short to include this). Here, mention what competitors do and why their solution may not be optimal. Try to be objective here, don’t say your solution is better in all respects, but rather frame it in terms of tradeoffs.&lt;/p&gt;
+
+&lt;p&gt;Then, present what your solution is. State explicitly how your app solves the problem and how its approach is unique in the way it solves the problem. Indicate to judges why your approach is better than others. The rest of the time you can demonstrate your app.&lt;/p&gt;
+
+&lt;p&gt;Practice your pitch multiple times with your team. You should also use templates &lt;a href=&quot;https://www.slidescarnival.com&quot;&gt;from SlidesCarnival&lt;/a&gt; or &lt;a href=&quot;https://slidesgo.com/&quot;&gt;from SlidesGo&lt;/a&gt; to help differentiate from teams that use default Google Slides themes.&lt;/p&gt;
+
+&lt;h1 id=&quot;closing-thoughts&quot;&gt;Closing thoughts&lt;/h1&gt;
+&lt;p&gt;I should point out that while it’s fun to win, don’t make winning the sole purpose of going to hackathons. Just make sure to have fun, meet new people, and do your best. Good luck!&lt;/p&gt;</content><author><name></name></author><category term="programming" /><summary type="html">I’m often surprised by the grand expectations that younger coders believe is necessary for success at Hackathon events. Here, in no particular order, are some of the most common misconceptions and tips I’ve learned.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://gliu20.github.io/assets/images/2020-01-04-coding-cover.jpg" /><media:content medium="image" url="https://gliu20.github.io/assets/images/2020-01-04-coding-cover.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Why I don’t have New Year’s resolutions</title><link href="https://gliu20.github.io/blog/learning/2020/01/01/my-goals-and-why-i-dont-have-resolutions/" rel="alternate" type="text/html" title="Why I don’t have New Year’s resolutions" /><published>2020-01-01T00:00:00-05:00</published><updated>2020-01-01T00:00:00-05:00</updated><id>https://gliu20.github.io/blog/learning/2020/01/01/my-goals-and-why-i-dont-have-resolutions</id><content type="html" xml:base="https://gliu20.github.io/blog/learning/2020/01/01/my-goals-and-why-i-dont-have-resolutions/">&lt;p&gt;It’s that time of year when everyone asks about their New Year’s resolutions. While I like the rationale, personally, I don’t think it works. Here’s why.&lt;/p&gt;
+
+&lt;h1 id=&quot;the-new-years-mindset&quot;&gt;The New Year’s mindset&lt;/h1&gt;
+&lt;p&gt;In my opinion, New Year’s resolutions encourages thinking of our life goals as seasonal commitments with motivation waning after the holiday season. I mean, who hasn’t experienced slowly fading into old habits once the holiday season is long gone or put off their goals until the holidays?&lt;/p&gt;
+
+&lt;p&gt;However, if we truly want to commit to achieving our goals, it’s not viable to treat them as something to put off until the holidays. In fact, goals shouldn’t even be things we wait until New Year’s to make; they should be made and updated on a regular basis, not a one off commitment.&lt;/p&gt;
+
+&lt;h1 id=&quot;what-im-doing-instead&quot;&gt;What I’m doing instead&lt;/h1&gt;
+&lt;p&gt;Instead of yearly commitments, I make general self-improvement goals (which I like to call LLCs for Life-Long Commitments) that each have their own subgoals.&lt;/p&gt;
+
+&lt;p&gt;For instance here are my goals and subgoals:&lt;/p&gt;
+
+&lt;p&gt;Expand &lt;a href=&quot;https://midway.web.app&quot;&gt;Midway, the Chrome extension for students and teachers&lt;/a&gt;&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Increase my marketing efforts within my school by getting Midway on the &lt;a href=&quot;https://www.scarsdaleschools.k12.ny.us/domain/80&quot;&gt;Scarsdale High School library page&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Bring Midway to schools across Westchester&lt;/li&gt;
+  &lt;li&gt;Build admin portal and an automated new school request form&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Become a pro at Web Dev&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Learn Svelte3 and TailwindCSS&lt;/li&gt;
+  &lt;li&gt;Learn React and React Native&lt;/li&gt;
+  &lt;li&gt;Complete the FreeCodeCamp Front End Libraries Certification&lt;/li&gt;
+  &lt;li&gt;Learn Typescript and NodeJS&lt;/li&gt;
+  &lt;li&gt;Learn Backend&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Do more fun things&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Read an article on programming, science, tech, or AI each day&lt;/li&gt;
+  &lt;li&gt;Learn something new each month by watching educational Youtube videos from channels like 3Blue1Brown, Numberphile, Ted Talks, Physics Girl, Computerphile, Practical Engineering etc.&lt;/li&gt;
+  &lt;li&gt;Make more puns (hope you punderstand!)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;While I admit, these look awfully close to New Year’s Resolutions, the difference is that I revisit my goals and subgoals regularly and update them to match what I value and what I think I’ve been missing in my life. As a result, my goals are effectively a reification of my long-term vision in the same way that a to-do list is a concrete description of my short-term vision.&lt;/p&gt;
+
+&lt;h1 id=&quot;a-challenge-to-you&quot;&gt;A Challenge to You&lt;/h1&gt;
+&lt;p&gt;No matter what day it is that you’re reading this, I challenge you to come up with your own life-long commitments. Plans are scary, but at least figure out what’s the first tiny steps needed to achieve it.&lt;/p&gt;</content><author><name></name></author><category term="learning" /><summary type="html">It’s that time of year when everyone asks about their New Year’s resolutions. While I like the rationale, personally, I don’t think it works. Here’s why.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://gliu20.github.io/assets/images/2020-01-01-goals-new-year-resolution.jpg" /><media:content medium="image" url="https://gliu20.github.io/assets/images/2020-01-01-goals-new-year-resolution.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>

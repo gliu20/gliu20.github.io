@@ -1,8 +1,0 @@
-{% capture merged_content %}
-    {{ include.content }}
-    {% include text-content-paginator.html %}
-{% endcapture %}
-
-{% include text-content.html 
-    content=merged_content
-    %}
