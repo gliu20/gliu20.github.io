@@ -78,4 +78,4 @@ Click the Grade button to grade.
 
 
 # Conclusion
-To try out gradetree, visit the [project website](https://gliu20.github.io/gradetree/)
+To try out gradetree, visit the [demo for gradetree](https://gliu20.github.io/gradetree/)

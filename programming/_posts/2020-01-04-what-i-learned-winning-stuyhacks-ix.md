@@ -16,22 +16,20 @@ In the course of 5 to 12 hours, it is unreasonable to expect flawless products �
 I think the key insight is that programs are merely communication mediums through which we can express our ideas. What matters most — and what we were judged on the most — was the idea. It doesn't matter how advanced or technical your program is as long as the idea is unique and solves something that people care about.
 
 ### 2. You need a team of "smart people"
-For most fellow hackers, "smart people" seems to mean talented coders. But as we’ve just seen, coding knowledge is not of utmost importance. Instead, I’d argue that no team actually needs these so-called "smart people."
+For most fellow hackers, "smart people" seems to mean talented coders. But coding knowledge is not the most important. Instead, I’d argue that ideas are paramount.
 
-For me, I believe that any team can be successful — but only with the right mindset. At most hackathons I've been to, successful teams weren't the ones with the most coding experience, but instead people who focused most of the time perfecting their idea and connected their ideas to solving real world problems. They were also often the ones who didn't form teams with those they knew well. 
+For me, I believe that any team can be successful — but only with the right mindset. At most hackathons I've been to, successful teams weren't the ones with the most coding experience, but instead people who focused most of the time perfecting their idea and connected their ideas to solving real world problems. As long as you form teams with the people you know would actually get work done, and who care about connecting solutions to "societal problems", then honestly it doesn't matter what their level of coding experience is.
 
-In my opinion, working with a random team is actually much better than joining those one knows best because being unfamiliar with the other members of the team encourages respect for one another, listening with an open mind, and accountability. Especially when working with a group of strangers, it's easier to hold one another accountable, and besides, friends are more likely to be distractions. Plus, they often share many of the same backgrounds and viewpoints, which makes it's harder to come up with unconventional ideas since the ideas would be based on similar experiences. 
-
-So, to sum up, the best team is actually the most random team that doesn't necessarily have a lot of coding experience. 
+In fact, I think, working with a random team is actually much better since being unfamiliar with the other members of the team encourages respect for one another, listening with an open mind, and accountability. Especially when working with a group of strangers, it's easier to hold one another accountable. Plus, they often bring diverse backgrounds and viewpoints, which makes it's easier to come up with unconventional ideas. 
 
 ### 3. You can make almost anything
 At some hackathons, there is often a theme that helps focus the ideas that teams come up with. However, [at StuyHacks](https://www.stuyhacks.org/) and other hackathons, the problem is often more general, or maybe there isn’t even a focus at all. With this these types of 'open' hackathons, I find that many students don't spend as much time coming up with original ideas. In fact, I've seen everything from puzzle games to online price checkers to even a VR platformer. While I love these ideas, and there is no doubt that these teams put a lot of effort into the work they've done, the problem is that they're not unique, and don't solve a specific customer need.
 
-From watching numerous [entrepreneurial TED Talks](https://www.ted.com/talks?sort=newest&topics%5B%5D=Business) to studying the keys to successful startups in my Entrepreneurship class, I now come to understand that the difference between them is not about how hard they coded, but rather the time they expended in researching the problem gaps that exist, finding existing solutions, and brainstorming [key differentiating factors](https://en.wikipedia.org/wiki/Product_differentiation).
+From watching numerous [entrepreneurial TED Talks](https://www.ted.com/talks?sort=newest&topics%5B%5D=Business) to studying the keys to successful startups in my Entrepreneurship class, I now come to understand that the difference between them is not about the effort they put in, but rather the time they spent in researching the problem gaps that exist, finding existing solutions, and brainstorming [key differentiating factors](https://en.wikipedia.org/wiki/Product_differentiation).
 
-It is this step that is often overlooked. Yet it has the most profound effect for converting a good idea into a great one. Oftentimes, differentiating factors don’t have to do with the primary goal of an app. For instance, the objective of a quiz game is to entertain the user, but your differentiating factor doesn't necessarily have to make the game more entertaining. Instead, you could add an aspect that helps realize another human need: self-actualization — the need to feel part of a greater cause. 
+It is this step that is often overlooked. Yet it has the most profound effect for converting a good idea into a great one. Oftentimes, differentiating factors don’t have to do with the primary goal of an app. For instance, the objective of a quiz game is to entertain the user, but your differentiating factor doesn't necessarily have to make the game the most entertaining thing of all time. Instead, you could add an aspect that helps realize another human need: self-actualization — the need to feel part of a greater cause. 
 
-The quiz game that won StuyHacks wasn't necessarily the most entertaining game in the world. Rather, it combined the cause of global warming into a quiz that not only entertained users, but also raised awareness for the staggering carbon footprint of the average person.
+As an example, the quiz game that won StuyHacks wasn't necessarily the most entertaining game in the world. Rather, it combined the cause of global warming into a quiz that not only entertained users, but also raised awareness for the staggering carbon footprint of the average person.
 
 ## Tips for success
 ### 1. Do your research
@@ -49,7 +47,7 @@ Next, present competing solutions (optional, since most pitches are too short to
 
 Then, present what your solution is. State explicitly how your app solves the problem and how its approach is unique in the way it solves the problem. Indicate to judges why your approach is better than others. The rest of the time you can demonstrate your app.
 
-Practice your pitch multiple times with your team. You should also use templates [from SlidesCarnival](https://www.slidescarnival.com) or [from SlidesGo](https://slidesgo.com/) instead of the default Google Slides themes since Google Slides themes are overused, and having the presentation look more professional doesn't hurt.
+Practice your pitch multiple times with your team. You should also use templates [from SlidesCarnival](https://www.slidescarnival.com) or [from SlidesGo](https://slidesgo.com/) to help differentiate from teams that use default Google Slides themes.
 
 # Closing thoughts
-I should point out that while it's fun to win, don't make winning the sole purpose of going to hackathons and don't be discouraged if you don't end up coming home with prizes. Just make sure to have fun, meet with new people, and pay attention to what types of projects are winning in each hackathon and try learning more from them. Good luck!
+I should point out that while it's fun to win, don't make winning the sole purpose of going to hackathons. Just make sure to have fun, meet new people, and do your best. Good luck!
