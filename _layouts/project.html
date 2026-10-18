@@ -1,8 +1,10 @@
 ---
 layout: default
 ---
-{% include share-heading.html 
-    title=page.title
+{% comment %} most projects name themselves with `name:` rather than `title:` {% endcomment %}
+{% assign project_title = page.title | default: page.name %}
+{% include share-heading.html
+    title=project_title
     subtitle=page.description
     content=content
     tags=page.tags
@@ -16,7 +18,7 @@ layout: default
     {% include post-comments.html %}
 {% endcapture %}
 
-{% include text-content.html 
+{% include text-content.html
     content=merged_content
     %}
 
@@ -30,9 +32,9 @@ layout: default
     {% endif %}
 {% endfor %}
 
-{% include posts-snapshot-vertical.html 
+{% include posts-snapshot-vertical.html
     posts=project_post_list
-    heading="Latest updates"
+    heading="latest updates"
     hide_view_more=true
     use_post_index=true
 %}

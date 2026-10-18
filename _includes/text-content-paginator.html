@@ -1,12 +1,15 @@
-<hr class="mb-2">
-<div class="text-content-paginator is-flex is-justify-content-space-between is-flex-wrap-wrap">
+{% comment %} Previous / next post links. Empty spans keep "next" on the right when there is no "previous". {% endcomment %}
+<nav class="pager text-content-paginator" aria-label="More posts">
     {% if page.previous %}
-    <a class="button has-text-primary is-text is-small" href="{{ page.previous.url }}"
-        title="{{ page.previous.title }}">&lt;&lt; {{ page.previous.title | truncate: 40 }}</a>
+    <a class="pager-link" href="{{ page.previous.url }}"
+        title="{{ page.previous.title }}">&lt;&nbsp;{{ page.previous.title | truncate: 40 }}</a>
+    {% else %}
+    <span></span>
     {% endif %}
     {% if page.next %}
-    <a class="button has-text-primary is-text is-small" href="{{ page.next.url }}" title="{{ page.next.title }}">{{
-        page.next.title | truncate: 40 }} &gt;&gt;</a>
+    <a class="pager-link pager-link--next" href="{{ page.next.url }}"
+        title="{{ page.next.title }}">{{ page.next.title | truncate: 40 }}&nbsp;&gt;</a>
+    {% else %}
+    <span></span>
     {% endif %}
-</div>
-<hr class="mt-2">
+</nav>

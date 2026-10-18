@@ -1,6 +1,6 @@
 {
-    "name": "George Liu",
-    "short_name": "George",
+    "name": "eviler.",
+    "short_name": "eviler.",
     "start_url": ".",
     "icons": [
         {
@@ -58,7 +58,7 @@
             "purpose": "any maskable"
         }
     ],
-    "theme_color": "#00c7ff",
-    "background_color": "#ffffff",
+    "theme_color": "#11061b",
+    "background_color": "#11061b",
     "display": "standalone"
 }

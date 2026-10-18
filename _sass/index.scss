@@ -1,31 +1,96 @@
 @charset "utf-8";
 
-$black: hsl(211, 36%, 4%);
-$black-bis: hsl(211, 36%, 7%);
-$black-ter: hsl(211, 36%, 14%);
-$grey-darker: hsl(211, 30%, 21%);
-$grey-dark: hsl(211, 24%, 29%);
-$grey: hsl(211, 18%, 48%);
-$grey-light: hsl(211, 24%, 71%);
-$grey-lighter: hsl(211, 30%, 86%);
-$grey-lightest: hsl(211, 36%, 93%);
-$white-ter: hsl(0, 0%, 96%);
-$white-bis: hsl(0, 0%, 98%);
-$white: hsl(0, 0%, 100%);
+// design tokens (SCSS variables + CSS custom properties)
+@import "tokens.scss";
 
-$primary: #0040ff;
+// ==========================================================================
+// BULMA THEME
+//
+// The site's markup is built on Bulma, so the dark "eviler." look is applied by
+// mapping Bulma's theme variables onto the design tokens. Anything not
+// explicitly restyled in components.scss (about, contact, 404, post bodies)
+// inherits the dark theme from here.
+// ==========================================================================
 
-//$primary:#5f27cd;
-//$info: #00c7ff;
-//$info: #0abde3;
-$link: $primary;
+// grey ramp, purple-tinted
+$black: $bg-canvas;
+$black-bis: $bg-gradient-top;
+$black-ter: $surface-card;
+$grey-darker: $surface-card-hover;
+$grey-dark: #4a3560;
+$grey: #8e7ea3;
+$grey-light: #b6a9c6;
+$grey-lighter: #d6cde0;
+$grey-lightest: #ebe6f1;
+$white-ter: #f5f2f8;
+$white-bis: #faf8fc;
+$white: #ffffff;
 
-// Update Bulma's global variables
-$family-sans-serif: "Nunito", sans-serif;
-$body-overflow-y:auto;
+$primary: $accent-pink;
+$link: $accent-pink-text;
+$link-hover: $accent-pink-text-hover;
+$link-hover-border: $accent-pink-hover;
+$link-focus: $accent-pink-text-hover;
+$link-focus-border: $accent-pink;
+$link-active: $accent-pink-text-hover;
+
+// surfaces
+$scheme-main: $bg-canvas;
+$scheme-main-bis: $bg-gradient-top;
+$scheme-main-ter: $surface-card;
+$scheme-invert: #ffffff;
+$background: $surface-card;
+$border: rgba(255, 255, 255, 0.16);
+$border-light: rgba(255, 255, 255, 0.10);
+$border-hover: rgba(255, 255, 255, 0.30);
+
+// text
+$text: $text-muted;
+$text-light: $text-muted;
+$text-strong: $text-high;
+$code: #ffa8d2;
+$pre: $text-high;
+$pre-background: $surface-card;
+
+// typography
+$family-sans-serif: $font-body;
+$body-size: 16px;
+$body-line-height: 1.65;
+$body-overflow-y: auto;
+$title-family: $font-display;
+$title-weight: 700;
+$title-color: $text-high;
+$subtitle-color: $text-muted;
+$subtitle-strong-color: $text-high;
+
+// radii: one size for rectangles, pills for buttons
+$radius: $radius-rect;
+$radius-small: 10px;
+$radius-large: $radius-rect;
+$radius-rounded: $radius-btn;
+
+// layout
+$section-padding: 3rem 1.5rem;
+$section-padding-desktop: 3rem 1.5rem;
+
+// content (markdown body)
+$content-heading-color: $text-high;
+$content-blockquote-background-color: $surface-card;
+$content-blockquote-border-left: 5px solid $accent-pink;
+$hr-background-color: $border-light;
+
+// forms
+$input-color: $text-high;
+$input-background-color: $surface-card;
+$input-border-color: $border;
+$input-hover-border-color: $border-hover;
+$input-focus-border-color: $accent-pink;
+$input-placeholder-color: $text-muted;
+$input-shadow: none;
+$input-disabled-background-color: $surface-card;
+$label-color: $text-high;
 
 // variable modifications
-@import "footer.scss";
 @import "buttons.scss";
 
 // bulma
@@ -35,10 +100,6 @@ $body-overflow-y:auto;
 @import "../node_modules/bulma/sass/base/minireset";
 @import "../node_modules/bulma/sass/base/generic";
 
-@import "../node_modules/bulma/sass/components/navbar";
-@import "../node_modules/bulma/sass/components/level";
-@import "../node_modules/bulma/sass/components/card";
-
 @import "../node_modules/bulma/sass/elements/button";
 @import "../node_modules/bulma/sass/elements/container";
 @import "../node_modules/bulma/sass/elements/content";
@@ -46,10 +107,6 @@ $body-overflow-y:auto;
 @import "../node_modules/bulma/sass/elements/title";
 @import "../node_modules/bulma/sass/elements/other";
 @import "../node_modules/bulma/sass/elements/image";
-@import "../node_modules/bulma/sass/elements/tag";
-
-// do we really need this?
-@import "../node_modules/bulma/sass/elements/box";
 
 @import "../node_modules/bulma/sass/form/shared";
 @import "../node_modules/bulma/sass/form/tools";
@@ -68,36 +125,6 @@ $body-overflow-y:auto;
 @import "../node_modules/bulma/sass/layout/_all";
 
 // style overrides or additions
-@import "nav-bar.scss";
 @import "full-height.scss";
-@import "hover-card.scss";
+@import "components.scss";
 @import "markdown.scss";
-
-.text-content-paginator .button.is-small {
-    font-size: 0.875rem;
-    margin: 6px;
-}
-
-.image img.is-smart {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center center;
-    background:#eee;
-}
-
-.skip-to-main-content {
-
-    background:#ffffff;
-    position: absolute;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%) translateY(-100%);
-    z-index: 10000;
-    padding: 10px 15px;
-
-    &:focus {
-        transform: translateX(-50%) translateY(0%);
-        box-shadow: 0 0.5em 1em -0.125em rgba(7,10,14,0.1),0 0px 0 1px rgba(7,10,14,0.02);
-    }
-}

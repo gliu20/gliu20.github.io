@@ -2,62 +2,58 @@
 ---
 {% capture years_programming %}{{ site.time | date: "%Y" }}{% endcapture %}
 {% assign years_programming = years_programming | minus: 2014 %}
-<section class="hero is-medium">
-    <div class="hero-body">
-        <div class="container">
-            <div class="columns is-variable is-vcentered is-5">
-                <div class="column is-half">
-                    <h1 class="title heading is-6">
-                        {{ site.tagline }}
-                    </h1>
-                    <h2 class="subtitle is-3 is-size-4-mobile">
-                        Hi there, I'm George Liu, a pun-maker, programming nerd, and design thinking fanatic!
-                    </h2>
-                </div>
-                <div class="column is-half is-narrow">
-                    <figure class="image is-16by9">
-                        <img src="pmd-logo.svg" alt="Image of a cloud, a box, and a gear which represents aspects of being a Product-Minded Developer">
-                    </figure>
-                </div>
+<section class="section">
+    <div class="container">
+        <div class="home-hero">
+            <div class="hero-content">
+                <h1 class="hero-title">{% include wordmark.html %}</h1>
+                <p class="hero-subtitle">
+                    A home for esoteric evil engineering projects and learnings
+                </p>
+                <a class="btn-evil" href="/blog/">read the evil</a>
+            </div>
+
+            <div class="hero-logo-box" aria-hidden="true">
+                {% include logo.html %}
             </div>
         </div>
     </div>
 </section>
 
-<section class="level">
-    <div class="level-item has-text-centered">
-        <div>
-            <p class="heading">GitHub contributions</p>
-            <p class="title is-3">4,000+</p>
-            {% comment %}
-            350(2022,in progress)+
-            996(2021)+
-            1264(2020)+
-            914(2019)+
-            525(2018)+
-            2(2017)
-            {% endcomment %}
-        </div>
-    </div>
-    <div class="level-item has-text-centered">
-        <div>
-            <p class="heading">Years programming</p>
-            <p class="title is-3">{{ years_programming }}+</p>
-        </div>
-    </div>
-    <div class="level-item has-text-centered">
-        <div>
-            <p class="heading">Repositories</p>
-            <p class="title is-3">40+</p>
+<section class="section section--compact" aria-label="Plotting statistics">
+    <div class="container">
+        <div class="stats-grid">
+            <div class="stat-card">
+                <span class="stat-number">4,000+</span>
+                <span class="stat-label">thought crimes</span>
+                {% comment %}
+                GitHub contributions, by year:
+                350(2022,in progress)+
+                996(2021)+
+                1264(2020)+
+                914(2019)+
+                525(2018)+
+                2(2017)
+                {% endcomment %}
+            </div>
+            <div class="stat-card">
+                <span class="stat-number">{{ years_programming }}+</span>
+                <span class="stat-label">years plotting</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-number">40+</span>
+                <span class="stat-label">evil projects</span>
+            </div>
         </div>
     </div>
 </section>
 
-{% include posts-recommended.html 
+{% include posts-recommended.html
     view_type="horizontal"
     posts=site.posts
     topk=3
     count=3
-    heading="Featured posts"
+    heading="featured posts"
     view_more="/blog/"
+    view_more_label="read more evil"
 %}

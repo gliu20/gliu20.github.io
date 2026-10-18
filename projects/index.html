@@ -2,8 +2,9 @@
 ---
 {% assign projects_list = site.projects | reverse %}
 
-{% include posts-snapshot-vertical.html 
+{% include posts-snapshot-vertical.html
     posts=projects_list
-    heading="Projects"
+    heading="projects"
     hide_view_more=true
+    show_images=true
 %}

@@ -1,5 +1,9 @@
-html, body {
-    height: 100%;
+// The body is at least one viewport tall and lays out as a column, so the flex
+// spacer pushes the footer to the bottom on short pages. `min-height` (rather
+// than `height: 100%`) lets the body grow with long pages, which keeps the
+// pink page frame at the true bottom of the content.
+body {
+    min-height: 100vh;
 }
 
 .full-height {

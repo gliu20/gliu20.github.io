@@ -1,4 +1,15 @@
+{% comment %}
+Featured grid: the first post is a full-width card, the rest sit two-up below it.
 
+params
+ - posts, heading
+ - use_post_index: posts are indices into site.posts rather than post objects
+ - use_post_tags: puns, which show tags instead of an excerpt
+ - show_images: add each post's cover image
+ - hide_view_more, view_more, view_more_label
+{% endcomment %}
+
+{% if include.show_images %}
 {% capture post_image_urls %}
 {% include posts-image-grabber.html
 posts=include.posts
@@ -10,12 +21,13 @@ use_post_index=include.use_post_index
 {% endcapture %}
 
 {% assign post_image_urls = post_image_urls | strip | split: new_line %}
+{% endif %}
 
 {% unless include.posts.size == 0 %}
 <section class="section">
     <div class="container">
-        <h2 class="title heading is-6 has-text-centered">{{ include.heading }}</h2>
-        <div class="columns">
+        <h2 class="section-title">{{ include.heading }}</h2>
+        <div class="posts-bento">
 
             {% for item in include.posts %}
 
@@ -33,50 +45,21 @@ use_post_index=include.use_post_index
             {% endif %}
 
             {% assign item_post_image_url = post_image_urls[forloop.index0] | strip_newlines %}
-            <div class="column is-flex">
-                <a class="card is-hover-card is-flex-grow-1 is-flex-shrink-1" href="{{ item.url }}">
-                    <div class="card-image">
-                        <figure class="image is-4by3">
-                            {% assign defaultImage = post.image | default: item_post_image_url %}
-                            {% assign prefix = defaultImage | split: "/" | slice: 0, 3 | join: "/" %}
-                            {% assign suffix = defaultImage | split: "/" | slice: 3 | join: "/" | url_encode | replace: "+", "%20" %}
-                            <picture>
-                                <source media="(min-width:2400px)" srcset="{{ prefix | append: "/xl/" | append: suffix }}">
-                                <source media="(min-width:1200px)" srcset="{{ prefix | append: "/lg/" | append: suffix }}">
-                                <source media="(min-width:750px)" srcset="{{ prefix | append: "/md/" | append: suffix }}">
-                                <source media="(min-width:300px)" srcset="{{ prefix | append: "/sm/" | append: suffix }}">
-                                <source media="(min-width:0px)" srcset="{{ prefix | append: "/xs/" | append: suffix }}">
-                                <img class="is-smart" loading="lazy" src="{{ defaultImage }}"
-                                    alt="Cover photo for {{ post.title }}" title="Cover photo for {{ post.title }}">
-                            </picture>
-                        </figure>
-                    </div>
-                    <div class="card-content">
-                        <div class="block">
-                            <p class="title is-4">{{ item.title }}</p>
-                            <p class="subtitle is-6">
-                                <time datetime="{{ item.date }}">{{ item.date | date: "%b %d, %Y" }}</time>
-                            </p>
-                        </div>
-                        <div class="block">
-                            {% if include.use_post_tags %}
-                                {% include post-tags.html tags=item.tags %}
-                            {% else %}
-                                {{ item.excerpt | strip_html | strip | default: item.description }}
-                            {% endif %}
-                        </div>
-                    </div>
-                </a>
-            </div>
+            {% include post-card.html
+                post=post
+                featured=forloop.first
+                show_image=include.show_images
+                image_url=item_post_image_url
+                use_post_tags=include.use_post_tags
+            %}
             {% endfor %}
         </div>
 
-        {% if include.hide_view_more %}
-        {% else %}
-        <div class="block is-flex is-justify-content-flex-end">
-            <a class="button" href="{{ include.view_more }}">View all</a>
+        {% unless include.hide_view_more %}
+        <div class="view-more">
+            <a class="btn-evil" href="{{ include.view_more }}">{{ include.view_more_label | default: "view all" }}</a>
         </div>
-        {% endif %}
+        {% endunless %}
     </div>
 </section>
 {% endunless %}

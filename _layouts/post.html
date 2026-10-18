@@ -1,11 +1,9 @@
 ---
 layout: default
 ---
-{% assign subtitle = page.date | date_to_string %}
-
-{% include share-heading.html 
+{% include share-heading.html
     title=page.title
-    subtitle=subtitle
+    date=page.date
     content=content
     tags=page.tags
 %}
@@ -18,25 +16,25 @@ layout: default
     {% include post-comments.html %}
 {% endcapture %}
 
-{% include text-content.html 
+{% include text-content.html
     content=merged_content
     %}
 
 
 {% assign three_related_posts = site.related_posts | slice: 1,10 | sample: 3 %}
 
-{% include posts-snapshot.html
-heading="Related posts"
+{% include posts-snapshot-vertical.html
+heading="related posts"
 posts=three_related_posts
 hide_view_more=true
 %}
 
-{% include posts-recommended.html 
+{% include posts-recommended.html
     view_type="vertical"
     posts=site.posts
     topk=10
     count=4
-    heading="Must-reads"
+    heading="must-reads"
     hide_view_more=true
 %}
 

@@ -9,6 +9,9 @@ params available are
  - heading
  - hide_view_more
  - view_more
+ - view_more_label
+ - use_post_tags
+ - show_images
 {% endcomment %}
 {% assign sampled_posts = "" | split: "," %}
 
@@ -63,7 +66,9 @@ We convert the indices of the best posts to the actual posts
     heading=include.heading
     hide_view_more=include.hide_view_more
     use_post_tags=include.use_post_tags
+    show_images=include.show_images
     view_more=include.view_more
+    view_more_label=include.view_more_label
     posts=best_posts
     %}
 {% else %}
@@ -71,7 +76,9 @@ We convert the indices of the best posts to the actual posts
     heading=include.heading
     hide_view_more=include.hide_view_more
     use_post_tags=include.use_post_tags
+    show_images=include.show_images
     view_more=include.view_more
+    view_more_label=include.view_more_label
     posts=best_posts
     %}
 {% endif %}

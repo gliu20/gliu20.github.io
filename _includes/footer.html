@@ -1,30 +1,28 @@
-<footer class="footer">
-    <div class="container is-fluid">
-        <div class="columns is-multiline is-mobile">
-            <div class="column full-height is-full-mobile is-full-tablet is-one-fifth-desktop">
-                <h2 class="title is-5">{{ site.title }}</h2>
-                <p class="subtitle is-6">{{ site.tagline }}</p>
-                <div class="full-height-flex-space"></div>
-            </div>
-            {% for link_group in site.data.footer-links %}
-            <div class="column content is-full-mobile is-half-tablet is-one-fifth-desktop">
-                <p class="title heading is-7">{{ link_group.name }}</p>
+<footer class="site-footer">
+    <div class="footer-grid" style="--footer-groups: {{ site.data.footer-links.size }}">
+        <div>
+            <a class="footer-brand" href="/">{% include wordmark.html %}</a>
+        </div>
+
+        {% for link_group in site.data.footer-links %}
+        <div>
+            <h2 class="footer-heading">{{ link_group.name }}</h2>
+            <ul class="footer-links">
                 {% for link in link_group.links %}
-                <p><a href="{{ link.link }}">{{ link.name }}</a></p>
+                <li><a href="{{ link.link }}">{{ link.name }}</a></li>
                 {% endfor %}
-            </div>
-            {% endfor %}
+            </ul>
         </div>
-        <div class="level">
-            <div class="level-left">
-                <p>&copy; Copyright {{ 'now' | date: "%Y" }}. All rights reserved.</p>
-            </div>
-            <div class="level-right">
-                {% include social-media.html variant="is-primary is-light" %}
-            </div>
-        </div>
-
-
-
+        {% endfor %}
     </div>
+
+    <div class="footer-social">
+        {% include social-media.html %}
+    </div>
+
+    <p class="footer-bottom">
+        plotting thought crimes against evil software for over a decade
+        <span class="text-accent">&gt;:)</span>
+    </p>
+    <p class="footer-copy">&copy; Copyright {{ 'now' | date: "%Y" }}. All rights reserved.</p>
 </footer>

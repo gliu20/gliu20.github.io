@@ -42,6 +42,7 @@ For those of you who don't already know, puns are jokes that exploit different m
     heading="Pun highlights"
     hide_view_more=true
     use_post_tags=true
+    show_images=true
 %}
 
 {% include posts-snapshot-vertical.html
@@ -49,6 +50,7 @@ For those of you who don't already know, puns are jokes that exploit different m
     posts=category_posts
     hide_view_more=true
     use_post_tags=true
+    show_images=true
     %}
 
 
