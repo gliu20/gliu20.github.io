@@ -1,2 +1,0 @@
-Personally, I feel like somehow we, as a society, instinctively reach for our goals and go to our end destinations without any thought as to why or how or what we're even doing in the first place. We are always chasing goals, hopping from one place to the next, but never fully appreciating the journey. It reminds of that chapter in *Le Petit Prince* where the adults were always changing trains, mindlessly trying to reach their destinations, but never bothered to look out the windows. Only the children looked out the windows. 
-

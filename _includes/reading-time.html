@@ -1,3 +1,0 @@
-{% comment %} Reading time at 300 words per minute, rounded up. Param: content {% endcomment %}
-{%- assign reading_mins = include.content | strip_html | number_of_words | divided_by: 300 | plus: 1 -%}
-{{ reading_mins }} min{% if reading_mins != 1 %}s{% endif %}

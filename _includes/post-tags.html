@@ -1,4 +1,0 @@
-{% comment %} Renders #hashtag spans. Callers wrap this in <div class="post-tags">. {% endcomment %}
-{%- for tag in include.tags -%}
-<span>#{{ tag | slugify }}</span>
-{% endfor -%}
